@@ -1,5 +1,6 @@
 import React from 'react';
-import * as S from './HeaderStyled'
+import * as S from './HeaderStyled';
+import AuthButton from '../../../common/buttons/AuthButton';
 
 const Header = ()=>{
     return (
@@ -26,9 +27,9 @@ const Header = ()=>{
                 <S.Text>
                     First time user?
                 </S.Text>
-                <S.Button>
+                <AuthButton>
                     Register
-                </S.Button>
+                </AuthButton>
             </S.Menu>
         </S.Wrapper>
     );
