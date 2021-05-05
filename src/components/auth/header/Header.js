@@ -1,8 +1,25 @@
 import React from 'react';
 import * as S from './HeaderStyled';
-import AuthButton from '../../../common/buttons/AuthButton';
+import * as C from '../../common/common';
+import {  useHistory  } from 'react-router-dom';
 
-const Header = ()=>{
+const Header = (props) => {
+    let history = useHistory();
+    
+    const navigatePage = ()=>{
+        if (props.isRegister) {
+            history.push('/')
+
+        }else{
+            history.push('/register')
+        }
+    }
+
+    const getRegisterText = () => props.isRegister?'Already Registered?':'First time user?';
+    
+    const getButtonText = () => props.isRegister?'Sign In':'Register';
+
+
     return (
         <S.Wrapper>
             <S.LineHead>
@@ -25,11 +42,11 @@ const Header = ()=>{
                     Contact
                 </S.MenuItem>
                 <S.Text>
-                    First time user?
+                        {getRegisterText()}
                 </S.Text>
-                <AuthButton>
-                    Register
-                </AuthButton>
+                    <C.AuthButton onClick = {navigatePage}>
+                        {getButtonText()}
+                </C.AuthButton>
             </S.Menu>
         </S.Wrapper>
     );

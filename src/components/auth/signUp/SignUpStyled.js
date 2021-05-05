@@ -45,10 +45,19 @@ export const SubHead = styled.div`
 `;
 
 export const NoteText = styled.h5`
-    margin-right: 1vw;
     font-weight: 700;
     color: ${color.darkGrey};
     margin: 2vh 0 2vh 220px ;
+`;
+
+export const InfoText = styled.h6`
+    position:absolute;
+    bottom: 3vh;
+    right: 5vw;;
+    font-weight: 700;
+    color: ${color.primaryDark};
+    margin: 2vh 0 2vh 220px;
+
 `;
 
 export const InputField = styled.input`

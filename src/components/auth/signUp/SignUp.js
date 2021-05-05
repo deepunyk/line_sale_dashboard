@@ -1,6 +1,6 @@
 import React from 'react';
 import * as S from './SignUpStyled';
-import AuthButton from '../../../common/buttons/AuthButton'
+import * as C from '../../common/common';
 
 const SignUp = ()=>{
 
@@ -42,7 +42,10 @@ const SignUp = ()=>{
                 <S.InputField placeholder = "Re-enter your Password" marginRight = {marginRight}/>
             </S.SubWrapper>
             <S.NoteText>Note:<br/>The password must contain min. 6 character, atleast 1 digit and atleast 1 special character. Example - LineSale@3</S.NoteText>
-            <AuthButton>CONFIRM</AuthButton>
+            <C.AuthButton>CONFIRM</C.AuthButton>
+            <S.InfoText>
+                * - Mandatory Information
+            </S.InfoText>
     </S.Wrapper>);
 }
 

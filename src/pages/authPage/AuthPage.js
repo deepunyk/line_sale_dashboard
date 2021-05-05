@@ -5,13 +5,23 @@ import * as S from './AuthStyled';
 import SignIn from '../../components/auth/signIn/SignIn';
 import SignUp from '../../components/auth/signUp/SignUp';
 
-const AuthPage = () => {
+const AuthPage = (props) => {
+
+
+    const getType = ()=>{
+        if(props.isRegister){
+            return <SignUp />;
+        }else{
+            return <SignIn />;
+        }
+    }
+
     return (
         <div>
-            <Header />
+            <Header isRegister = {props.isRegister} />
             <S.Wrapper>
-            <S.Image src = {AuthImg}/>
-            <SignUp/>
+                <S.Image src={AuthImg} />
+                {getType()}
             </S.Wrapper>
         </div>
     );

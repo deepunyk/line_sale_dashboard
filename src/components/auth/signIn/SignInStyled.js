@@ -13,19 +13,27 @@ export const Wrapper = styled.div`
 export const SubHeadWrapper = styled.div`
     display: flex;
     flex-direction: row;
-    justify-content: ${props => props.isStart? 'start': 'space-between'};
+    justify-content: ${props => props.isStart ? 'start' : 'space-between'};
     align-items: center;
-    width: ${props => props.isCompact?? '100%'};
+    width: ${props => props.isCompact ?? '100%'};
     margin-bottom: ${props => props.marginBottom};
+
+    ${props => props.isCompact
+        ? `&:hover{
+                cursor: pointer;
+           }`
+        : ''
+    }
 `;
 
 
 export const Head = styled.h1`
     color: ${color.primary};
+    margin-bottom: 1vh;
 `;
 
 export const Circle = styled.div`
-    background-color: ${props => props.primary?color.primary: color.grey};
+    background-color: ${props => props.primary ? color.primary : color.grey};
     height: 15px;
     width: 15px;
     border-radius: 50%;
@@ -33,7 +41,7 @@ export const Circle = styled.div`
 `;
 
 export const SubHead = styled.h2`
-    color: ${props => props.primary?color.primary: color.grey};
+    color: ${props => props.primary ? color.primary : color.grey};
     font-size: 1.1rem;
 `;
 

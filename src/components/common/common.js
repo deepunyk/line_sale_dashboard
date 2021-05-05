@@ -1,8 +1,7 @@
 import styled from 'styled-components';
 import color from '../../constants/color';
 
-
-const AuthButton = styled.button`
+export const AuthButton = styled.button`
     background-color: ${color.primary};
     color: white;
     border: none;
@@ -17,5 +16,3 @@ const AuthButton = styled.button`
         transform: scale(1.02);
     }
 `;
-
-export default AuthButton;
