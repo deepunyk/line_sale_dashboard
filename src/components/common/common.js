@@ -16,3 +16,8 @@ export const AuthButton = styled.button`
         transform: scale(1.02);
     }
 `;
+
+export const LineHead = styled.h1`
+    color: ${color.primary};
+    letter-spacing: 0.1rem;
+`;

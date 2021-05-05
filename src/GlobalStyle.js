@@ -4,7 +4,7 @@ const GlobalStyle = createGlobalStyle`
 
     *{
         box-sizing: border-box;
-        font-family: 'Maitree', serif;    
+        font-family: 'Roboto', sans-serif; 
     }
 
     body{

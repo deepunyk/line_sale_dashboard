@@ -9,13 +9,11 @@ export const Wrapper = styled.div`
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    align-items:center;
     background: white;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); 
-`;
-
-
-export const LineHead = styled.h1`
-    color: ${color.primary};
+    height: 15vh;
+    box-sizing: border-box;
 `;
 
 export const Menu = styled.div`
@@ -25,6 +23,8 @@ export const Menu = styled.div`
 `;
 
 export const MenuItem = styled.h2`
+    font-family: 'Maitree', serif; 
+
     margin-right: 1.5vw;
     font-size: 1.25rem;
     font-weight: 700;

@@ -22,9 +22,9 @@ const Header = (props) => {
 
     return (
         <S.Wrapper>
-            <S.LineHead>
+            <C.LineHead>
                 LINE SALE
-            </S.LineHead>
+            </C.LineHead>
             <S.Menu>
                 <S.MenuItem>
                     Home
