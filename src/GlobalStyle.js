@@ -3,7 +3,8 @@ import {createGlobalStyle} from 'styled-components';
 const GlobalStyle = createGlobalStyle`
 
     *{
-        box-sizing: border-box;
+        box-sizing: border-box ;
+        -moz-box-sizing: border-box; 
         font-family: 'Roboto', sans-serif; 
     }
 

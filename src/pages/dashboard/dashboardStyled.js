@@ -10,7 +10,7 @@ export const Wrapper = styled.div`
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content:space-between;
+    justify-content:start;
     background: rgb(244,223,194);
     background: linear-gradient(0deg, rgba(244,223,194,1) 0%, rgba(252,244,232,1) 29%, rgba(255,255,255,1) 100%);
     z-index: -1;

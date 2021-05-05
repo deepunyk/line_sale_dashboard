@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import color from '../../../constants/color';
 
 export const Wrapper = styled.div`
-    width: 25vw;
+    min-width: 25vw;
     background-color: ${color.brownShade2};
     height: 100%;
     display: flex;
