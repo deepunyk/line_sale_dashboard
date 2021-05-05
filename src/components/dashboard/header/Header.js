@@ -17,7 +17,7 @@ const Header = ()=>{
             <S.Divider/>
             <S.SubWrapper>
                 <S.Image src = {LightBulb } height = '8vh'/>
-                <S.Text fontSize = '1.7rem' color = {color.brownShade1}>Dashboard</S.Text>
+                <S.Text fontSize = '1.5rem' color = {color.brownShade1}>Dashboard</S.Text>
             </S.SubWrapper>
             <S.Divider/>
             <S.SubWrapper>
