@@ -3,6 +3,7 @@ import Header from '../../components/auth/header/Header';
 import AuthImg from '../../assets/illustrations/auth.png';
 import * as S from './AuthStyled';
 import SignIn from '../../components/auth/signIn/SignIn';
+import SignUp from '../../components/auth/signUp/SignUp';
 
 const AuthPage = () => {
     return (
@@ -10,7 +11,7 @@ const AuthPage = () => {
             <Header />
             <S.Wrapper>
             <S.Image src = {AuthImg}/>
-            <SignIn/>
+            <SignUp/>
             </S.Wrapper>
         </div>
     );

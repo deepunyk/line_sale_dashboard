@@ -25,9 +25,9 @@ export const Menu = styled.div`
 `;
 
 export const MenuItem = styled.h2`
-    margin-right: 1.4vw;
+    margin-right: 1.5vw;
     font-size: 1.25rem;
-    font-weight: 600;
+    font-weight: 700;
     &:hover{
         cursor: pointer;
         color: ${color.primary};

@@ -16,7 +16,7 @@ export const SubHeadWrapper = styled.div`
     justify-content: ${props => props.isStart? 'start': 'space-between'};
     align-items: center;
     width: ${props => props.isCompact?? '100%'};
-    margin-bottom: ${props => props.marginBottom}
+    margin-bottom: ${props => props.marginBottom};
 `;
 
 
@@ -35,8 +35,6 @@ export const Circle = styled.div`
 export const SubHead = styled.h2`
     color: ${props => props.primary?color.primary: color.grey};
     font-size: 1.1rem;
-
-
 `;
 
 export const InputField = styled.input`
