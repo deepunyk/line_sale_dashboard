@@ -7,7 +7,7 @@ import StockImg from '../../../assets/icons/stock.svg';
 import OutstandingImg from '../../../assets/icons/outstanding.svg';
 import SalesTwoImg from '../../../assets/icons/sales_two.svg';
 import TransferImg from '../../../assets/icons/transfer.svg';
-import LayerTwo from './LayerTwo';
+import LayerTwo from './layerTwo/LayerTwo';
 
 
 const Home = () => {
@@ -53,9 +53,9 @@ const Home = () => {
             </S.SubWrapper>
             <S.HorizontalDivider />
             <S.SubWrapper big>
-                <LayerTwo title = 'WEEKLY SALES'/>
+                <LayerTwo type = {1} title = 'WEEKLY SALES'/>
                 <S.Divider />
-                <LayerTwo title = 'WEEKLY SALES'/>
+                <LayerTwo  type = {2} title = 'WEEKLY SALES'/>
                 <S.Divider />
                 <LayerTwo type = {3} title = 'COMPANY DETAILS'/>
 

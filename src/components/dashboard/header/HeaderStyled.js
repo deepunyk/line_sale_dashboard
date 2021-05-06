@@ -38,7 +38,7 @@ export const Text = styled.h2`
     font-weight: 600;
     font-size: ${(props)=>props.fontSize};
     margin: 1px;
-    margin-left: ${(props)=>props.color == color.maroon &&'0.5rem'};
+    margin-left: ${(props)=>props.color === color.maroon &&'0.5rem'};
 
 `;
 

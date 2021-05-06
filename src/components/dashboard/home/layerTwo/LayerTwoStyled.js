@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import color from '../../../constants/color';
+import color from '../../../../constants/color';
 
 export const Wrapper = styled.div`
     display: flex;
@@ -11,13 +11,13 @@ export const Wrapper = styled.div`
     padding: 4vh 0;
 `;
 
-export const Text = styled.div`
-    color: ${(props)=>props.color ?? 'black'};
-    font-weight: ${(props)=>props.lightFont ?'500':'700'};
-    font-size: ${(props)=>props.fontSize};
-    margin-bottom: ${(props)=>props.marginBottom};
-    margin-top: ${(props)=>props.marginTop};
-    margin-right: ${(props)=>props.marginRight};
+
+export const ChartWrapper = styled.div`
+
+    width: 100%;
+    height: 100%;
+    padding: 4vh 2.5vw;
+
 `;
 
 export const SaleWrapper = styled.div`
@@ -46,6 +46,16 @@ export const SaleWrapper = styled.div`
     }
 `;
 
+
+
+export const Text = styled.div`
+    color: ${(props)=>props.color ?? 'black'};
+    font-weight: ${(props)=>props.lightFont ?'500':'700'};
+    font-size: ${(props)=>props.fontSize};
+    margin-bottom: ${(props)=>props.marginBottom};
+    margin-top: ${(props)=>props.marginTop};
+    margin-right: ${(props)=>props.marginRight};
+`;
 export const SaleItemWrapper = styled.div`
     display: flex;
     flex-direction: Row;

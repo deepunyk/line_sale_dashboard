@@ -22,7 +22,10 @@ const color = {
     maroon: '#bc0404',
 
     darkBlue: '#4169e2',
+
     lightPink: '#dc7092',
+    purple: '#dc2a92',
+    lightPurple: '#cabdcd',
     green: '#6da400',
 
 };
