@@ -1,7 +1,6 @@
 import React from 'react';
 import * as S from './LayerTwoStyled';
 import color from '../../../../constants/color';
-import viLogo from '../../../../assets/icons/viLogo.png';
 import CompanyDetails from './CompanyDetails';
 import SalesChart from './SalesChart';
 import SalesList from './SalesList';
