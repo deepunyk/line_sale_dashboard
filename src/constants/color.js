@@ -21,8 +21,10 @@ const color = {
 
     maroon: '#bc0404',
 
-    green: '#009444',
-    blue: '#01a1fd',
+    darkBlue: '#4169e2',
+    lightPink: '#dc7092',
+    green: '#6da400',
+
 };
 
 export default color;

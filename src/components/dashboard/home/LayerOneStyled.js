@@ -7,12 +7,13 @@ export const Wrapper = styled.div`
     justify-content: ${(props)=>props.isCenter ? 'center' :'space-evenly'};
     align-items: center;
     width: 100%;
+    height: 100%;
 `;
 
 export const Text = styled.div`
-    color: ${(props)=>props.color};
-    font-weight: 700;
-    font-size: ${(props)=>props.fontSize};
+    color: ${(props)=>props.color??'black'};
+    font-weight: ${(props)=>props.lightFont ?'500':'700'};
+    font-size: ${(props)=>props.fontSize ??'1rem'};
     margin-bottom: ${(props)=>props.marginBottom};
     margin-top: ${(props)=>props.marginTop};
 
@@ -23,7 +24,7 @@ export const SubWrapper = styled.div`
     flex-direction: row;
     align-items: center;
     width: 100%;
-
+    padding: 0 1vw;
 `;
 
 export const Image = styled.img`

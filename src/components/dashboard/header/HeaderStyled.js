@@ -11,7 +11,7 @@ export const Wrapper = styled.div`
     align-items:center;
     background: white;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); 
-    height: 17vh;
+    height: 15vh;
     box-sizing: border-box;
 `;
 
