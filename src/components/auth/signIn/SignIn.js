@@ -2,8 +2,11 @@ import React, { useState } from 'react';
 import * as S from './SignInStyled';
 import LockImg from '../../../assets/icons/lock.png';
 import * as C from '../../common/common';
+import { useHistory } from 'react-router-dom';
 
 const SignIn = () => {
+
+    let history = useHistory();
 
     const [isEmail, updateEmail] = useState(true);
 
@@ -54,7 +57,7 @@ const SignIn = () => {
                 </S.SubHeadWrapper>
             </S.SubHeadWrapper>
                 {getForm()}
-            <C.AuthButton>
+            <C.AuthButton onClick = {()=>history.push('/home')}>
                     SIGN IN
             </C.AuthButton>
         </S.Wrapper>

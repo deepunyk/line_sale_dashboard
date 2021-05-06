@@ -10,7 +10,7 @@ function App() {
             <GlobalStyle />
             <BrowserRouter>
                 <Switch>
-                    <Route exact path="/" component={DashboardPage} />
+                    <Route exact path="/" component={AuthPage} />
                     <Route path="/register" render={()=><AuthPage isRegister/>} />
                     <Route path="/home" component={DashboardPage} />
 

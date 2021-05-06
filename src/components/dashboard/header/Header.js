@@ -28,7 +28,7 @@ const Header = ()=>{
             <S.SubWrapper>
                 <S.RightWrapper alignEnd>
                     <S.Text fontSize = '1.5rem' color = {color.primary}>Welcome</S.Text>
-                    <S.Text fontSize = '1.2rem'  >CHRISTOPHER PETERSON</S.Text>
+                    <S.Text fontSize = '1.2rem' color = {color.greyShade1} >CHRISTOPHER PETERSON</S.Text>
 
                 </S.RightWrapper>
                 <S.RightWrapper marginLeft>
