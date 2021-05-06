@@ -28,6 +28,8 @@ const color = {
     lightPurple: '#cabdcd',
     green: '#6da400',
 
+    yellow: '#fbd34b',
+    darkYellow: '#FFD95A',
 };
 
 export default color;

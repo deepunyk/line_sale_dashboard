@@ -11,7 +11,7 @@ function App() {
             <GlobalStyle />
             <BrowserRouter>
                 <Switch>
-                    <Route exact path="/" component={AuthPage} />
+                    <Route exact path="/" component={PlansPage} />
                     <Route path="/register" render={()=><AuthPage isRegister/>} />
                     <Route path="/home" component={DashboardPage} />
                     <Route path="/plans" component={PlansPage} />
