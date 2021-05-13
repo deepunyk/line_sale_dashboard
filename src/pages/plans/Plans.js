@@ -3,6 +3,8 @@ import * as S from './PlansStyled';
 import color from '../../constants/color';
 import PlanCard from './PlanCard';
 import * as C from '../../components/common/common';
+import Footer from '../../components/footer/Footer';
+
 
 const PlansPage = () => {
 
@@ -35,7 +37,10 @@ const PlansPage = () => {
                         <S.Divider enquiry/>
                     </S.ContactWrapper>
                 </S.BottomWrapper>
+                
             </S.Wrapper>
+            <Footer/>
+
         </>
     );
 }

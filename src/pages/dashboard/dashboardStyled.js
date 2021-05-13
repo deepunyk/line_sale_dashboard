@@ -10,7 +10,7 @@ export const Image = styled.img`
 `;
 
 export const SubWrapper = styled.div`
-    height: calc(100vh - 115px);    
+    height: calc(100vh - 155px);    
     display: flex;
     flex-direction: row;
     align-items: center;

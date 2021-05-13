@@ -4,6 +4,7 @@ import AuthImg from '../../assets/illustrations/auth.png';
 import * as S from './AuthStyled';
 import SignIn from '../../components/auth/signIn/SignIn';
 import SignUp from '../../components/auth/signUp/SignUp';
+import Footer from '../../components/footer/Footer';
 
 const AuthPage = (props) => {
 
@@ -23,6 +24,8 @@ const AuthPage = (props) => {
                 <S.Image src={AuthImg} isRegister = {props.isRegister}/>
                 {getType()}
             </S.Wrapper>
+            <Footer/>
+
         </div>
     );
 }

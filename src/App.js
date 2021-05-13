@@ -9,7 +9,7 @@ function App() {
     return (
         <Fragment>
             <GlobalStyle />
-            <BrowserRouter basename = '/line_sale_dashboard'>
+            <BrowserRouter basename = '/aushdnca'>
                 <Switch>
                     <Route exact path="/" component={AuthPage} />
                     <Route path="/register" render={()=><AuthPage isRegister/>} />

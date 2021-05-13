@@ -6,7 +6,7 @@ export const Image = styled.img`
 `;
 
 export const Wrapper = styled.div`
-    height: calc(100vh - 115px);    
+    height: calc(100vh - 155px);    
     padding: 0 8vw;
     display: flex;
     flex-direction: row;
