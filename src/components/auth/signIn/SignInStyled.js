@@ -6,8 +6,12 @@ export const Wrapper = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100%;
-    margin-right: 4vw;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.2), 0 1px 2px rgba(0,0,0,0.2);
+    transition: all 0.3s cubic-bezier(.2,.8,.1,1) ;
+    background-color: white;
+    min-width: 350;
+    padding: 26px 60px;
+
 `;
 
 export const SubHeadWrapper = styled.div`
@@ -38,11 +42,15 @@ export const Circle = styled.div`
     width: 15px;
     border-radius: 50%;
     margin-right: 10px;
+    transition: background-color 0.5s;
+
 `;
 
 export const SubHead = styled.h2`
     color: ${props => props.primary ? color.primary : color.grey};
     font-size: 1.1rem;
+    transition: background-color 0.5s;
+
 `;
 
 export const InputField = styled.input`
@@ -56,6 +64,7 @@ export const InputField = styled.input`
     color: ${color.brown};
     font-weight: 600;
     margin-bottom: ${props => props.bottomMargin ?? '0'};
+    transition: background-color 0.5s;
 
     ::placeholder{
         color: ${color.brown};

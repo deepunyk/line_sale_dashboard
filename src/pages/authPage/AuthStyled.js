@@ -2,7 +2,8 @@ import styled from 'styled-components';
 
 export const Image = styled.img`
     height: 80%;    
-    margin-right: ${(props)=>props.isRegister||'16vw'}
+    margin-right: ${(props)=>props.isRegister||'120px'};
+    transition: margin 1s;
 `;
 
 export const Wrapper = styled.div`

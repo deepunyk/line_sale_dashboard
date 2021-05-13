@@ -9,6 +9,7 @@ export const AuthButton = styled.button`
     font-weight: 600;
     padding: 10px 18px;
     border-radius: 30px;
+    transition: background-color 0.2s, transform 0.2s;
 
     &:hover{
         background-color: ${color.primaryDark};

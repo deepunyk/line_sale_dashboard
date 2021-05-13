@@ -4,7 +4,7 @@ import * as S from './FooterStyled';
 const Footer = ()=>{
     return (
         <S.Wrapper>
-            <S.Text>Product of PFS</S.Text>
+            <S.Text>Product of Paper Free Solutions</S.Text>
         </S.Wrapper>
     );
 }

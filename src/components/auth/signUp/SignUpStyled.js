@@ -2,11 +2,16 @@ import styled from 'styled-components';
 import color from '../../../constants/color';
 
 export const Wrapper = styled.div`
+    position: relative;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100%;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.2), 0 1px 2px rgba(0,0,0,0.2);
+    transition: all 0.3s cubic-bezier(.2,.8,.1,1) ;
+    background-color: white;
+    width: 750px;
+    padding: 26px 60px;
 `;
 
 export const FormWrapper = styled.div`
@@ -28,7 +33,8 @@ export const SubWrapper = styled.div`
 `;
 
 export const Head = styled.h1`
-
+margin: 0;
+    margin-bottom: 20px;
     color: ${color.primary};
 `;
 
@@ -36,8 +42,8 @@ export const SubHead = styled.div`
     margin-right: 20px;
     text-align: end;
     font-weight: 700;
-    max-width: 200px;
-    min-width: 200px;
+    max-width: 170px;
+    min-width: 170px;
     color: ${color.primary};
     font-size: 1.1rem;
 `;
@@ -45,7 +51,7 @@ export const SubHead = styled.div`
 export const NoteText = styled.h5`
     font-weight: 700;
     color: ${color.darkGrey};
-    margin: 2vh 0 2vh 220px ;
+    margin: 2vh 0 2vh 190px ;
 `;
 
 export const InfoText = styled.h6`
