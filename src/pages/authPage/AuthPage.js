@@ -19,8 +19,8 @@ const AuthPage = (props) => {
     return (
         <div>
             <Header isRegister = {props.isRegister} />
-            <S.Wrapper>
-                <S.Image src={AuthImg} />
+            <S.Wrapper >
+                <S.Image src={AuthImg} isRegister = {props.isRegister}/>
                 {getType()}
             </S.Wrapper>
         </div>

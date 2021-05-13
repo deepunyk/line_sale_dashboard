@@ -8,7 +8,16 @@ export const Wrapper = styled.div`
     align-items: center;
     width: 100%;
     height: 100%;
-    padding: 4vh 0;
+    padding: 2vh 0;
+    background-color: white;
+    margin: 5px;
+    border-radius: 10px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1), 0 1px 2px rgba(0,0,0,0.1);
+    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+
+    &:hover{
+        box-shadow: 0 14px 28px rgba(0,0,0,0.1), 0 10px 10px rgba(0,0,0,0.1);
+    }
 `;
 
 
@@ -16,8 +25,8 @@ export const ChartWrapper = styled.div`
 
     width: 100%;
     height: 100%;
-    padding: 4vh 2.5vw;
-
+    padding: 0 1.5vw 0;
+    margin-top: 4vh;
 `;
 
 export const SaleWrapper = styled.div`
@@ -55,6 +64,8 @@ export const Text = styled.div`
     margin-bottom: ${(props)=>props.marginBottom};
     margin-top: ${(props)=>props.marginTop};
     margin-right: ${(props)=>props.marginRight};
+    letter-spacing: ${(props)=>props.spacing&&'0.1rem'};
+
 `;
 export const SaleItemWrapper = styled.div`
     display: flex;

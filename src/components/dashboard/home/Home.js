@@ -46,17 +46,12 @@ const Home = () => {
         <S.Wrapper>
             <S.SubWrapper>
                 <LayerOne data={layerOne[0]} />
-                <S.Divider />
                 <LayerOne data={layerOne[1]} />
-                <S.Divider />
                 <LayerOne data={layerOne[2]} />
             </S.SubWrapper>
-            <S.HorizontalDivider />
             <S.SubWrapper big>
                 <LayerTwo type = {1} title = 'WEEKLY SALES'/>
-                <S.Divider />
                 <LayerTwo  type = {2} title = 'WEEKLY SALES'/>
-                <S.Divider />
                 <LayerTwo type = {3} title = 'COMPANY DETAILS'/>
 
             </S.SubWrapper>

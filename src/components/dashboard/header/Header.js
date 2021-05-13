@@ -11,13 +11,13 @@ const Header = ()=>{
     return (
         <S.Wrapper>
             <S.SubWrapper>
-                <S.Image src = {Logo} height = '12vh'/>
+                <S.Image src = {Logo} height = '90px'/>
                 <C.LineHead>LINE SALE</C.LineHead>
             </S.SubWrapper>
             <S.Divider/>
             <S.SubWrapper>
                 <S.Image src = {LightBulb } height = '8vh'/>
-                <S.Text fontSize = '1.5rem' color = {color.brownShade1}>Dashboard</S.Text>
+                <S.Text fontSize = '1.4rem' color = {color.brownShade1}>Dashboard</S.Text>
             </S.SubWrapper>
             <S.Divider/>
             <S.SubWrapper>
@@ -27,8 +27,8 @@ const Header = ()=>{
             <S.Divider/>
             <S.SubWrapper>
                 <S.RightWrapper alignEnd>
-                    <S.Text fontSize = '1.5rem' color = {color.primary}>Welcome</S.Text>
-                    <S.Text fontSize = '1.2rem' color = {color.greyShade1} >CHRISTOPHER PETERSON</S.Text>
+                    <S.Text fontSize = '1.4rem' color = {color.primary}>Welcome</S.Text>
+                    <S.Text fontSize = '1.1rem' color = {color.greyShade1} >CHRISTOPHER PETERSON</S.Text>
 
                 </S.RightWrapper>
                 <S.RightWrapper marginLeft>

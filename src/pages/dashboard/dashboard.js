@@ -7,13 +7,13 @@ import Home from '../../components/dashboard/home/Home';
 const DashboardPage = () => {
 
     return (
-        <>
+        <S.Wrapper>
             <Header/>
-            <S.Wrapper>
+            <S.SubWrapper>
                 <Navbar/>
                 <Home/>
-            </S.Wrapper>
-        </>
+            </S.SubWrapper>
+        </S.Wrapper>
     );
 }
 

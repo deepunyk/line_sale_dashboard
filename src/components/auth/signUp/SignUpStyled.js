@@ -7,8 +7,6 @@ export const Wrapper = styled.div`
     justify-content: center;
     align-items: center;
     height: 100%;
-    width: 100%;
-    margin: 0 0vw 0 4vw; 
 `;
 
 export const FormWrapper = styled.div`

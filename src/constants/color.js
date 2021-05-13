@@ -1,6 +1,6 @@
 const color = {
     primary: '#fd0167',
-    primaryLight: '#949494',
+    primaryLight: '#FFDFEC',
     primaryDark: '#DD015A',
  
     lightGrey: '#989898',
@@ -8,6 +8,8 @@ const color = {
     greyShade1: '#5f5f5f',
     greyShade2: '#5c5c5c',
     greyShade3: '#848484',
+    greyShade4: '#DBDBDB',
+
 
     darkGrey: '#616161',
 
@@ -27,6 +29,7 @@ const color = {
     purple: '#dc2a92',
     lightPurple: '#cabdcd',
     green: '#6da400',
+    greenShade1: '#6aaf89',
 
     yellow: '#fbd34b',
     darkYellow: '#FFD95A',

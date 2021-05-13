@@ -9,9 +9,9 @@ function App() {
     return (
         <Fragment>
             <GlobalStyle />
-            <BrowserRouter>
+            <BrowserRouter basename = '/line_sale_dashboard'>
                 <Switch>
-                    <Route exact path="/" component={PlansPage} />
+                    <Route exact path="/" component={AuthPage} />
                     <Route path="/register" render={()=><AuthPage isRegister/>} />
                     <Route path="/home" component={DashboardPage} />
                     <Route path="/plans" component={PlansPage} />

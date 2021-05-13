@@ -19,7 +19,7 @@ const LayerTwo = (props)=>{
 
     return (
         <S.Wrapper>
-            <S.Text color= {color.primary} fontSize = '1.3rem' marginBottom = "0">{props.title}</S.Text>
+            <S.Text spacing color= {color.primary} fontSize = '1.3rem' marginBottom = "0">{props.title}</S.Text>
                 {getSections()}
         </S.Wrapper>
     );

@@ -11,7 +11,7 @@ export const Wrapper = styled.div`
     align-items:center;
     background: white;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); 
-    height: 15vh;
+    height: 115px;
     box-sizing: border-box;
 `;
 
@@ -35,10 +35,11 @@ export const Divider = styled.div`
 
 export const Text = styled.h2`
     color: ${(props)=>props.color};
-    font-weight: 600;
+    font-weight: 500;
     font-size: ${(props)=>props.fontSize};
     margin: 1px;
     margin-left: ${(props)=>props.color === color.maroon &&'0.5rem'};
+    letter-spacing: 0.05rem;
 
 `;
 

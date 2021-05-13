@@ -1,11 +1,15 @@
 import React from 'react';
 import * as S from './NavbarStyled';
+import {  useHistory  } from 'react-router-dom';
 
 const Navbar = ()=>{
+
+    let history = useHistory();
+
     return (
         <S.Wrapper>
             <S.Head>PLANS</S.Head>
-            <S.SubHead>Upgrade / New Plan</S.SubHead>
+            <S.SubHead onClick = {()=>history.push('/plans')}>Upgrade / New Plan</S.SubHead>
             <S.SubHead>Renew Existing Plan</S.SubHead>
             <S.Head>REPORTS</S.Head>
             <S.SubHead>Total Collection</S.SubHead>

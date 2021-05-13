@@ -11,12 +11,12 @@ const SalesChart = ()=>{
           {
             label: 'Sales Amount',
             data: [12000, 19000, 30000, 50000, 20000, 30000,50000],
-            backgroundColor: color.purple,
+            backgroundColor: color.greenShade1,
           },
           {
             label: 'Sales Quantity',
             data: [20000, 30000, 20000, 50000, 10000, 40000, 80000],
-            backgroundColor: color.lightPurple,
+            backgroundColor: color.greyShade4,
           },
         ],
 

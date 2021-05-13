@@ -7,7 +7,8 @@ export const Wrapper = styled.div`
     flex-direction: column;
     align-items:center;
     height:100%;
-    box-sizing: border-box;
+    padding: 5px;
+    background-color: #f5f5f5;
 `;
 
 export const SubWrapper = styled.div`
@@ -17,12 +18,13 @@ export const SubWrapper = styled.div`
     align-items: center;
     height: ${(props)=>props.big?'60%':'40%'};
     width: 100%;
+    margin: 5px;
 `;
 
 export const Divider = styled.div`
     height: 70%;
     width: 2px;
-    background-color: ${color.brownShade1}
+    background-color: ${color.brownShade1};
 `;
 
 export const HorizontalDivider = styled.div`
