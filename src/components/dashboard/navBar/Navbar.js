@@ -9,7 +9,7 @@ const Navbar = ()=>{
     return (
         <S.Wrapper>
             <S.Head>PLANS</S.Head>
-            <S.SubHead onClick = {()=>history.push('/plans')}>Upgrade / New Plan</S.SubHead>
+            <S.SubHead onClick = {()=>history.push('/home/plans')}>Upgrade / New Plan</S.SubHead>
             <S.SubHead>Renew Existing Plan</S.SubHead>
             <S.Head>REPORTS</S.Head>
             <S.SubHead>Total Collection</S.SubHead>

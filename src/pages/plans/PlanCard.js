@@ -1,6 +1,5 @@
 import React from 'react';
 import * as S from './PlansStyled';
-import color from '../../constants/color';
 
 const PlanCard= ()=>{
     return(

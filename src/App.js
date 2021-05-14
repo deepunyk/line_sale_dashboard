@@ -3,7 +3,6 @@ import GlobalStyle from './GlobalStyle';
 import { Fragment } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import DashboardPage from './pages/dashboard/Dashboard';
-import PlansPage from './pages/plans/Plans';
 
 function App() {
     return (
@@ -11,10 +10,12 @@ function App() {
             <GlobalStyle />
             <BrowserRouter basename = '/aushdnca'>
                 <Switch>
-                    <Route exact path="/" component={AuthPage} />
-                    <Route path="/register" render={()=><AuthPage isRegister/>} />
+
+                    <Route path="/home/plans" render={()=><DashboardPage type = "plan"/>} />
                     <Route path="/home" component={DashboardPage} />
-                    <Route path="/plans" component={PlansPage} />
+                    <Route path="/register" render={()=><AuthPage type = "register"/>} />
+                    <Route exact path="/plans" render={()=><AuthPage/>} />
+                    <Route exact path="/" render={()=><AuthPage type = "signin"/>} />
 
                 </Switch>
             </BrowserRouter>

@@ -7,7 +7,7 @@ const Header = (props) => {
     let history = useHistory();
     
     const navigatePage = ()=>{
-        if (props.isRegister) {
+        if (props.type === "register") {
             history.push('/')
 
         }else{
@@ -15,9 +15,9 @@ const Header = (props) => {
         }
     }
 
-    const getRegisterText = () => props.isRegister?'Already Registered?':'First time user?';
+    const getRegisterText = () => props.type === "register"?'Already Registered?':'First time user?';
     
-    const getButtonText = () => props.isRegister?'Sign In':'Register';
+    const getButtonText = () => props.type === "register"?'Sign In':'Register';
 
 
     return (
@@ -26,7 +26,7 @@ const Header = (props) => {
                 LINE SALE
             </C.LineHead>
             <S.Menu>
-                <S.MenuItem>
+                <S.MenuItem onClick = {()=>history.push('/')}>
                     Home
                 </S.MenuItem>
                 <S.MenuItem>
@@ -34,6 +34,9 @@ const Header = (props) => {
                 </S.MenuItem>
                 <S.MenuItem>
                     User Guide
+                </S.MenuItem>
+                <S.MenuItem onClick = {()=>history.push('/plans')}>
+                    Pricing
                 </S.MenuItem>
                 <S.MenuItem>
                     FAQ

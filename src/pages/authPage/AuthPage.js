@@ -4,26 +4,37 @@ import AuthImg from '../../assets/illustrations/auth.png';
 import * as S from './AuthStyled';
 import SignIn from '../../components/auth/signIn/SignIn';
 import SignUp from '../../components/auth/signUp/SignUp';
+import PlansPage from '../../pages/plans/Plans';
+
 import Footer from '../../components/footer/Footer';
 
 const AuthPage = (props) => {
 
-
-    const getType = ()=>{
-        if(props.isRegister){
-            return <SignUp />;
+    const getSection = ()=>{
+        if(props.type == null){
+            return <PlansPage />;
         }else{
-            return <SignIn />;
+            return getAuthType();
         }
+    }
+
+    const getAuthType = ()=>{
+
+        const section = props.type === "register"?<SignUp/>:<SignIn/>;
+
+        return(
+            <S.Wrapper >
+                <S.Image src={AuthImg} isRegister = {props.type === "register"}/>
+                {section}
+            </S.Wrapper>
+        );
+        
     }
 
     return (
         <div>
-            <Header isRegister = {props.isRegister} />
-            <S.Wrapper >
-                <S.Image src={AuthImg} isRegister = {props.isRegister}/>
-                {getType()}
-            </S.Wrapper>
+            <Header type = {props.type} />
+                {getSection()}
             <Footer/>
 
         </div>
