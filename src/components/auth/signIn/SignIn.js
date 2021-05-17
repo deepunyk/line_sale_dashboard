@@ -14,30 +14,35 @@ const SignIn = () => {
         if(isEmail){
             return (
                 <>
-                <S.InputField placeholder = "Enter your Email ID" bottomMargin = '3vh'/>
+                <S.InputField placeholder = "Enter your Email ID" bottomMargin = '20px'/>
                 
-                <S.SubHeadWrapper isStart>
+                <S.SubHeadWrapper>
+                <S.SubHeadWrapper isStart isCompact>
+
                 <S.Image src = {LockImg} />
-    
                 <S.SubHead primary>Password</S.SubHead>
                 </S.SubHeadWrapper>
-    
-                <S.InputField placeholder = "Enter your Password" bottomMargin = '1vh'/>
+
                 <S.SmallText>Forgot your password?</S.SmallText>
+
+
+                </S.SubHeadWrapper>
+    
+                <S.InputField placeholder = "Enter your Password" bottomMargin = '20px'/>
 
                 </>
             );
         }else{
             return (
                 <>
-                <S.InputField placeholder = "Enter your Mobile No." bottomMargin = '3vh'/>
+                <S.InputField placeholder = "Enter your Mobile No." bottomMargin = '20px'/>
                 <S.SubHeadWrapper isStart>
                 <S.Image src = {LockImg} />
     
                 <S.SubHead primary>OTP</S.SubHead>
                 </S.SubHeadWrapper>
     
-                <S.InputField placeholder = "Enter your OTP" bottomMargin = '4vh'/>
+                <S.InputField placeholder = "Enter your OTP" bottomMargin = '20px'/>
                 </>
             );
         }

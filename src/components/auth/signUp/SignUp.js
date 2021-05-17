@@ -4,13 +4,13 @@ import * as C from '../../common/common';
 
 const SignUp = ()=>{
 
-    const marginRight = '8vw';
+    const marginRight = '0';
 
     return (<S.Wrapper>
             <S.Head>Create Your Account</S.Head>
             <S.SubWrapper>
                 <S.SubHead>Name*</S.SubHead>
-                <S.InputField placeholder = "Enter your First Name" marginRight = '2vw'/>
+                <S.InputField placeholder = "Enter your First Name" marginRight = '15px'/>
                 <S.InputField placeholder = "Enter your Last Name"/>
             </S.SubWrapper>
             <S.SubWrapper>

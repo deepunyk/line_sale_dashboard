@@ -14,10 +14,7 @@ export const Wrapper = styled.div`
     width: 650px;
     padding: 26px 60px;
 
-    &:hover{
-        box-shadow: 0 1px 3px rgba(0,0,0,0.2), 0 1px 2px rgba(0,0,0,0.2);
-        transform: scale(1.01);
-    }
+
 `;
 
 export const FormWrapper = styled.div`
@@ -34,14 +31,14 @@ export const SubWrapper = styled.div`
     flex-direction: row;
     justify-content: flex-end;
     align-items: center;
-    margin-bottom: 0.8vh;
+    margin-bottom: 8px;
 
 `;
 
 export const Head = styled.h1`
     margin: 0;
     margin-bottom: 20px;
-    color: ${color.primary};
+    color: ${color.greyShade5};
     font-size: 1.4rem;
 `;
 
@@ -75,24 +72,27 @@ export const InfoText = styled.h6`
 export const InputField = styled.input`
     width: 100%;
     border: 0;
-    border-bottom: 1px solid ${color.primary};
-    padding: 2px 6px;
+    border: 1px solid ${color.grey};
+    padding: 0 10px;
+    font-size: 0.9rem;   
+    height: 30px;
+
     background-color: transparent;
-    font-size: 1rem;
-    color: ${color.brown};
-    font-weight: 700;
+    color: ${color.greyShade5};
+    font-weight: 500;
     
     margin-right: ${props => props.marginRight ?? '0'};
+    transition: 0.5s;
 
     ::placeholder{
-        color: ${color.brown};
-        font-weight: 600;
+        color: ${color.greyShade5};
+        font-weight: 500;
 
     }
     &:focus{
         background-color: white;
         outline: none;
-        border-bottom: 2px solid ${color.primary};
+        border: 1px solid ${color.primary};
 
     }
     

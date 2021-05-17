@@ -13,11 +13,6 @@ export const Wrapper = styled.div`
     min-width: 350;
     padding: 26px 60px;
 
-    &:hover{
-        box-shadow: 0 1px 3px rgba(0,0,0,0.2), 0 1px 2px rgba(0,0,0,0.2);
-        transform: scale(1.01);
-    }
-
 `;
 
 export const SubHeadWrapper = styled.div`
@@ -38,7 +33,7 @@ export const SubHeadWrapper = styled.div`
 
 
 export const Head = styled.h1`
-    color: ${color.primary};
+    color: ${color.greyShade5};
     margin-bottom: 1vh;
     font-size: 1.4rem;
 
@@ -73,25 +68,27 @@ export const SmallText = styled.h2`
 `;
 
 export const InputField = styled.input`
-    width: 340px;
-    height: 70px;
-    border-radius: 60px;
-    border: 3px solid ${color.primary};
-    padding: 0 25px;
-    background-color: ${color.lightBrown};
-    font-size: 1rem;
-    color: ${color.brown};
+    width: 320px;
+    height: 50px;
+    border-radius: 5px;
+    border: 1px solid ${color.grey};
+    padding: 0 20px;
+    font-size: 0.9rem;
+    color: ${color.greyShade5};
     font-weight: 600;
     margin-bottom: ${props => props.bottomMargin ?? '0'};
     transition: background-color 0.5s;
 
     ::placeholder{
-        color: ${color.brown};
+        color: ${color.greyShade5};
     }
 
     &:focus{
         background-color: white;
         outline: none;
+        border: 1px solid ${color.primary};
+
+
     }
     
 `;

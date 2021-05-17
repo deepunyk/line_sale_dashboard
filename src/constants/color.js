@@ -9,8 +9,7 @@ const color = {
     greyShade2: '#5c5c5c',
     greyShade3: '#848484',
     greyShade4: '#DBDBDB',
-
-
+    greyShade5:"#6c757d",
     darkGrey: '#616161',
 
     brown: '#cda46f',

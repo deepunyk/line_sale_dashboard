@@ -3,7 +3,7 @@ import color from '../../../constants/color';
 
 export const Wrapper = styled.div`
     width: 500px;
-    background-color: ${color.brownShade2};
+    background-color: #F9F9F9;
     height: 100%;
     display: flex;
     flex-direction: column;

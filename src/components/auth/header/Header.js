@@ -47,9 +47,9 @@ const Header = (props) => {
                 <S.Text>
                         {getRegisterText()}
                 </S.Text>
-                    <C.AuthButton onClick = {navigatePage}>
+                    <C.HeaderButton onClick = {navigatePage}>
                         {getButtonText()}
-                </C.AuthButton>
+                </C.HeaderButton>
             </S.Menu>
         </S.Wrapper>
     );
