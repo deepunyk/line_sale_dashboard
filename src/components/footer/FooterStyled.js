@@ -17,6 +17,6 @@ export const Text = styled.h1`
     text-align: center;
     margin: 0;
     font-size: 1.2rem;
-    font-weight: 500;
-    letter-spacing: 0.1rem;
+    font-weight: 600;
+    letter-spacing: 1px;
 `;

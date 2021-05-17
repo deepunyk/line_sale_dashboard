@@ -15,6 +15,7 @@ const SignIn = () => {
             return (
                 <>
                 <S.InputField placeholder = "Enter your Email ID" bottomMargin = '3vh'/>
+                
                 <S.SubHeadWrapper isStart>
                 <S.Image src = {LockImg} />
     
@@ -22,7 +23,7 @@ const SignIn = () => {
                 </S.SubHeadWrapper>
     
                 <S.InputField placeholder = "Enter your Password" bottomMargin = '1vh'/>
-                <S.SubHead>Forgot Password?</S.SubHead>
+                <S.SmallText>Forgot your password?</S.SmallText>
 
                 </>
             );
@@ -45,7 +46,7 @@ const SignIn = () => {
 
     return (
         <S.Wrapper>
-            <S.Head>SIGN IN</S.Head>
+            <S.Head>Sign In</S.Head>
             <S.SubHeadWrapper marginBottom = "1vh">
                 <S.SubHeadWrapper isStart isCompact onClick = {()=>updateEmail(true)}>
                     <S.Circle primary  = {isEmail}/>
@@ -58,7 +59,7 @@ const SignIn = () => {
             </S.SubHeadWrapper>
                 {getForm()}
             <C.AuthButton onClick = {()=>history.push('/home')}>
-                    SIGN IN
+                    Submit
             </C.AuthButton>
         </S.Wrapper>
     );

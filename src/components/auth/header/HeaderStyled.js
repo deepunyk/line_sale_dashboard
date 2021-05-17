@@ -27,7 +27,7 @@ export const MenuItem = styled.h2`
 
     margin-right: 1.5vw;
     font-size: 1.25rem;
-    font-weight: 700;
+    font-weight: 600;
     &:hover{
         cursor: pointer;
         color: ${color.primary};
@@ -36,7 +36,9 @@ export const MenuItem = styled.h2`
 
 export const Text = styled.h4`
     color: ${color.grey};
-    margin-right: 1vw;
+    margin-right: 15px;
+    font-weight: 600;
+
 `;
 
 export const Button = styled.button`

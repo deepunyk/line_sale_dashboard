@@ -7,11 +7,17 @@ export const Wrapper = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.2), 0 1px 2px rgba(0,0,0,0.2);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1), 0 1px 2px rgba(0,0,0,0.1);
+    border-radius: 10px;
     transition: all 0.3s cubic-bezier(.2,.8,.1,1) ;
     background-color: white;
-    width: 750px;
+    width: 650px;
     padding: 26px 60px;
+
+    &:hover{
+        box-shadow: 0 1px 3px rgba(0,0,0,0.2), 0 1px 2px rgba(0,0,0,0.2);
+        transform: scale(1.01);
+    }
 `;
 
 export const FormWrapper = styled.div`
@@ -33,25 +39,27 @@ export const SubWrapper = styled.div`
 `;
 
 export const Head = styled.h1`
-margin: 0;
+    margin: 0;
     margin-bottom: 20px;
     color: ${color.primary};
+    font-size: 1.4rem;
 `;
 
 export const SubHead = styled.div`
     margin-right: 20px;
     text-align: end;
-    font-weight: 700;
-    max-width: 170px;
-    min-width: 170px;
+    font-weight: 600;
+    min-width: 130px;
     color: ${color.primary};
-    font-size: 1.1rem;
+    font-size: 0.9rem;
 `;
 
 export const NoteText = styled.h5`
-    font-weight: 700;
+    font-weight: 600;
     color: ${color.darkGrey};
-    margin: 2vh 0 2vh 190px ;
+    margin: 1vh 0 2vh 150px ;
+    font-size: 0.8rem;
+
 `;
 
 export const InfoText = styled.h6`
@@ -67,7 +75,7 @@ export const InfoText = styled.h6`
 export const InputField = styled.input`
     width: 100%;
     border: 0;
-    border-bottom: 3px solid ${color.primary};
+    border-bottom: 1px solid ${color.primary};
     padding: 2px 6px;
     background-color: transparent;
     font-size: 1rem;
@@ -78,10 +86,14 @@ export const InputField = styled.input`
 
     ::placeholder{
         color: ${color.brown};
+        font-weight: 600;
+
     }
     &:focus{
         background-color: white;
         outline: none;
+        border-bottom: 2px solid ${color.primary};
+
     }
     
 `;

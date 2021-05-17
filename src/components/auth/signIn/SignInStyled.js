@@ -6,11 +6,17 @@ export const Wrapper = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.2), 0 1px 2px rgba(0,0,0,0.2);
-    transition: all 0.3s cubic-bezier(.2,.8,.1,1) ;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1), 0 1px 2px rgba(0,0,0,0.1);
+    border-radius: 10px;
+    transition: 0.3s cubic-bezier(.2,.8,.1,1) ;
     background-color: white;
     min-width: 350;
     padding: 26px 60px;
+
+    &:hover{
+        box-shadow: 0 1px 3px rgba(0,0,0,0.2), 0 1px 2px rgba(0,0,0,0.2);
+        transform: scale(1.01);
+    }
 
 `;
 
@@ -34,28 +40,41 @@ export const SubHeadWrapper = styled.div`
 export const Head = styled.h1`
     color: ${color.primary};
     margin-bottom: 1vh;
+    font-size: 1.4rem;
+
 `;
 
 export const Circle = styled.div`
     background-color: ${props => props.primary ? color.primary : color.grey};
-    height: 15px;
-    width: 15px;
+    height: 10px;
+    width: 10px;
     border-radius: 50%;
-    margin-right: 10px;
+    margin-right: 8px;
     transition: background-color 0.5s;
 
 `;
 
 export const SubHead = styled.h2`
     color: ${props => props.primary ? color.primary : color.grey};
-    font-size: 1.1rem;
+    font-size: 1rem;
     transition: background-color 0.5s;
+    font-weight: 600;
+`;
 
+export const SmallText = styled.h2`
+    color: ${color.grey};
+    font-size: 0.9rem;
+    transition: background-color 0.5s;
+    font-weight: 400;
+    &:hover{
+        cursor: pointer;
+        color: ${color.primary};
+    }
 `;
 
 export const InputField = styled.input`
     width: 340px;
-    height: 80px;
+    height: 70px;
     border-radius: 60px;
     border: 3px solid ${color.primary};
     padding: 0 25px;
@@ -78,8 +97,8 @@ export const InputField = styled.input`
 `;
 
 export const Image = styled.img`
-    height: 22px;    
-    margin-right: 10px;
+    height: 17px;    
+    margin-right: 6px;
     color: red;
 `;
 

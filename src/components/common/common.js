@@ -5,9 +5,9 @@ export const AuthButton = styled.button`
     background-color: ${color.primary};
     color: white;
     border: none;
-    font-size:1.2rem;
+    font-size:1.1rem;
     font-weight: 600;
-    padding: 10px 18px;
+    padding: 6px 16px;
     border-radius: 30px;
     transition: background-color 0.2s, transform 0.2s;
 

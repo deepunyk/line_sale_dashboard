@@ -24,7 +24,7 @@ export const SubWrapper = styled.div`
 export const Image = styled.img`
     height: ${(props)=>props.height};
     margin-right: ${(props)=>props.marginBottom ?? '1vw'};
-    margin-bottom: ${(props)=>props.marginBottom && '10px'};
+    margin-bottom: ${(props)=>props.marginBottom && '5px'};
 `;
 
 export const Divider = styled.div`
@@ -35,11 +35,11 @@ export const Divider = styled.div`
 
 export const Text = styled.h2`
     color: ${(props)=>props.color};
-    font-weight: 500;
+    font-weight: 600;
     font-size: ${(props)=>props.fontSize};
     margin: 1px;
-    margin-left: ${(props)=>props.color === color.maroon &&'0.5rem'};
-    letter-spacing: 0.05rem;
+    margin-left: ${(props)=>props.color === color.primary &&'0.5rem'};
+    letter-spacing: 0.5px;
 
 `;
 

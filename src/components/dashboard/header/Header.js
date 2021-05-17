@@ -16,23 +16,23 @@ const Header = ()=>{
             </S.SubWrapper>
             <S.Divider/>
             <S.SubWrapper>
-                <S.Image src = {LightBulb } height = '8vh'/>
+                <S.Image src = {LightBulb } height = '50px'/>
                 <S.Text fontSize = '1.4rem' color = {color.brownShade1}>Dashboard</S.Text>
             </S.SubWrapper>
             <S.Divider/>
             <S.SubWrapper>
-                <S.Text fontSize = '1.2rem' color = {color.brownShade1}>Subscription Expires in</S.Text>
-                <S.Text marginLeft fontSize = '1.4rem' color = {color.maroon} >04 days</S.Text>
+                <S.Text fontSize = '1.2rem' color = 'black'>Subscription Expires in</S.Text>
+                <S.Text marginLeft fontSize = '1.4rem' color = {color.primary} >04 days</S.Text>
             </S.SubWrapper>
             <S.Divider/>
             <S.SubWrapper>
                 <S.RightWrapper alignEnd>
                     <S.Text fontSize = '1.4rem' color = {color.primary}>Welcome</S.Text>
-                    <S.Text fontSize = '1.1rem' color = {color.greyShade1} >CHRISTOPHER PETERSON</S.Text>
+                    <S.Text fontSize = '1.1rem' color = 'black' >CHRISTOPHER PETERSON</S.Text>
 
                 </S.RightWrapper>
                 <S.RightWrapper marginLeft>
-                <S.Image src = {LogOut } height = '4vh' marginBottom />
+                <S.Image src = {LogOut } height = '30px' marginBottom />
 
                     <S.Text fontSize = '0.9rem' color = {color.brownShade1}>LOG OUT</S.Text>
 

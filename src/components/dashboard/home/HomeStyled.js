@@ -8,7 +8,7 @@ export const Wrapper = styled.div`
     align-items:center;
     height:100%;
     padding: 5px;
-    background-color: #f5f5f5;
+    background-color: white;
 `;
 
 export const SubWrapper = styled.div`

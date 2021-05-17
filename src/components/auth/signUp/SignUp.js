@@ -7,7 +7,7 @@ const SignUp = ()=>{
     const marginRight = '8vw';
 
     return (<S.Wrapper>
-            <S.Head>REGISTER</S.Head>
+            <S.Head>Create Your Account</S.Head>
             <S.SubWrapper>
                 <S.SubHead>Name*</S.SubHead>
                 <S.InputField placeholder = "Enter your First Name" marginRight = '2vw'/>
@@ -42,7 +42,7 @@ const SignUp = ()=>{
                 <S.InputField placeholder = "Re-enter your Password" marginRight = {marginRight}/>
             </S.SubWrapper>
             <S.NoteText>Note:<br/>The password must contain min. 6 character, atleast 1 digit and atleast 1 special character. Example - LineSale@3</S.NoteText>
-            <C.AuthButton>CONFIRM</C.AuthButton>
+            <C.AuthButton>Submit</C.AuthButton>
             <S.InfoText>
                 * - Mandatory Information
             </S.InfoText>

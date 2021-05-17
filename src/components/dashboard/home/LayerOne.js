@@ -9,7 +9,7 @@ const LayerOne = (props)=>{
             <>
                 <S.Wrapper>
                     <S.Image src = {icon}/>
-                    <S.Text  fontSize = '1rem' color = {color.brownShade4} marginBottom = "10px" marginTop = "20px">₹{price}</S.Text>
+                    <S.Text  fontSize = '1rem' color = 'black' marginBottom = "10px" marginTop = "20px">₹{price}</S.Text>
                     <S.Text color = {color.greyShade3} fontSize = "1.2rem" lightFont>{subTitle}</S.Text>
                 </S.Wrapper>
             </>
