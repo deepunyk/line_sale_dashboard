@@ -50,6 +50,10 @@ export const SubHead = styled.div`
     min-width: 130px;
     color: ${color.primary};
     font-size: 0.9rem;
+
+    span{
+        color: red;
+    }
 `;
 
 export const NoteText = styled.h5`
@@ -62,13 +66,26 @@ export const NoteText = styled.h5`
 
 export const InfoText = styled.h6`
     position:absolute;
-    bottom: 3vh;
-    right: 5vw;;
+    bottom: 105px;
+    left: 60px;;
     font-weight: 400;
     color: ${color.primaryDark};
-    margin: 2vh 0 2vh 220px;
 
 `;
+
+export const SignInText = styled.h6`
+    font-weight: 400;
+    color: ${color.darkGrey};
+    margin: 15px 0 0 0 ;
+    font-size: 0.8rem;
+
+    a{
+        color: red;
+        cursor: pointer;
+    }
+
+`;
+
 
 export const InputField = styled.input`
     width: 100%;

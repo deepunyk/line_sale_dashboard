@@ -27,16 +27,6 @@ export const Wrapper = styled.div`
 `;
 
 
-
-export const Head = styled.div`
-    padding: 8px 30px;
-    background-color: ${color.greyShade2};
-    color: white;
-    font-size: 1rem;
-    font-weight: 400;
-    letter-spacing: 0.05rem;
-`;
-
 export const SubHead = styled.div`
     padding: 8px 30px;
     color: black;
@@ -46,4 +36,15 @@ export const SubHead = styled.div`
         cursor: pointer;
         background:rgba(0,0,0,0.1);
     }
+
+
+`;
+
+export const Head = styled.div`
+    padding: 8px 30px;
+    background-color: ${color.greyShade2};
+    color: white;
+    font-size: 1rem;
+    font-weight: 400;
+    letter-spacing: 0.05rem;
 `;
