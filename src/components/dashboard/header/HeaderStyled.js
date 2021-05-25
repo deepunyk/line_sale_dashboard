@@ -19,6 +19,10 @@ export const SubWrapper = styled.div`
     display: flex;
     flex-direction: row;
     align-items:center;
+
+    &:hover{
+        cursor: ${props=>props.isHover && 'pointer'};
+    }
 `;
 
 export const Image = styled.img`

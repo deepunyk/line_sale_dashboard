@@ -14,7 +14,7 @@ const SignIn = () => {
         if(isEmail){
             return (
                 <>
-                <S.InputField placeholder = "Enter your Email ID" bottomMargin = '20px'/>
+                <S.InputField placeholder = "Enter your Email/Mobile No." bottomMargin = '20px'/>
                 
                 <S.SubHeadWrapper>
                 <S.SubHeadWrapper isStart isCompact>
@@ -63,13 +63,9 @@ const SignIn = () => {
             
             <S.Head>Sign In</S.Head>
             <S.SubHeadWrapper marginBottom = "1vh">
-                <S.SubHeadWrapper isStart isCompact onClick = {()=>updateEmail(true)}>
+                <S.SubHeadWrapper isStart onClick = {()=>updateEmail(true)}>
                     <S.Circle primary  = {isEmail}/>
-                    <S.SubHead primary  = {isEmail}>Email ID</S.SubHead>
-                </S.SubHeadWrapper>
-                <S.SubHeadWrapper isStart isCompact onClick = {()=>updateEmail(false)}>
-                    <S.Circle primary  = {!isEmail}/>
-                    <S.SubHead primary  = {!isEmail}>Mobile No.</S.SubHead>
+                    <S.SubHead primary  = {isEmail}>Username</S.SubHead>
                 </S.SubHeadWrapper>
             </S.SubHeadWrapper>
                 {getForm()}

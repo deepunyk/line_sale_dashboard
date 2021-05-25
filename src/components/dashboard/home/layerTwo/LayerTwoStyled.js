@@ -13,7 +13,10 @@ export const Wrapper = styled.div`
     background-color: white;
     border-radius: 10px;
     box-shadow: 0 1px 3px rgba(0,0,0,0.1), 0 1px 2px rgba(0,0,0,0.1);
-
+    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+    &:hover{
+        box-shadow: 0 14px 28px rgba(0,0,0,0.1), 0 10px 10px rgba(0,0,0,0.1);
+    }
 `;
 
 

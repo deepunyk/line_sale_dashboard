@@ -6,8 +6,13 @@ import LogOut from '../../../assets/icons/log-out.png';
 import color from '../../../constants/color';
 
 import * as C from '../../common/common';
+import { useHistory } from 'react-router';
 
 const Header = ()=>{
+
+    let history = useHistory();
+
+
     return (
         <S.Wrapper>
             <S.SubWrapper>
@@ -15,7 +20,7 @@ const Header = ()=>{
                 <C.LineHead>Line Sale</C.LineHead>
             </S.SubWrapper>
             <S.Divider/>
-            <S.SubWrapper>
+            <S.SubWrapper isHover onClick = {()=>history.push('/home')}>
                 <S.Image src = {Dashboard } height = '20px' marginRight='10px'/>
                 <S.Text fontSize = '1.4rem'>Dashboard</S.Text>
             </S.SubWrapper>

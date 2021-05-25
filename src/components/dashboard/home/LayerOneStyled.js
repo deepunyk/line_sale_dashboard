@@ -10,8 +10,12 @@ export const Wrapper = styled.div`
     height: 100%;
     background-color: white;
     border-radius: 10px;
-    box-shadow: ${(props)=>props.shadow && '0 1px 3px rgba(0,0,0,0.1), 0 1px 2px rgba(0,0,0,0.1)'};
     overflow-y: auto;
+    box-shadow: ${(props)=>props.shadow && '0 1px 3px rgba(0,0,0,0.1), 0 1px 2px rgba(0,0,0,0.1)'};
+    transition:${(props)=>props.shadow && 'all 0.3s cubic-bezier(.2,.8,.1,1)'} ;
+    &:hover{
+        box-shadow: ${(props)=>props.shadow && '0 14px 28px rgba(0,0,0,0.1), 0 10px 10px rgba(0,0,0,0.1)'};
+    }
 `;
 
 export const Text = styled.div`
