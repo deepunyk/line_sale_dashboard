@@ -8,7 +8,7 @@ function App() {
     return (
         <Fragment>
             <GlobalStyle />
-            <BrowserRouter basename = '/aushdnca'>
+            <BrowserRouter>
                 <Switch>
 
                     <Route path="/home/plans" render={()=><DashboardPage type = "plan"/>} />
