@@ -5,7 +5,7 @@ import color from '../../../constants/color';
 export const Wrapper = styled.div`
     position: relative;
     z-index: 10;
-    padding: 2vh 4vw;
+    padding: 2vh 6vw;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -25,7 +25,7 @@ export const Menu = styled.div`
 export const MenuItem = styled.h2`
     font-family: 'Maitree', serif; 
 
-    margin-right: 1.5vw;
+    margin-left: 1.5vw;
     font-size: 1.25rem;
     font-weight: 600;
     &:hover{
@@ -48,4 +48,15 @@ export const Button = styled.button`
     font-size:1.2rem;
     padding: 10px 18px;
     border-radius: 30px;
+`;
+
+export const Image = styled.img`
+    height: ${(props)=>props.height};
+    margin-right: ${(props)=>props.marginRight};
+    margin-bottom: ${(props)=>props.marginBottom && '5px'};
+`;
+export const SubWrapper = styled.div`
+    display: flex;
+    flex-direction: row;
+    align-items:center;
 `;

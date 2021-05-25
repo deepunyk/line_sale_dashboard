@@ -2,6 +2,7 @@ import React from 'react';
 import * as S from './HeaderStyled';
 import * as C from '../../common/common';
 import {  useHistory  } from 'react-router-dom';
+import Logo from '../../../assets/illustrations/logo.png';
 
 const Header = (props) => {
     let history = useHistory();
@@ -22,9 +23,10 @@ const Header = (props) => {
 
     return (
         <S.Wrapper>
-            <C.LineHead>
-                LINE SALE
-            </C.LineHead>
+            <S.SubWrapper>
+                <S.Image src = {Logo} height = '80px' marginRight='15px'/>
+                <C.LineHead>Line Sale</C.LineHead>
+            </S.SubWrapper>
             <S.Menu>
                 <S.MenuItem onClick = {()=>history.push('/')}>
                     Home
@@ -44,12 +46,6 @@ const Header = (props) => {
                 <S.MenuItem>
                     Contact
                 </S.MenuItem>
-                <S.Text>
-                        {getRegisterText()}
-                </S.Text>
-                    <C.HeaderButton onClick = {navigatePage}>
-                        {getButtonText()}
-                </C.HeaderButton>
             </S.Menu>
         </S.Wrapper>
     );

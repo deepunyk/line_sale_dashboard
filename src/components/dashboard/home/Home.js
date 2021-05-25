@@ -21,6 +21,7 @@ const Home = () => {
             "iconTwo": PurchaseImg,
             "priceTwo": "1,33,26,460.00",
             "subTitleTwo": "Purchase",
+            "area":"month"
         },
         {
             "title": "PRESENT",
@@ -30,6 +31,8 @@ const Home = () => {
             "iconTwo": OutstandingImg,
             "priceTwo": "1,33,26,460.00",
             "subTitleTwo": "Outstanding",
+            "area":"present"
+
         },
         {
             "title": "TODAY",
@@ -39,22 +42,25 @@ const Home = () => {
             "iconTwo": TransferImg,
             "priceTwo": "1,33,26,460.00",
             "subTitleTwo": "Transfer",
+            "area":"today"
+
+        },
+
+        {
+            "title": "COMPANY DETAILS",
+
+
         },
     ];
 
     return (
         <S.Wrapper>
-            <S.SubWrapper>
                 <LayerOne data={layerOne[0]} />
                 <LayerOne data={layerOne[1]} />
                 <LayerOne data={layerOne[2]} />
-            </S.SubWrapper>
-            <S.SubWrapper big>
-                <LayerTwo type = {1} title = 'WEEKLY SALES'/>
-                <LayerTwo  type = {2} title = 'WEEKLY SALES'/>
-                <LayerTwo type = {3} title = 'COMPANY DETAILS'/>
-
-            </S.SubWrapper>
+                <LayerOne data={layerOne[3]} area={'details'}/>
+                <LayerTwo type = {1} title = 'WEEKLY SALES' area={'chart'}/>
+                <LayerTwo  type = {2} title = 'PRESENT STOCK'  area={'list'}/>
         </S.Wrapper>
     );
 }

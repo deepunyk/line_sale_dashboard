@@ -32,11 +32,11 @@ export const SubHeadWrapper = styled.div`
 `;
 
 
-export const Head = styled.h1`
-    color: ${color.greyShade5};
+export const Head = styled.div`
+    color: black;
     margin-bottom: 1vh;
     font-size: 1.4rem;
-
+    font-weight: 500;
 `;
 
 export const Circle = styled.div`
@@ -53,7 +53,7 @@ export const SubHead = styled.h2`
     color: ${props => props.primary ? color.primary : color.grey};
     font-size: 1rem;
     transition: background-color 0.5s;
-    font-weight: 600;
+    font-weight: 400;
 `;
 
 export const SmallText = styled.h2`
@@ -75,7 +75,7 @@ export const InputField = styled.input`
     padding: 0 20px;
     font-size: 0.9rem;
     color: ${color.greyShade5};
-    font-weight: 600;
+    font-weight: 500;
     margin-bottom: ${props => props.bottomMargin ?? '0'};
     transition: background-color 0.5s;
 
@@ -106,4 +106,20 @@ export const Button = styled.button`
     font-size:1.2rem;
     padding: 10px 18px;
     border-radius: 30px;
+`;
+
+export const Text = styled.h4`
+    color: ${color.grey};
+    margin-right: 15px;
+    font-weight: 400;
+
+`;
+
+export const ActionWrapper = styled.div`
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    position: absolute;
+    top: 135px;
+    right: 6vw;
 `;

@@ -35,24 +35,25 @@ export const SubWrapper = styled.div`
 
 `;
 
-export const Head = styled.h1`
+export const Head = styled.div`
     margin: 0;
     margin-bottom: 20px;
-    color: ${color.greyShade5};
+    color: black;
     font-size: 1.4rem;
+    font-weight: 500;
 `;
 
 export const SubHead = styled.div`
     margin-right: 20px;
     text-align: end;
-    font-weight: 600;
+    font-weight: 400;
     min-width: 130px;
     color: ${color.primary};
     font-size: 0.9rem;
 `;
 
 export const NoteText = styled.h5`
-    font-weight: 600;
+    font-weight: 400;
     color: ${color.darkGrey};
     margin: 1vh 0 2vh 150px ;
     font-size: 0.8rem;
@@ -63,7 +64,7 @@ export const InfoText = styled.h6`
     position:absolute;
     bottom: 3vh;
     right: 5vw;;
-    font-weight: 700;
+    font-weight: 400;
     color: ${color.primaryDark};
     margin: 2vh 0 2vh 220px;
 

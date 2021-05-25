@@ -4,10 +4,11 @@ import * as S from './PlansStyled';
 const PlanCard= ()=>{
     return(
         <S.CardWrapper>
-            <S.PriceText>₹499</S.PriceText>
-            <S.Text color='white' size='1.65vw' weight='500'>for 1 month</S.Text>
+            <S.PriceText>Cost - ₹499</S.PriceText>
             <S.Divider/>
-            <S.Text color='white' size='1.65vw' weight='500'>Inc. all Taxes</S.Text>
+
+            <S.Text color='black' size='1.1rem' weight='400' marginBottom='5px'>Duration - xx months</S.Text>
+            <S.Text color='black' size='1.1rem' weight='400'>Full access</S.Text>
             <S.Button>BUY NOW</S.Button>
         </S.CardWrapper>
     );

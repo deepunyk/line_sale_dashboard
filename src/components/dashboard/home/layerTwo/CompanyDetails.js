@@ -36,7 +36,7 @@ const CompanyDetails = () => {
                 companyData.map((d) => {
                     return <S.CompanySubWrapper>
                         <S.Text lightFont fontSize='0.9rem'>{d.title}</S.Text>
-                        <S.CompanyImageWrapper marginBottom="1.5vh" marginTop="1.5vh" width='4.5vw' backgroundColor={d.color}>
+                        <S.CompanyImageWrapper marginBottom="1.5vh" marginTop="1.5vh" width='50px' backgroundColor={d.color}>
                             <S.CompanyImage src={d.icon}></S.CompanyImage>
                         </S.CompanyImageWrapper>
                         <S.Text>{d.count}</S.Text>

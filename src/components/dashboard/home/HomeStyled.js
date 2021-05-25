@@ -2,23 +2,19 @@ import styled from 'styled-components';
 import color from '../../../constants/color';
 
 export const Wrapper = styled.div`
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items:center;
-    height:100%;
-    padding: 5px;
+padding: 10px;
     background-color: white;
-`;
-
-export const SubWrapper = styled.div`
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    align-items: center;
-    height: ${(props)=>props.big?'60%':'40%'};
+    display: grid;
+    height: 100%;
     width: 100%;
-    margin: 5px;
+    grid-template-areas: 'month present today details'
+                            'chart chart list list';
+    grid-auto-columns: 1fr 1fr 1fr 1fr;
+    place-items: space-between;
+    grid-auto-rows: 38% 60%;
+    grid-column-gap: 10px;
+    grid-row-gap: 2%;
+
 `;
 
 export const Divider = styled.div`

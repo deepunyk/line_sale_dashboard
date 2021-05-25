@@ -50,7 +50,17 @@ const SignIn = () => {
     }
 
     return (
+        <>
+        <S.ActionWrapper>
+                <S.Text>
+                        First time user?
+                </S.Text>
+                    <C.HeaderButton onClick = {()=>history.push('/register')}>
+                        Register
+                </C.HeaderButton>
+                </S.ActionWrapper>
         <S.Wrapper>
+            
             <S.Head>Sign In</S.Head>
             <S.SubHeadWrapper marginBottom = "1vh">
                 <S.SubHeadWrapper isStart isCompact onClick = {()=>updateEmail(true)}>
@@ -67,6 +77,7 @@ const SignIn = () => {
                     Submit
             </C.AuthButton>
         </S.Wrapper>
+        </>
     );
 }
 

@@ -6,10 +6,11 @@ export const Wrapper = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content:start;
-    background: white;
+    justify-content:center;
     z-index: -1;
     padding: 4vh 8vw 8vh;
+    background-color: whitesmoke;
+
 `;
 
 export const TitleWrapper = styled.div`
@@ -18,6 +19,7 @@ export const TitleWrapper = styled.div`
     align-items: baseline;
     justify-content:start;
     width: 100%;
+    margin-bottom: 10px;
 `;
 
 export const Text = styled.h1`
@@ -26,6 +28,8 @@ export const Text = styled.h1`
     font-weight: ${(props)=>props.weight};
     margin: 0;
     margin-right:${(props)=>props.marginRight};
+    margin-bottom:${(props)=>props.marginBottom};
+
 `;
 
 export const PlanWrapper = styled.div`
@@ -34,55 +38,54 @@ export const PlanWrapper = styled.div`
     align-items: baseline;
     justify-content:space-between;
     width: 100%;
-    margin: 3vh 0 auto 0;
 `;
 
 export const CardWrapper = styled.div`
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: start;
     justify-content:start;
-    border-radius: 10px;
-    width: 22vw;
-    height: 55vh;
-    background: rgb(253,72,146);
-    background: linear-gradient(172deg, rgba(253,72,146,1) 0%, rgba(253,4,104,1) 100%); 
+    width: 300px;
+    height: 350px;
+    background: white; 
     padding: 5vh 2.5vw;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1), 0 1px 2px rgba(0,0,0,0.1);
+    border-radius: 10px;
 `;
 
 export const PriceText = styled.h1`
-    color: white;
-    font-size: 7.5vw;
+    color: black;
+    font-size: 1.5rem;
     font-weight: 500;
     width: fit-content;
-    margin: 0;
+    margin: 0 0 0 0;
 `;
 
 export const Button = styled.button`
-    color: black;
+    color: white;
     width: 100%;
-    font-size:1.4rem;
-    font-weight: 600;
+    font-size:1rem;
+    font-weight: 700;
     padding: 10px 18px;
-    border-radius: 30px;
+    border-radius: 10px;
     border: none;
-    background-color: ${color.yellow};
+    background-color: ${color.primary};
     letter-spacing: 0.05rem;
     margin-top: auto;
     margin-bottom: 1vh;
 
     &:hover{
-        background-color: ${color.primaryDark};
         cursor: pointer;
         transform: scale(1.02);
-        background-color: ${color.darkYellow};
+        background-color: ${color.primaryDark};
 
 
     }
 `;
 
 export const Divider = styled.div`
-    height: 1vh;
+    height: 2px;
     width: ${(props)=>props.enquiry?'27vw':'100%'};
     background-color: ${color.yellow};
     margin: 2vh 0;

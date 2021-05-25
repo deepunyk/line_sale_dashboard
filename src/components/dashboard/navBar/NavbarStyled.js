@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import color from '../../../constants/color';
 
 export const Wrapper = styled.div`
-    width: 500px;
+    width: 350px;
     background-color: #F9F9F9;
     height: 100%;
     display: flex;
@@ -21,7 +21,7 @@ export const Wrapper = styled.div`
     }
     ::-webkit-scrollbar-thumb
     {
-        background-color: ${color.primary};
+        background-color: ${color.greyShade2};
     }
 
 `;
@@ -29,19 +29,19 @@ export const Wrapper = styled.div`
 
 
 export const Head = styled.div`
-    padding: 20px 2.5vw;
-    background-color: ${color.primary};
+    padding: 8px 30px;
+    background-color: ${color.greyShade2};
     color: white;
-    font-size: 1.3rem;
-    font-weight: 700;
+    font-size: 1rem;
+    font-weight: 400;
     letter-spacing: 0.05rem;
 `;
 
 export const SubHead = styled.div`
-    padding: 13px 2.5vw;
-    color: ${color.greyShade2};
-    font-size: 1.1rem;
-    font-weight: 700;
+    padding: 8px 30px;
+    color: black;
+    font-size: 0.9rem;
+    font-weight: 400;
     &:hover{
         cursor: pointer;
         background:rgba(0,0,0,0.1);

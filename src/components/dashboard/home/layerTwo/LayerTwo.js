@@ -8,9 +8,7 @@ import SalesList from './SalesList';
 const LayerTwo = (props)=>{
 
     const getSections = ()=>{
-        if(props.type === 3){
-            return CompanyDetails();
-        }else if(props.type === 2){
+        if(props.type === 2){
             return SalesList();
         }else{
             return SalesChart();
@@ -18,8 +16,8 @@ const LayerTwo = (props)=>{
     }
 
     return (
-        <S.Wrapper>
-            <S.Text spacing color= {color.primary} fontSize = '1.3rem' marginBottom = "0">{props.title}</S.Text>
+        <S.Wrapper area = {props.area}>
+            <S.Text spacing fontSize = '1.1rem' marginBottom = "0">{props.title}</S.Text>
                 {getSections()}
         </S.Wrapper>
     );

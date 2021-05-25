@@ -10,7 +10,7 @@ const PlansPage = () => {
         <>
             <S.Wrapper>
                 <S.TitleWrapper>
-                    <S.Text color={color.grey} size='2.5rem' weight='500' marginRight='0.7rem'>Plans</S.Text>
+                    <S.Text size='2.5rem' weight='500' marginRight='0.7rem'>Plans</S.Text>
                     <S.Text color={color.grey} size='2rem' weight='500' marginRight='0.7rem'>-</S.Text>
                     <S.Text color={color.primary} size='2rem' weight='500'>Line Sale</S.Text>
                 </S.TitleWrapper>
@@ -18,6 +18,8 @@ const PlansPage = () => {
                     <PlanCard />
                     <PlanCard />
                     <PlanCard />
+                    <PlanCard />
+
                 </S.PlanWrapper>
                 
             </S.Wrapper>

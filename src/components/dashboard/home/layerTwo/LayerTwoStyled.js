@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import color from '../../../../constants/color';
 
 export const Wrapper = styled.div`
+    grid-area: ${props=>props.area};
     display: flex;
     flex-direction: column;
     justify-content: ${(props)=>props.isCenter ? 'center' :'space-evenly'};
@@ -10,14 +11,9 @@ export const Wrapper = styled.div`
     height: 100%;
     padding: 2vh 0;
     background-color: white;
-    margin: 5px;
     border-radius: 10px;
     box-shadow: 0 1px 3px rgba(0,0,0,0.1), 0 1px 2px rgba(0,0,0,0.1);
-    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
 
-    &:hover{
-        box-shadow: 0 14px 28px rgba(0,0,0,0.1), 0 10px 10px rgba(0,0,0,0.1);
-    }
 `;
 
 
@@ -59,7 +55,7 @@ export const SaleWrapper = styled.div`
 
 export const Text = styled.div`
     color: ${(props)=>props.color ?? 'black'};
-    font-weight: ${(props)=>props.lightFont ?'500':'700'};
+    font-weight: ${(props)=>props.lightFont ?'300':'400'};
     font-size: ${(props)=>props.fontSize};
     margin-bottom: ${(props)=>props.marginBottom};
     margin-top: ${(props)=>props.marginTop};
@@ -84,8 +80,9 @@ export const CompanyWrapper = styled.div`
     display: flex;
     flex-direction: Row;
     align-items: center;
+    justify-content: center;
+
     width: 100%;
-    height: 100%;
     padding: 0 1vw;
 
 `;
@@ -94,6 +91,8 @@ export const CompanySubWrapper = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
+
     width: 100%;
 `;
 
@@ -111,8 +110,8 @@ export const CompanyImageWrapper = styled.div`
 `;
 
 export const CompanyImage = styled.img` 
-    width: 3vw;
-    height: 3vw;
+    width: 30px;
+    height: 30px;
     margin: auto;
 `;
 

@@ -6,7 +6,7 @@ export const HeaderButton = styled.button`
     color: white;
     border: none;
     font-size:1.1rem;
-    font-weight: 600;
+    font-weight: 400;
     padding: 6px 16px;
     border-radius: 30px;
     transition: background-color 0.2s, transform 0.2s;
@@ -23,14 +23,12 @@ export const AuthButton = styled.button`
     color: white;
     border: none;
     font-size:1rem;
-    font-weight: 600;
+    font-weight: 400;
     padding: 6px 16px;
     border-radius: 5px;
     transition: background-color 0.2s, transform 0.2s;
-    box-shadow: 0px 0px 3px 1px rgba(253,1,103,1);
 
     &:hover{
-        box-shadow: 0px 0px 3px 1px rgba(221,1,90,1);
         background-color: ${color.primaryDark};
 
         cursor: pointer;
@@ -38,7 +36,9 @@ export const AuthButton = styled.button`
 `;
 
 
-export const LineHead = styled.h1`
+export const LineHead = styled.div`
     color: ${color.primary};
+    font-size: 2rem;
+    font-weight: 500;
     letter-spacing: 0.1rem;
 `;
