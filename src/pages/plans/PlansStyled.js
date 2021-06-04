@@ -6,11 +6,10 @@ export const Wrapper = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content:center;
     z-index: -1;
     padding: 4vh 8vw 8vh;
     background-color: whitesmoke;
-
+    overflow-y: auto;
 `;
 
 export const TitleWrapper = styled.div`
@@ -22,14 +21,13 @@ export const TitleWrapper = styled.div`
     margin-bottom: 10px;
 `;
 
-export const Text = styled.h1`
+export const Text = styled.div`
     color: ${(props)=>props.color};
     font-size: ${(props)=>props.size};
     font-weight: ${(props)=>props.weight};
-    margin: 0;
     margin-right:${(props)=>props.marginRight};
     margin-bottom:${(props)=>props.marginBottom};
-
+    text-decoration: ${(props)=>props.line && 'underline'};
 `;
 
 export const PlanWrapper = styled.div`
@@ -38,6 +36,7 @@ export const PlanWrapper = styled.div`
     align-items: baseline;
     justify-content:space-between;
     width: 100%;
+    margin-bottom: ${props=>props.marginBottom};
 `;
 
 export const CardWrapper = styled.div`
@@ -45,18 +44,18 @@ export const CardWrapper = styled.div`
     display: flex;
     flex-direction: column;
     align-items: start;
-    justify-content:start;
+    justify-content:space-between;
     width: 300px;
-    height: 350px;
+    height: 330px;
     background: white; 
-    padding: 5vh 2.5vw;
+    padding: 30px 2.5vw;
     box-shadow: 0 1px 3px rgba(0,0,0,0.1), 0 1px 2px rgba(0,0,0,0.1);
     border-radius: 10px;
 `;
 
 export const PriceText = styled.h1`
     color: black;
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     font-weight: 500;
     width: fit-content;
     margin: 0 0 0 0;
@@ -65,15 +64,13 @@ export const PriceText = styled.h1`
 export const Button = styled.button`
     color: white;
     width: 100%;
-    font-size:1rem;
+    font-size:0.9rem;
     font-weight: 700;
     padding: 10px 18px;
     border-radius: 10px;
     border: none;
     background-color: ${color.primary};
     letter-spacing: 0.05rem;
-    margin-top: auto;
-    margin-bottom: 1vh;
 
     &:hover{
         cursor: pointer;

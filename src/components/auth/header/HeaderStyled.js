@@ -20,6 +20,10 @@ export const Menu = styled.div`
     display: flex;
     flex-direction: row;
     align-items: center;
+        @media only screen and (max-width: 600px) {
+      display: none;
+
+    }
 `;
 
 export const MenuItem = styled.h2`

@@ -8,8 +8,12 @@ export const Wrapper = styled.div`
     height: 40px;
     background-color: ${color.greyShade2};
     display: flex;
-  justify-content: center;
-  align-items: center;
+    justify-content: center;
+    align-items: center;
+    @media only screen and (max-width: 600px) {
+      height: 100px;
+      padding: 0 30px;
+    }
 `;
 
 export const Text = styled.h1`
@@ -19,4 +23,8 @@ export const Text = styled.h1`
     font-size: 1rem;
     font-weight: 300;
     letter-spacing: 1px;
+    @media only screen and (max-width: 600px) {
+      font-size: 0.85rem;
+
+    }
 `;

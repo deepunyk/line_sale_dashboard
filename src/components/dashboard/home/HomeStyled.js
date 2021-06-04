@@ -14,7 +14,19 @@ padding: 10px;
     grid-auto-rows: 38% 60%;
     grid-column-gap: 10px;
     grid-row-gap: 2%;
-
+    
+    @media only screen and (max-width: 600px) {
+        grid-auto-columns: 1fr;
+        grid-template-areas: 'month' 
+        'present' 
+        'today' 
+        'details'
+        'chart' 
+        'chart' 
+        'list' 
+        'list';
+        grid-auto-rows: 250px;
+    }
 `;
 
 export const Divider = styled.div`

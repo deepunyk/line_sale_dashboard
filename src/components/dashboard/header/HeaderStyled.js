@@ -13,6 +13,7 @@ export const Wrapper = styled.div`
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); 
     height: 115px;
     box-sizing: border-box;
+    
 `;
 
 export const SubWrapper = styled.div`
@@ -22,6 +23,10 @@ export const SubWrapper = styled.div`
 
     &:hover{
         cursor: ${props=>props.isHover && 'pointer'};
+    }
+
+    @media only screen and (max-width: 600px) {
+        display: none;
     }
 `;
 

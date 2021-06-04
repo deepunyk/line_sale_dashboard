@@ -2,6 +2,7 @@ import React from 'react';
 import * as S from './PlansStyled';
 import color from '../../constants/color';
 import PlanCard from './PlanCard';
+import PlanContent from '../../constants/PlanContent';
 
 
 const PlansPage = () => {
@@ -10,18 +11,19 @@ const PlansPage = () => {
         <>
             <S.Wrapper>
                 <S.TitleWrapper>
-                    <S.Text size='2.5rem' weight='500' marginRight='0.7rem'>Plans</S.Text>
-                    <S.Text color={color.grey} size='2rem' weight='500' marginRight='0.7rem'>-</S.Text>
-                    <S.Text color={color.primary} size='2rem' weight='500'>Line Sale</S.Text>
+                    <S.Text size='1.8rem' weight='500'>Monthly Plans</S.Text>
+                </S.TitleWrapper>
+                <S.PlanWrapper marginBottom='50px'>
+                    {PlanContent.monthly.map(e=><PlanCard data = {e}/>)}
+                </S.PlanWrapper>
+                <S.TitleWrapper>
+                    <S.Text size='1.8rem' weight='500'>Yearly Plans</S.Text>
                 </S.TitleWrapper>
                 <S.PlanWrapper>
-                    <PlanCard />
-                    <PlanCard />
-                    <PlanCard />
-                    <PlanCard />
+                {PlanContent.yearly.map(e=><PlanCard data = {e}/>)}
+
 
                 </S.PlanWrapper>
-                
             </S.Wrapper>
 
         </>

@@ -24,6 +24,10 @@ export const Wrapper = styled.div`
         background-color: ${color.greyShade2};
     }
 
+    @media only screen and (max-width: 600px) {
+        display: none;
+    }
+
 `;
 
 

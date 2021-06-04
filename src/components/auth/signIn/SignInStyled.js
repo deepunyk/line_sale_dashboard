@@ -10,8 +10,13 @@ export const Wrapper = styled.div`
     border-radius: 10px;
     transition: 0.3s cubic-bezier(.2,.8,.1,1) ;
     background-color: white;
-    min-width: 350;
-    padding: 26px 60px;
+    width: 400px;
+    padding: 26px 30px;
+
+    @media only screen and (max-width: 600px) {
+        padding: 26px 30px;
+
+}
 
 `;
 
@@ -68,7 +73,7 @@ export const SmallText = styled.h2`
 `;
 
 export const InputField = styled.input`
-    width: 320px;
+    width: 100%;
     height: 50px;
     border-radius: 5px;
     border: 1px solid ${color.grey};

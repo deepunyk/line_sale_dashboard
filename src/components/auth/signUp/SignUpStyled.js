@@ -5,7 +5,6 @@ export const Wrapper = styled.div`
     position: relative;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
     box-shadow: 0 1px 3px rgba(0,0,0,0.1), 0 1px 2px rgba(0,0,0,0.1);
     border-radius: 10px;
@@ -14,7 +13,15 @@ export const Wrapper = styled.div`
     width: 650px;
     padding: 26px 60px;
 
+    @media only screen and (max-width: 600px) {
+        height: 100%;
+        width: 100%;
 
+        overflow-y: auto;
+        margin: 40px 0;
+        padding: 26px 30px;
+
+    }
 `;
 
 export const FormWrapper = styled.div`
@@ -32,7 +39,11 @@ export const SubWrapper = styled.div`
     justify-content: flex-end;
     align-items: center;
     margin-bottom: 8px;
+    @media only screen and (max-width: 600px) {
+        flex-direction: column;
+        justify-content: center;
 
+    }
 `;
 
 export const Head = styled.div`
@@ -54,6 +65,11 @@ export const SubHead = styled.div`
     span{
         color: red;
     }
+
+    @media only screen and (max-width: 600px) {
+        display: none;
+
+    }
 `;
 
 export const NoteText = styled.h5`
@@ -62,6 +78,10 @@ export const NoteText = styled.h5`
     margin: 1vh 0 2vh 150px ;
     font-size: 0.8rem;
 
+    @media only screen and (max-width: 600px) {
+        margin: 0 0 20px;
+
+    }
 `;
 
 export const InfoText = styled.h6`
@@ -70,6 +90,11 @@ export const InfoText = styled.h6`
     left: 60px;;
     font-weight: 400;
     color: ${color.primaryDark};
+    
+    @media only screen and (max-width: 600px) {
+        display: none;
+
+    }
 
 `;
 
@@ -112,6 +137,11 @@ export const InputField = styled.input`
         outline: none;
         border: 1px solid ${color.primary};
 
+    }
+
+    @media only screen and (max-width: 600px) {
+        margin-right: 0;
+        margin-bottom: 10px;
     }
     
 `;
