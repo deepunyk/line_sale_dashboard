@@ -34,6 +34,7 @@ const AuthPage = (props) => {
     return (
         <div>
             <Header type = {props.type} />
+            
                 {getSection()}
             <Footer/>
 

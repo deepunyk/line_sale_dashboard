@@ -3,6 +3,7 @@ import GlobalStyle from './GlobalStyle';
 import { Fragment } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import DashboardPage from './pages/dashboard/Dashboard';
+import 'antd/dist/antd.css'; 
 
 function App() {
     return (

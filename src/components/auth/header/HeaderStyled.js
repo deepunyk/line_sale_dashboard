@@ -36,6 +36,9 @@ export const MenuItem = styled.h2`
         cursor: pointer;
         color: ${color.primary};
     }
+    @media only screen and (max-width: 600px) {
+        margin: 25px 15px;
+    }
 `;
 
 export const Text = styled.h4`
@@ -55,12 +58,24 @@ export const Button = styled.button`
 `;
 
 export const Image = styled.img`
-    height: ${(props)=>props.height};
-    margin-right: ${(props)=>props.marginRight};
+    height: 80px;
+    margin-right: 15px;
     margin-bottom: ${(props)=>props.marginBottom && '5px'};
+
+    @media only screen and (max-width: 600px) {
+        height: 70px;
+
+    }
 `;
 export const SubWrapper = styled.div`
     display: flex;
     flex-direction: row;
     align-items:center;
+
+    @media only screen and (max-width: 600px) {
+        width: 100%;
+        justify-content: ${(props)=>props.drawer && 'center'};
+        padding-bottom: ${(props)=>props.drawer && '10px'};
+
+    }
 `;
