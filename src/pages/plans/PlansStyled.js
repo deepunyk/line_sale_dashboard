@@ -12,6 +12,7 @@ export const Wrapper = styled.div`
   overflow-y: auto;
   @media only screen and (max-width: 600px) {
     padding: 4vh;
+    height: calc(100vh - 90px - 80px);
   }
 `;
 

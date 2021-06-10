@@ -17,4 +17,8 @@ export const SubWrapper = styled.div`
   justify-content: start;
   background-color: white;
   z-index: -1;
+
+  @media only screen and (max-width: 600px) {
+    height: calc(100vh - 90px - 80px);
+  }
 `;

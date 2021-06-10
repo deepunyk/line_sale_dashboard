@@ -14,6 +14,10 @@ export const Wrapper = styled.div`
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   height: 115px;
   box-sizing: border-box;
+
+  @media only screen and (max-width: 600px) {
+    height: 90px;
+  }
 `;
 
 export const MenuWrapper = styled.div`
@@ -45,7 +49,7 @@ export const Image = styled.img`
   margin-right: ${(props) => props.marginRight};
   margin-bottom: ${(props) => props.marginBottom && "5px"};
   @media only screen and (max-width: 600px) {
-    height: 70px;
+    height: 50px;
   }
 `;
 
