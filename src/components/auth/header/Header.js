@@ -6,7 +6,7 @@ import Logo from '../../../assets/illustrations/logo.png';
 import {Menu} from '@styled-icons/boxicons-regular/Menu';
 import styled from 'styled-components';
 import color from '../../../constants/color';
-import { Drawer, Button } from 'antd';
+import { Drawer} from 'antd';
 
 
 const MenuIcon = styled(Menu)`

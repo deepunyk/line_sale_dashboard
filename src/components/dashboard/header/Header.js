@@ -1,49 +1,137 @@
-import React from 'react';
-import * as S from './HeaderStyled';
-import Logo from '../../../assets/illustrations/logo.png';
-import Dashboard from '../../../assets/icons/dashboard.svg';
-import LogOut from '../../../assets/icons/log-out.png';
-import color from '../../../constants/color';
+import React, { useState } from "react";
+import * as S from "./HeaderStyled";
+import Logo from "../../../assets/illustrations/logo.png";
+import Dashboard from "../../../assets/icons/dashboard.svg";
+import LogOut from "../../../assets/icons/log-out.png";
+import color from "../../../constants/color";
+import styled from "styled-components";
 
-import * as C from '../../common/common';
-import { useHistory } from 'react-router';
+import * as C from "../../common/common";
+import { useHistory } from "react-router";
+import { Menu as MenuStyled } from "@styled-icons/boxicons-regular/Menu";
+import DashNavContent from "../../../constants/DashNavContent";
+import { Drawer, Menu } from "antd";
 
-const Header = ()=>{
+const { SubMenu } = Menu;
 
-    let history = useHistory();
+const MenuIcon = styled(MenuStyled)`
+  height: 40px;
+  color: ${color.primary};
+  display: none;
 
+  @media only screen and (max-width: 600px) {
+    display: block;
+  }
+`;
 
-    return (
-        <S.Wrapper>
-            <S.SubWrapper>
-                <S.Image src = {Logo} height = '80px' marginRight='15px'/>
-                <C.LineHead>Line Sale</C.LineHead>
-            </S.SubWrapper>
-            <S.Divider/>
-            <S.SubWrapper isHover onClick = {()=>history.push('/home')}>
-                <S.Image src = {Dashboard } height = '20px' marginRight='10px'/>
-                <S.Text fontSize = '1.4rem'>Dashboard</S.Text>
-            </S.SubWrapper>
-            <S.Divider/>
-            <S.SubWrapper>
-                <S.Text fontSize = '1.2rem' >Subscription Expires in 04 days</S.Text>
-            </S.SubWrapper>
-            <S.Divider/>
-            <S.SubWrapper>
-                <S.RightWrapper alignEnd>
-                    <S.Text fontSize = '1.1rem' color = {color.primary}>Welcome</S.Text>
-                    <S.Text fontSize = '1rem'>CHRISTOPHER PETERSON</S.Text>
+const Header = () => {
+  let history = useHistory();
 
-                </S.RightWrapper>
-                <S.RightWrapper marginLeft>
-                <S.Image src = {LogOut } height = '30px' marginBottom />
+  const [visible, setVisible] = useState(false);
 
-                    <S.Text fontSize = '0.9rem' >LOG OUT</S.Text>
+  const showDrawer = () => {
+    setVisible(true);
+  };
 
-                </S.RightWrapper>
-            </S.SubWrapper>
-        </S.Wrapper>
-    );
-}
+  const onClose = () => {
+    setVisible(false);
+  };
+
+  const handleClick = (e) => {
+    console.log("click ", e);
+  };
+
+  const MenuItems = DashNavContent.map((e) => {
+    return <p>{e.title}</p>;
+  });
+
+  return (
+    <S.Wrapper>
+      <S.SubWrapper mobile>
+        <S.Image src={Logo} height="80px" marginRight="15px" />
+        <C.LineHead>Line Sale</C.LineHead>
+      </S.SubWrapper>
+      <S.Divider />
+      <S.SubWrapper isHover onClick={() => history.push("/home")}>
+        <S.Image src={Dashboard} height="20px" marginRight="10px" />
+        <S.Text fontSize="1.4rem">Dashboard</S.Text>
+      </S.SubWrapper>
+      <S.Divider />
+      <S.SubWrapper>
+        <S.Text fontSize="1.2rem">Subscription Expires in 04 days</S.Text>
+      </S.SubWrapper>
+      <S.Divider />
+      <S.SubWrapper>
+        <S.RightWrapper alignEnd>
+          <S.Text fontSize="1.1rem" color={color.primary} marginLeft>
+            Welcome
+          </S.Text>
+          <S.Text fontSize="1rem">CHRISTOPHER PETERSON</S.Text>
+        </S.RightWrapper>
+        <S.RightWrapper marginLeft>
+          <S.Image src={LogOut} height="30px" marginBottom />
+
+          <S.Text fontSize="0.9rem">LOG OUT</S.Text>
+        </S.RightWrapper>
+      </S.SubWrapper>
+
+      <MenuIcon onClick={showDrawer} />
+
+      <Drawer
+        placement="right"
+        closable={false}
+        onClose={onClose}
+        visible={visible}
+        width="300"
+        style={{ padding: "0", margin: "0" }}
+      >
+        <S.Text fontSize="1rem" color={color.primary}>
+          Welcome
+        </S.Text>
+        <S.Text fontSize="1rem">CHRISTOPHER PETERSON</S.Text>
+        <S.Text fontSize="0.8rem" marginBottom="20px">
+          Subscription Expires in 04 days
+        </S.Text>
+
+        {DashNavContent.map((content) => {
+          return (
+            <>
+              <S.MobileDivider />
+              <S.MenuWrapper
+                onClick={() => {
+                  if (content.subMenu.length === 0) {
+                    onClose();
+                    if (content.route) {
+                      history.push(content.route);
+                    }
+                  }
+                }}
+              >
+                {content.icon}
+                <S.MobileMenuText>{content.title}</S.MobileMenuText>
+              </S.MenuWrapper>
+              {content.subMenu.map((e) => {
+                return (
+                  <S.Text
+                    fontSize="0.9rem"
+                    marginBottom="5px"
+                    onClick={() => {
+                      onClose();
+                      if (e.route) {
+                        history.push(e.route);
+                      }
+                    }}
+                  >
+                    {e.title}
+                  </S.Text>
+                );
+              })}
+            </>
+          );
+        })}
+      </Drawer>
+    </S.Wrapper>
+  );
+};
 
 export default Header;
