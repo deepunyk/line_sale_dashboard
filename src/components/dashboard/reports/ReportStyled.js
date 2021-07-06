@@ -59,6 +59,20 @@ export const Row = styled.div`
   height: 80px;
   display: flex;
   align-items: center;
-  justify-content: space-around;
   background-color: whitesmoke;
+`;
+
+export const Button = styled.button`
+  padding: 6px 20px;
+  background-color: white;
+  color: ${color.primary};
+  border: 2px solid ${color.primary};
+  margin-left: auto;
+  margin-right: 20px;
+
+  &:hover {
+    cursor: pointer;
+    background-color: ${color.primary};
+    color: white;
+  }
 `;

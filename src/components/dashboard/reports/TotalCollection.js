@@ -22,10 +22,12 @@ function TotalCollection() {
         />
         <Dropdown label="Choose Product:" />
         <Dropdown label="Choose Sales Person:" />
+        <S.Button>Download</S.Button>
       </S.Row>
       <S.TableWrapper>
         <S.Table>
           <S.TableRow>
+            <S.TableHeader>Name</S.TableHeader>
             <S.TableHeader>Product Name</S.TableHeader>
             <S.TableHeader>Previous Pending</S.TableHeader>
             <S.TableHeader>Sales</S.TableHeader>
@@ -44,7 +46,18 @@ function TotalCollection() {
               20,
             ].map((e) => (
               <S.TableRow>
-                <S.TableData>Tata Sky</S.TableData>
+                <S.TableData>John Smith</S.TableData>
+                <S.TableData>
+                  <span>
+                    <img
+                      src="https://assetscdn1.paytm.com/images/catalog/operators/1564383375048.png"
+                      height="20"
+                      width="20"
+                      style={{ marginRight: "6px" }}
+                    />
+                    Tata Sky
+                  </span>
+                </S.TableData>
                 <S.TableData>10.0</S.TableData>
                 <S.TableData>10.0</S.TableData>
                 <S.TableData>10.0</S.TableData>

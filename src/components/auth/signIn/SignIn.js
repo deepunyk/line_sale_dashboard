@@ -15,10 +15,16 @@ const SignIn = () => {
   const [isEmail, updateEmail] = useState(true);
 
   const userSignIn = () => {
-    post(`${apiUrl}authentication/companylogin`, {
-      mobileNumber: phone,
-      otp: password,
-    })
+    post(
+      `${apiUrl}authentication/companylogin`,
+      {
+        mobileNumber: phone,
+        otp: password,
+      },
+      {
+        headers: { "Access-Control-Allow-Origin": "*" },
+      }
+    )
       .then((result) => {
         if (result) {
           setPhone("");
