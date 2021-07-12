@@ -8,18 +8,15 @@ function TotalCollection() {
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
   const [loading, setLoading] = useState(true);
+  const [data, setdata] = useState(null);
+
+  const getData = async () => {
+    let response = await API.get("report/TotalCollectionReport?startDate=2021-06-02&endDate=2021-07-02");
+    setdata(response.data.data.results);
+  };
 
   useEffect(() => {
-    API.get(`report/TotalCollectionReport?startDate=2021-06-02&endDate=2021-07-02`, {
-      headers: {
-        Authorization: localStorage.getItem("token"),
-        "Content-Type": "application/json",
-      },
-    })
-      .then((result) => {
-        console.log(result.data);
-      })
-      .catch((err) => console.log(err));
+    getData();
   }, []);
 
   return (
@@ -31,52 +28,53 @@ function TotalCollection() {
         <Dropdown label="Choose Sales Person:" />
         <S.Button>Download</S.Button>
       </S.Row>
-      <S.TableWrapper>
-        <S.Table>
-          <S.TableRow>
-            <S.TableHeader>Name</S.TableHeader>
-            <S.TableHeader>Product Name</S.TableHeader>
-            <S.TableHeader>Previous Pending</S.TableHeader>
-            <S.TableHeader>Sales</S.TableHeader>
-            <S.TableHeader>Cash Collection</S.TableHeader>
-            <S.TableHeader>Bank Collection</S.TableHeader>
-            <S.TableHeader>Total Collection</S.TableHeader>
-            <S.TableHeader>Net Pending</S.TableHeader>
-            <S.TableHeader>Open Quantity</S.TableHeader>
-            <S.TableHeader>Transfer Quantity</S.TableHeader>
-            <S.TableHeader>Sales Quantity</S.TableHeader>
-            <S.TableHeader>Closing Quantity</S.TableHeader>
-          </S.TableRow>
-          <S.TableBody>
-            {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20].map((e) => (
-              <S.TableRow>
-                <S.TableData>John Smith</S.TableData>
-                <S.TableData>
-                  <span>
-                    <img
-                      src="https://assetscdn1.paytm.com/images/catalog/operators/1564383375048.png"
-                      height="20"
-                      width="20"
-                      style={{ marginRight: "6px" }}
-                    />
-                    Tata Sky
-                  </span>
-                </S.TableData>
-                <S.TableData>10.0</S.TableData>
-                <S.TableData>10.0</S.TableData>
-                <S.TableData>10.0</S.TableData>
-                <S.TableData>10.0</S.TableData>
-                <S.TableData>10.0</S.TableData>
-                <S.TableData>10.0</S.TableData>
-                <S.TableData>10.0</S.TableData>
-                <S.TableData>10.0</S.TableData>
-                <S.TableData>10.0</S.TableData>
-                <S.TableData>10.0</S.TableData>
-              </S.TableRow>
-            ))}
-          </S.TableBody>
-        </S.Table>
-      </S.TableWrapper>
+      {data ? (
+        <S.TableWrapper>
+          <S.Table>
+            <S.TableRow>
+              <S.TableHeader>Name</S.TableHeader>
+              <S.TableHeader>Product Name</S.TableHeader>
+              <S.TableHeader>Previous Pending</S.TableHeader>
+              <S.TableHeader>Sales</S.TableHeader>
+              <S.TableHeader>Cash Collection</S.TableHeader>
+              <S.TableHeader>Bank Collection</S.TableHeader>
+              <S.TableHeader>Total Collection</S.TableHeader>
+              <S.TableHeader>Net Pending</S.TableHeader>
+              <S.TableHeader>Open Quantity</S.TableHeader>
+              <S.TableHeader>Transfer Quantity</S.TableHeader>
+              <S.TableHeader>Sales Quantity</S.TableHeader>
+              <S.TableHeader>Closing Quantity</S.TableHeader>
+            </S.TableRow>
+            <S.TableBody>
+              {data.map((e) =>
+                e.collection.map((collection, index) => (
+                  <S.TableRow>
+                    <S.TableData >{e.salespersonName}</S.TableData>
+                    <S.TableData>
+                      <span>
+                        <img src={collection.image} height="20" width="20" style={{ marginRight: "6px" }} />
+                        Tata Sky
+                      </span>
+                    </S.TableData>
+                    <S.TableData>{collection.previousPending}</S.TableData>
+                    <S.TableData>{collection.sales}</S.TableData>
+                    <S.TableData>{collection.cashCollection}</S.TableData>
+                    <S.TableData>{collection.bankCollection}</S.TableData>
+                    <S.TableData>{collection.totalCollection}</S.TableData>
+                    <S.TableData>{collection.netPending}</S.TableData>
+                    <S.TableData>{collection.openingQuantity}</S.TableData>
+                    <S.TableData>{collection.transferQuantity}</S.TableData>
+                    <S.TableData>{collection.salesQuantity}</S.TableData>
+                    <S.TableData>{collection.closingQuantity}</S.TableData>
+                  </S.TableRow>
+                ))
+              )}
+            </S.TableBody>
+          </S.Table>
+        </S.TableWrapper>
+      ) : (
+        <div />
+      )}
     </S.Wrapper>
   );
 }

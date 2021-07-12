@@ -4,6 +4,7 @@ import color from "../../../constants/color";
 export const Wrapper = styled.div`
   width: 100%;
   height: 100%;
+  padding: 0px 20px;
   display: flex;
   flex-direction: column;
 `;
@@ -26,7 +27,7 @@ export const TableBody = styled.tbody`
 
 export const TableHeader = styled.th`
   padding: 6px;
-  background-color: ${color.primary};
+  background-color: ${color.greyShade2};
   color: white;
   font-weight: 400;
   border: 1px solid whitesmoke;
@@ -59,7 +60,6 @@ export const Row = styled.div`
   height: 80px;
   display: flex;
   align-items: center;
-  background-color: whitesmoke;
 `;
 
 export const Button = styled.button`
