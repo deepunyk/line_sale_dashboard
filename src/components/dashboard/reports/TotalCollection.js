@@ -7,6 +7,7 @@ import API from "../../../utils/Api";
 function TotalCollection() {
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     API.get(
