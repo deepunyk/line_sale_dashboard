@@ -8,6 +8,8 @@ export default axios.create({
   baseURL: apiUrl,
   headers: {
     "Access-Control-Allow-Origin": "*",
+    "Content-Type": "application/json",
+    Token: "YWQ5ZDA3MmM5YmVmM2NlMjA2ZWUxYjc5ZDE1NWYxZmEjIzEwMDAwMDAwMDE=",
   },
 });
 

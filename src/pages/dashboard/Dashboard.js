@@ -7,16 +7,9 @@ import PlansPage from "../plans/Plans";
 
 import Footer from "../../components/footer/Footer";
 import TotalCollection from "../../components/dashboard/reports/TotalCollection";
-import API from "../../utils/Api";
 
 const DashboardPage = (props) => {
   const [page, setPage] = useState(0);
-
-  useEffect(() => {
-    API.get("dashboard/Company", {})
-      .then((result) => console.log(result))
-      .catch((e) => console.log(e));
-  }, []);
 
   const pages = [<Home />, <TotalCollection />];
 
@@ -31,7 +24,7 @@ const DashboardPage = (props) => {
       return (
         <S.SubWrapper>
           <Navbar updateIndex={updatePage} />
-          {pages[page]}
+          {pages[props.index]}
         </S.SubWrapper>
       );
     }

@@ -10,14 +10,12 @@ function TotalCollection() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    API.get(
-      `report/TotalCollectionReport?startDate=2021-06-02&endDate=2021-07-02`,
-      {
-        headers: {
-          Token: localStorage.getItem("token"),
-        },
-      }
-    )
+    API.get(`report/TotalCollectionReport?startDate=2021-06-02&endDate=2021-07-02`, {
+      headers: {
+        Authorization: localStorage.getItem("token"),
+        "Content-Type": "application/json",
+      },
+    })
       .then((result) => {
         console.log(result.data);
       })
@@ -27,16 +25,8 @@ function TotalCollection() {
   return (
     <S.Wrapper>
       <S.Row>
-        <SelectDate
-          label="From Date:"
-          date={startDate}
-          changeDate={(date) => setStartDate(date)}
-        />
-        <SelectDate
-          label="To Date:"
-          date={endDate}
-          changeDate={(date) => setEndDate(date)}
-        />
+        <SelectDate label="From Date:" date={startDate} changeDate={(date) => setStartDate(date)} />
+        <SelectDate label="To Date:" date={endDate} changeDate={(date) => setEndDate(date)} />
         <Dropdown label="Choose Product:" />
         <Dropdown label="Choose Sales Person:" />
         <S.Button>Download</S.Button>
@@ -58,10 +48,7 @@ function TotalCollection() {
             <S.TableHeader>Closing Quantity</S.TableHeader>
           </S.TableRow>
           <S.TableBody>
-            {[
-              1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19,
-              20,
-            ].map((e) => (
+            {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20].map((e) => (
               <S.TableRow>
                 <S.TableData>John Smith</S.TableData>
                 <S.TableData>

@@ -8,17 +8,13 @@ const Navbar = (props) => {
   return (
     <S.Wrapper>
       <S.Head>USERS</S.Head>
-      <S.SubHead onClick={() => history.push("/home/plans")}>
-        Upgrade Plan
-      </S.SubHead>
+      <S.SubHead onClick={() => history.push("/home/plans")}>Upgrade Plan</S.SubHead>
       <S.SubHead>Renew Plan</S.SubHead>
       <S.SubHead>Retailer</S.SubHead>
       <S.SubHead>Change Password</S.SubHead>
       <S.SubHead>Print Bill</S.SubHead>
       <S.Head>REPORTS</S.Head>
-      <S.SubHead onClick={() => props.updateIndex(1)}>
-        Total Collection
-      </S.SubHead>
+      <S.SubHead onClick={() => history.push("/home/total-collection")}>Total Collection</S.SubHead>
       <S.SubHead>Daily Sales</S.SubHead>
       <S.SubHead>Sales-person wise Report</S.SubHead>
       <S.SubHead>Product wise</S.SubHead>
