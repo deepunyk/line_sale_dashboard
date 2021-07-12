@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import * as S from "./HeaderStyled";
 import Logo from "../../../assets/illustrations/logo.png";
 import Dashboard from "../../../assets/icons/dashboard.svg";
@@ -11,6 +11,8 @@ import { useHistory } from "react-router";
 import { Menu as MenuStyled } from "@styled-icons/boxicons-regular/Menu";
 import DashNavContent from "../../../constants/DashNavContent";
 import { Drawer, Menu } from "antd";
+import API from "../../../utils/Api";
+import dateFormat from "dateformat";
 
 const { SubMenu } = Menu;
 
@@ -28,7 +30,7 @@ const Header = () => {
   let history = useHistory();
 
   const [visible, setVisible] = useState(false);
-
+  const [days, setdays] = useState("0");
   const showDrawer = () => {
     setVisible(true);
   };
@@ -37,13 +39,27 @@ const Header = () => {
     setVisible(false);
   };
 
-  const handleClick = (e) => {
-    console.log("click ", e);
+  const getCurrentPlan = async () => {
+    const response = await API.get("company/CurrentPlan");
+    let expiryDate = response.data.data.expiryDate;
+    expiryDate = expiryDate.replaceAll("-", "/");
+    // expiryDate = expiryDate.substring(8) + "/" + expiryDate.substring(5, 7) + "/" + expiryDate.substring(0, 4);
+
+    const date1 = new Date();
+    const date2 = new Date(dateFormat(expiryDate, "mm/dd/yyyy"));
+
+    const diffInMs = Math.abs(date2 - date1);
+
+    setdays(Math.ceil(diffInMs / (1000 * 60 * 60 * 24)));
   };
 
-  const MenuItems = DashNavContent.map((e) => {
-    return <p>{e.title}</p>;
-  });
+  useEffect(() => {
+    getCurrentPlan();
+  }, []);
+
+  const logout = () => {
+    history.push("/");
+  };
 
   return (
     <S.Wrapper>
@@ -58,7 +74,7 @@ const Header = () => {
       </S.SubWrapper>
       <S.Divider />
       <S.SubWrapper>
-        <S.Text fontSize="1.2rem">Subscription Expires in 04 days</S.Text>
+        <S.Text fontSize="1.2rem">Subscription Expires in {days} days</S.Text>
       </S.SubWrapper>
       <S.Divider />
       <S.SubWrapper>
@@ -69,9 +85,11 @@ const Header = () => {
           <S.Text fontSize="1rem">{localStorage.getItem("name")}</S.Text>
         </S.RightWrapper>
         <S.RightWrapper marginLeft>
-          <S.Image src={LogOut} height="30px" marginBottom />
+          <S.Image src={LogOut} height="30px" marginBottom onClick={() => logout()} />
 
-          <S.Text fontSize="0.9rem">LOG OUT</S.Text>
+          <S.Text fontSize="0.9rem" onClick={() => logout()}>
+            LOG OUT
+          </S.Text>
         </S.RightWrapper>
       </S.SubWrapper>
 
@@ -81,9 +99,9 @@ const Header = () => {
         <S.Text fontSize="1rem" color={color.primary}>
           Welcome
         </S.Text>
-        <S.Text fontSize="1rem">CHRISTOPHER PETERSON</S.Text>
+        <S.Text fontSize="1rem">{localStorage.getItem("name")}</S.Text>
         <S.Text fontSize="0.8rem" marginBottom="20px">
-          Subscription Expires in 04 days
+          Subscription Expires in {days} days
         </S.Text>
 
         {DashNavContent.map((content) => {
