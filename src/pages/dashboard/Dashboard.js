@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import * as S from "./DashboardStyled";
 import Header from "../../components/dashboard/header/Header";
 import Navbar from "../../components/dashboard/navBar/Navbar";
@@ -7,9 +7,16 @@ import PlansPage from "../plans/Plans";
 
 import Footer from "../../components/footer/Footer";
 import TotalCollection from "../../components/dashboard/reports/TotalCollection";
+import API from "../../utils/Api";
 
 const DashboardPage = (props) => {
   const [page, setPage] = useState(0);
+
+  useEffect(() => {
+    API.get("dashboard/Company", {})
+      .then((result) => console.log(result))
+      .catch((e) => console.log(e));
+  }, []);
 
   const pages = [<Home />, <TotalCollection />];
 
