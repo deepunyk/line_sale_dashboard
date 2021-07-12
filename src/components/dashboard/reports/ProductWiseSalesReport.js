@@ -4,7 +4,7 @@ import SelectDate from "../filter/SelectDate";
 import Dropdown from "../filter/Dropdown";
 import API from "../../../utils/Api";
 
-function TotalCollection() {
+function ProductWiseSalesReport() {
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
   const [loading, setLoading] = useState(true);
@@ -12,7 +12,7 @@ function TotalCollection() {
 
   const getData = async () => {
     let response = await API.get(
-      "report/TotalCollectionReport?startDate=2021-06-02&endDate=2021-07-02"
+      "report/ProductwiseSalesReport?startDate=2021-06-02&endDate=2021-07-02"
     );
     setdata(response.data.data.results);
   };
@@ -42,45 +42,43 @@ function TotalCollection() {
         <S.TableWrapper>
           <S.Table>
             <S.TableRow>
-              <S.TableHeader>Name</S.TableHeader>
               <S.TableHeader>Product Name</S.TableHeader>
-              <S.TableHeader>Previous Pending</S.TableHeader>
-              <S.TableHeader>Sales</S.TableHeader>
-              <S.TableHeader>Cash Collection</S.TableHeader>
-              <S.TableHeader>Bank Collection</S.TableHeader>
-              <S.TableHeader>Total Collection</S.TableHeader>
-              <S.TableHeader>Net Pending</S.TableHeader>
-              <S.TableHeader>Open Quantity</S.TableHeader>
-              <S.TableHeader>Transfer Quantity</S.TableHeader>
+              <S.TableHeader>Product Sales Quantity</S.TableHeader>
+              <S.TableHeader>Product Sales Amount</S.TableHeader>
+              <S.TableHeader>Salesperson Name</S.TableHeader>
               <S.TableHeader>Sales Quantity</S.TableHeader>
-              <S.TableHeader>Closing Quantity</S.TableHeader>
+              <S.TableHeader>Sales Amount</S.TableHeader>
             </S.TableRow>
             <S.TableBody>
               {data.map((e) =>
-                e.collection.map((collection, index) => (
+                e.salesperson.map((salesPerson, index) => (
                   <S.TableRow>
-                    <S.TableData>{e.salespersonName}</S.TableData>
                     <S.TableData>
                       <span>
                         <img
-                          src={collection.image}
+                          src={e.image}
                           height="20"
                           width="20"
                           style={{ marginRight: "6px" }}
                         />
-                        {collection.productName}
+                        {e.productName}
                       </span>
                     </S.TableData>
-                    <S.TableData>{collection.previousPending}</S.TableData>
-                    <S.TableData>{collection.sales}</S.TableData>
-                    <S.TableData>{collection.cashCollection}</S.TableData>
-                    <S.TableData>{collection.bankCollection}</S.TableData>
-                    <S.TableData>{collection.totalCollection}</S.TableData>
-                    <S.TableData>{collection.netPending}</S.TableData>
-                    <S.TableData>{collection.openingQuantity}</S.TableData>
-                    <S.TableData>{collection.transferQuantity}</S.TableData>
-                    <S.TableData>{collection.salesQuantity}</S.TableData>
-                    <S.TableData>{collection.closingQuantity}</S.TableData>
+                    <S.TableData>{e.salesQuantity}</S.TableData>
+                    <S.TableData>{e.salesAmount}</S.TableData>
+                    <S.TableData>
+                      <span>
+                        <img
+                          src={salesPerson.image}
+                          height="20"
+                          width="20"
+                          style={{ marginRight: "6px" }}
+                        />
+                        {salesPerson.salespersonName}
+                      </span>
+                    </S.TableData>
+                    <S.TableData>{salesPerson.salesQuantity}</S.TableData>
+                    <S.TableData>{salesPerson.salesAmount}</S.TableData>
                   </S.TableRow>
                 ))
               )}
@@ -94,4 +92,4 @@ function TotalCollection() {
   );
 }
 
-export default TotalCollection;
+export default ProductWiseSalesReport;
