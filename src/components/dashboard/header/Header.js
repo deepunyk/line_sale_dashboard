@@ -66,7 +66,7 @@ const Header = () => {
           <S.Text fontSize="1.1rem" color={color.primary} marginLeft>
             Welcome
           </S.Text>
-          <S.Text fontSize="1rem">CHRISTOPHER PETERSON</S.Text>
+          <S.Text fontSize="1rem">{localStorage.getItem("name")}</S.Text>
         </S.RightWrapper>
         <S.RightWrapper marginLeft>
           <S.Image src={LogOut} height="30px" marginBottom />
@@ -77,14 +77,7 @@ const Header = () => {
 
       <MenuIcon onClick={showDrawer} />
 
-      <Drawer
-        placement="right"
-        closable={false}
-        onClose={onClose}
-        visible={visible}
-        width="300"
-        style={{ padding: "0", margin: "0" }}
-      >
+      <Drawer placement="right" closable={false} onClose={onClose} visible={visible} width="300" style={{ padding: "0", margin: "0" }}>
         <S.Text fontSize="1rem" color={color.primary}>
           Welcome
         </S.Text>
