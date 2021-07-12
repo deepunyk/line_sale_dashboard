@@ -16,10 +16,9 @@ import SalesPersonWiseOutstandingReport from "../../components/dashboard/reports
 import ProductWiseOutstandingReport from "../../components/dashboard/reports/ProductWiseOutstandingReport";
 import StockReport from "../../components/dashboard/reports/StockReport";
 import SalesPersonWiseLedger from "../../components/dashboard/reports/SalesPersonWiseLedger";
+import Retailer from "../../components/dashboard/retailer/Retailer";
 
 const DashboardPage = (props) => {
-  const [page, setPage] = useState(0);
-
   const pages = [
     <Home />,
     <TotalCollection />,
@@ -32,11 +31,8 @@ const DashboardPage = (props) => {
     <ProductWiseOutstandingReport />,
     <StockReport />,
     <SalesPersonWiseLedger />,
+    <Retailer />,
   ];
-
-  const updatePage = (e) => {
-    setPage(e);
-  };
 
   const getSection = () => {
     if (props.type === "plan") {
@@ -44,7 +40,7 @@ const DashboardPage = (props) => {
     } else {
       return (
         <S.SubWrapper>
-          <Navbar updateIndex={updatePage} />
+          <Navbar />
           {pages[props.index]}
         </S.SubWrapper>
       );

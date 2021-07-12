@@ -15,6 +15,17 @@ export const TableWrapper = styled.div`
   display: flex;
   flex-direction: column;
   overflow-y: auto;
+  ::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0);
+    background-color: transparent;
+  }
+  ::-webkit-scrollbar {
+    width: 4px;
+    background-color: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background-color: ${color.greyShade2};
+  }
 `;
 
 export const Table = styled.table`
