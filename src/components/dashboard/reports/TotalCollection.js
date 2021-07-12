@@ -1,11 +1,27 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import * as S from "./ReportStyled";
 import SelectDate from "../filter/SelectDate";
 import Dropdown from "../filter/Dropdown";
+import API from "../../../utils/Api";
 
 function TotalCollection() {
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
+
+  useEffect(() => {
+    API.get(
+      `report/TotalCollectionReport?startDate=2021-06-02&endDate=2021-07-02`,
+      {
+        headers: {
+          Token: localStorage.getItem("token"),
+        },
+      }
+    )
+      .then((result) => {
+        console.log(result.data);
+      })
+      .catch((err) => console.log(err));
+  }, []);
 
   return (
     <S.Wrapper>
