@@ -57,9 +57,10 @@ const Header = () => {
   }, []);
 
   const logout = async () => {
-    await API.get("authentication/logout", { headers: { Token: localStorage.getItem("token") } });
-
-    history.push("/");
+    try {
+      let response = await API.get("authentication/logout", { headers: { Token: localStorage.getItem("token") } });
+      history.push("/");
+    } catch (e) {}
   };
 
   return (

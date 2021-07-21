@@ -13,6 +13,12 @@ const ChangePasswordModal = (props) => {
   const [conPass, setconPass] = useState("");
   const [load, setload] = useState(false);
 
+  useEffect(() => {
+    setold("");
+    setnewPass("");
+    setconPass("");
+  }, [props.modalIsOpen]);
+
   const changePassword = async () => {
     if (!old || !newPass || !conPass) {
       toast("Please enter all the details");
@@ -22,8 +28,18 @@ const ChangePasswordModal = (props) => {
       return;
     } else {
       setload(true);
-      // await API.get("authentication/logout", { headers: { Token: localStorage.getItem("token") } });
+      let response = await API.get(
+        "user/changepassword",
+        {
+          oldPassword: old,
+          newPassword: newPass,
+        },
+        { headers: { Token: localStorage.getItem("token") } }
+      );
+      console.log(response);
       setload(false);
+      toast("Passwords updated", { position: "top-left" });
+      props.setIsOpen(false);
     }
   };
 

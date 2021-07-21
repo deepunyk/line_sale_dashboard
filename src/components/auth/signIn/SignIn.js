@@ -8,8 +8,10 @@ import API from "../../../utils/Api";
 import Loader from "../../common/loader";
 
 const SignIn = () => {
-  const [phone, setPhone] = useState(9845399724);
-  const [password, setPassword] = useState(999999);
+  // const [phone, setPhone] = useState(9845399724);
+  // const [password, setPassword] = useState(999999);
+  const [phone, setPhone] = useState("");
+  const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState("");
 
