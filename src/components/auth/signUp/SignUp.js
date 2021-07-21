@@ -3,6 +3,7 @@ import * as S from "./SignUpStyled";
 import * as C from "../../common/common";
 import { useHistory } from "react-router";
 import API from "../../../utils/Api";
+import OtpModal from "./OtpModal";
 
 const SignUp = () => {
   let history = useHistory();
@@ -18,8 +19,41 @@ const SignUp = () => {
     state: "",
     pincode: "",
   });
+  const [modalIsOpen, setIsOpen] = useState(false);
 
   const marginRight = "0";
+
+  const signUp = () => {
+    API.post(`authentication/createcompany`, {
+      companyCode: data.phone,
+      companyName: data.company,
+      address1: data.addressOne,
+      address2: data.addressTwo,
+      email: data.email,
+      website: data.website,
+      city: data.city,
+      state: data.state,
+      pincode: data.pincode,
+    })
+      .then((result) => {
+        console.log(result);
+        if (result) {
+          setData({
+            company: "",
+            addressOne: "",
+            addressTwo: "",
+            phone: "",
+            email: "",
+            website: "",
+            city: "",
+            state: "",
+            pincode: "",
+          });
+          history.push("/login");
+        }
+      })
+      .catch((err) => console.log(err));
+  };
 
   const submitForm = () => {
     if (
@@ -33,35 +67,8 @@ const SignUp = () => {
     )
       setMessage("Please add all the required fields");
     else {
-      API.post(`authentication/createcompany`, {
-        companyCode: data.phone,
-        companyName: data.company,
-        address1: data.addressOne,
-        address2: data.addressTwo,
-        email: data.email,
-        website: data.website,
-        city: data.city,
-        state: data.state,
-        pincode: data.pincode,
-      })
-        .then((result) => {
-          console.log(result);
-          if (result) {
-            setData({
-              company: "",
-              addressOne: "",
-              addressTwo: "",
-              phone: "",
-              email: "",
-              website: "",
-              city: "",
-              state: "",
-              pincode: "",
-            });
-            history.push("/login");
-          }
-        })
-        .catch((err) => console.log(err));
+      setIsOpen(true);
+      <OtpModal modalIsOpen={modalIsOpen} setIsOpen={setIsOpen} />;
     }
   };
 
@@ -152,7 +159,7 @@ const SignUp = () => {
         </S.SubHead>
         <S.InputField
           placeholder="Enter your Pincode"
-          value={data.addressOne}
+          value={data.pincode}
           onChange={(e) => setData({ ...data, pincode: e.target.value })}
         />
       </S.SubWrapper>
