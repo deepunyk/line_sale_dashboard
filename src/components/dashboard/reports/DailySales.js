@@ -5,6 +5,9 @@ import Dropdown from "../filter/Dropdown";
 import API from "../../../utils/Api";
 import dateFormat from "dateformat";
 import Loader from "../../common/loader";
+import ReactHTMLTableToExcel from "react-html-table-to-excel";
+import "./style.css";
+
 function DailySales() {
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
@@ -29,8 +32,14 @@ function DailySales() {
     if (init) {
       let salesResponse = await API.get(`salesperson/SalesPersonAll`);
       let prodResponse = await API.get(`product/productall`);
-      setSalesPersonData([{ salespersonName: "All" }, ...salesResponse.data.data.results]);
-      setProductData([{ productName: "All" }, ...prodResponse.data.data.results]);
+      setSalesPersonData([
+        { salespersonName: "All" },
+        ...salesResponse.data.data.results,
+      ]);
+      setProductData([
+        { productName: "All" },
+        ...prodResponse.data.data.results,
+      ]);
     }
     setdata(response.data.data.results);
     setLoading(false);
@@ -47,8 +56,16 @@ function DailySales() {
   return (
     <S.Wrapper>
       <S.Row>
-        <SelectDate label="From Date:" date={startDate} changeDate={(date) => setStartDate(date)} />
-        <SelectDate label="To Date:" date={endDate} changeDate={(date) => setEndDate(date)} />
+        <SelectDate
+          label="From Date:"
+          date={startDate}
+          changeDate={(date) => setStartDate(date)}
+        />
+        <SelectDate
+          label="To Date:"
+          date={endDate}
+          changeDate={(date) => setEndDate(date)}
+        />
         {productData && (
           <Dropdown
             label="Choose Product:"
@@ -56,7 +73,10 @@ function DailySales() {
               setProdIndex(index);
             }}
             selectedItem={prodIndex}
-            options={productData.map((e, index) => ({ value: index, title: e.productName }))}
+            options={productData.map((e, index) => ({
+              value: index,
+              title: e.productName,
+            }))}
           />
         )}
 
@@ -67,16 +87,26 @@ function DailySales() {
               setSalesIndex(index);
             }}
             selectedItem={salesIndex}
-            options={salesPersonData.map((e, index) => ({ value: index, title: e.salespersonName }))}
+            options={salesPersonData.map((e, index) => ({
+              value: index,
+              title: e.salespersonName,
+            }))}
           />
         )}
-        <S.Button>Download</S.Button>
+        <ReactHTMLTableToExcel
+          id="download-button"
+          className="download"
+          table="reports"
+          filename="reports"
+          sheet="report"
+          buttonText="Download"
+        />
       </S.Row>
       {loading ? (
         <Loader />
       ) : (
         <S.TableWrapper>
-          <S.Table>
+          <S.Table id="reports">
             <S.TableRow>
               <S.TableHeader>Date</S.TableHeader>
               <S.TableHeader>Product Name</S.TableHeader>
@@ -90,7 +120,12 @@ function DailySales() {
                     <S.TableData>{e.date}</S.TableData>
                     <S.TableData>
                       <span>
-                        <img src={sale.image} height="20" width="20" style={{ marginRight: "6px" }} />
+                        <img
+                          src={sale.image}
+                          height="20"
+                          width="20"
+                          style={{ marginRight: "6px" }}
+                        />
                         {sale.productName}
                       </span>
                     </S.TableData>

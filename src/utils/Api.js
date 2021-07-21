@@ -9,7 +9,7 @@ export default axios.create({
   headers: {
     "Access-Control-Allow-Origin": "*",
     "Content-Type": "application/json",
-    Token: "YWQ5ZDA3MmM5YmVmM2NlMjA2ZWUxYjc5ZDE1NWYxZmEjIzEwMDAwMDAwMDE=",
+    Token: "NjVjMzFkZmU4ZGY3ZWIyN2IyMDAxNzkwMGYzMjU5NjQjIzEwMDAwMDAwMDE=",
   },
 });
 

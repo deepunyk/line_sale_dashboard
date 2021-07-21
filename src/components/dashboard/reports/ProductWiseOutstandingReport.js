@@ -5,50 +5,66 @@ import Dropdown from "../filter/Dropdown";
 import API from "../../../utils/Api";
 import dateFormat from "dateformat";
 import Loader from "../../common/loader";
+import ReactHTMLTableToExcel from "react-html-table-to-excel";
+import "./style.css";
 
 function ProductWiseOutstandingReport() {
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
   const [loading, setLoading] = useState(true);
   const [data, setdata] = useState(null);
-    const [productData, setProductData] = useState(null);
-    const [salesPersonData, setSalesPersonData] = useState(null);
-    const [prodIndex, setProdIndex] = useState(0);
-    const [salesIndex, setSalesIndex] = useState(0);
+  const [productData, setProductData] = useState(null);
+  const [salesPersonData, setSalesPersonData] = useState(null);
+  const [prodIndex, setProdIndex] = useState(0);
+  const [salesIndex, setSalesIndex] = useState(0);
 
-    const getData = async (init) => {
-      setLoading(true);
-      let response = await API.get(`report/ProductwiseOutstandingReport`, {
-        params: {
-          startDate: dateFormat(startDate, "yyyy-mm-dd"),
-          endDate: dateFormat(endDate, "yyyy-mm-dd"),
-          salespersonId: salesPersonData && salesPersonData[salesIndex].id,
-          productId: productData && productData[prodIndex].id,
-        },
-      });
-      if (init) {
-        let salesResponse = await API.get(`salesperson/SalesPersonAll`);
-        let prodResponse = await API.get(`product/productall`);
-        setSalesPersonData([{ salespersonName: "All" }, ...salesResponse.data.data.results]);
-        setProductData([{ productName: "All" }, ...prodResponse.data.data.results]);
-      }
-      setdata(response.data.data.results);
-      setLoading(false);
-    };
+  const getData = async (init) => {
+    setLoading(true);
+    let response = await API.get(`report/ProductwiseOutstandingReport`, {
+      params: {
+        startDate: dateFormat(startDate, "yyyy-mm-dd"),
+        endDate: dateFormat(endDate, "yyyy-mm-dd"),
+        salespersonId: salesPersonData && salesPersonData[salesIndex].id,
+        productId: productData && productData[prodIndex].id,
+      },
+    });
+    if (init) {
+      let salesResponse = await API.get(`salesperson/SalesPersonAll`);
+      let prodResponse = await API.get(`product/productall`);
+      setSalesPersonData([
+        { salespersonName: "All" },
+        ...salesResponse.data.data.results,
+      ]);
+      setProductData([
+        { productName: "All" },
+        ...prodResponse.data.data.results,
+      ]);
+    }
+    setdata(response.data.data.results);
+    setLoading(false);
+  };
 
-    useEffect(() => {
-      getData(true);
-    }, []);
+  useEffect(() => {
+    getData(true);
+  }, []);
 
-    useEffect(() => {
-      getData();
-    }, [startDate, endDate, prodIndex, salesIndex]);
+  useEffect(() => {
+    getData();
+  }, [startDate, endDate, prodIndex, salesIndex]);
 
   return (
     <S.Wrapper>
       <S.Row>
-        <SelectDate label="From Date:" date={startDate} changeDate={(date) => setStartDate(date)} />
-        <SelectDate label="To Date:" date={endDate} changeDate={(date) => setEndDate(date)} />
+        <SelectDate
+          label="From Date:"
+          date={startDate}
+          changeDate={(date) => setStartDate(date)}
+        />
+        <SelectDate
+          label="To Date:"
+          date={endDate}
+          changeDate={(date) => setEndDate(date)}
+        />
         {productData && (
           <Dropdown
             label="Choose Product:"
@@ -56,7 +72,10 @@ function ProductWiseOutstandingReport() {
               setProdIndex(index);
             }}
             selectedItem={prodIndex}
-            options={productData.map((e, index) => ({ value: index, title: e.productName }))}
+            options={productData.map((e, index) => ({
+              value: index,
+              title: e.productName,
+            }))}
           />
         )}
 
@@ -67,16 +86,26 @@ function ProductWiseOutstandingReport() {
               setSalesIndex(index);
             }}
             selectedItem={salesIndex}
-            options={salesPersonData.map((e, index) => ({ value: index, title: e.salespersonName }))}
+            options={salesPersonData.map((e, index) => ({
+              value: index,
+              title: e.salespersonName,
+            }))}
           />
         )}
-        <S.Button>Download</S.Button>
+        <ReactHTMLTableToExcel
+          id="download-button"
+          className="download"
+          table="reports"
+          filename="reports"
+          sheet="report"
+          buttonText="Download"
+        />
       </S.Row>
       {loading ? (
         <Loader />
       ) : (
         <S.TableWrapper>
-          <S.Table>
+          <S.Table id="reports">
             <S.TableRow>
               <S.TableHeader>Product Name</S.TableHeader>
               <S.TableHeader>Balance Amount</S.TableHeader>
@@ -89,14 +118,24 @@ function ProductWiseOutstandingReport() {
                   <S.TableRow>
                     <S.TableData>
                       <span>
-                        <img src={e.image} height="20" width="20" style={{ marginRight: "6px" }} />
+                        <img
+                          src={e.image}
+                          height="20"
+                          width="20"
+                          style={{ marginRight: "6px" }}
+                        />
                         {e.productName}
                       </span>
                     </S.TableData>
                     <S.TableData>{e.balanceAmount}</S.TableData>
                     <S.TableData>
                       <span>
-                        <img src={salesperson.image} height="20" width="20" style={{ marginRight: "6px" }} />
+                        <img
+                          src={salesperson.image}
+                          height="20"
+                          width="20"
+                          style={{ marginRight: "6px" }}
+                        />
                         {salesperson.salespersonName}
                       </span>
                     </S.TableData>

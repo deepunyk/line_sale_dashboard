@@ -5,6 +5,8 @@ import Dropdown from "../filter/Dropdown";
 import API from "../../../utils/Api";
 import dateFormat from "dateformat";
 import Loader from "../../common/loader";
+import ReactHTMLTableToExcel from "react-html-table-to-excel";
+import "./style.css";
 
 function TotalCollection() {
   const [startDate, setStartDate] = useState(new Date());
@@ -29,8 +31,14 @@ function TotalCollection() {
     if (init) {
       let salesResponse = await API.get(`salesperson/SalesPersonAll`);
       let prodResponse = await API.get(`product/productall`);
-      setSalesPersonData([{ salespersonName: "All" }, ...salesResponse.data.data.results]);
-      setProductData([{ productName: "All" }, ...prodResponse.data.data.results]);
+      setSalesPersonData([
+        { salespersonName: "All" },
+        ...salesResponse.data.data.results,
+      ]);
+      setProductData([
+        { productName: "All" },
+        ...prodResponse.data.data.results,
+      ]);
     }
     setdata(response.data.data.results);
     setLoading(false);
@@ -47,8 +55,16 @@ function TotalCollection() {
   return (
     <S.Wrapper>
       <S.Row>
-        <SelectDate label="From Date:" date={startDate} changeDate={(date) => setStartDate(date)} />
-        <SelectDate label="To Date:" date={endDate} changeDate={(date) => setEndDate(date)} />
+        <SelectDate
+          label="From Date:"
+          date={startDate}
+          changeDate={(date) => setStartDate(date)}
+        />
+        <SelectDate
+          label="To Date:"
+          date={endDate}
+          changeDate={(date) => setEndDate(date)}
+        />
         {productData && (
           <Dropdown
             label="Choose Product:"
@@ -56,7 +72,10 @@ function TotalCollection() {
               setProdIndex(index);
             }}
             selectedItem={prodIndex}
-            options={productData.map((e, index) => ({ value: index, title: e.productName }))}
+            options={productData.map((e, index) => ({
+              value: index,
+              title: e.productName,
+            }))}
           />
         )}
 
@@ -67,16 +86,26 @@ function TotalCollection() {
               setSalesIndex(index);
             }}
             selectedItem={salesIndex}
-            options={salesPersonData.map((e, index) => ({ value: index, title: e.salespersonName }))}
+            options={salesPersonData.map((e, index) => ({
+              value: index,
+              title: e.salespersonName,
+            }))}
           />
         )}
-        <S.Button>Download</S.Button>
+        <ReactHTMLTableToExcel
+          id="download-button"
+          className="download"
+          table="reports"
+          filename="reports"
+          sheet="report"
+          buttonText="Download"
+        />
       </S.Row>
       {loading ? (
         <Loader />
       ) : (
         <S.TableWrapper>
-          <S.Table>
+          <S.Table id="reports">
             <S.TableRow>
               <S.TableHeader>Name</S.TableHeader>
               <S.TableHeader>Product Name</S.TableHeader>
@@ -98,7 +127,12 @@ function TotalCollection() {
                     <S.TableData>{e.salespersonName}</S.TableData>
                     <S.TableData>
                       <span>
-                        <img src={collection.image} height="20" width="20" style={{ marginRight: "6px" }} />
+                        <img
+                          src={collection.image}
+                          height="20"
+                          width="20"
+                          style={{ marginRight: "6px" }}
+                        />
                         {collection.productName}
                       </span>
                     </S.TableData>
