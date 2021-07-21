@@ -12,7 +12,7 @@ const Navbar = (props) => {
       <S.SubHead>Renew Plan</S.SubHead>
       <S.SubHead onClick={() => history.push("/home/retailer")}>Retailer</S.SubHead>
       <S.SubHead>Change Password</S.SubHead>
-      <S.SubHead>Print Bill</S.SubHead>
+      {/* <S.SubHead>Print Bill</S.SubHead> */}
       <S.Head>REPORTS</S.Head>
       <S.SubHead onClick={() => history.push("/home/total-collection")}>Total Collection</S.SubHead>
       <S.SubHead onClick={() => history.push("/home/daily-sales")}>Daily Sales</S.SubHead>

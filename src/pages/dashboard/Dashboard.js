@@ -17,6 +17,7 @@ import ProductWiseOutstandingReport from "../../components/dashboard/reports/Pro
 import StockReport from "../../components/dashboard/reports/StockReport";
 import SalesPersonWiseLedger from "../../components/dashboard/reports/SalesPersonWiseLedger";
 import Retailer from "../../components/dashboard/retailer/Retailer";
+import RetailerBill from "../../components/dashboard/retailer/RetailerBill";
 
 const DashboardPage = (props) => {
   const pages = [
@@ -32,6 +33,7 @@ const DashboardPage = (props) => {
     <StockReport />,
     <SalesPersonWiseLedger />,
     <Retailer />,
+    <RetailerBill />,
   ];
 
   const getSection = () => {
