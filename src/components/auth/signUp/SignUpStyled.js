@@ -1,147 +1,135 @@
-import styled from 'styled-components';
-import color from '../../../constants/color';
+import styled from "styled-components";
+import color from "../../../constants/color";
 
 export const Wrapper = styled.div`
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.1), 0 1px 2px rgba(0,0,0,0.1);
-    border-radius: 10px;
-    transition: all 0.3s cubic-bezier(.2,.8,.1,1) ;
-    background-color: white;
-    width: 650px;
-    padding: 26px 60px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  transition: all 0.3s cubic-bezier(0.2, 0.8, 0.1, 1);
+  background-color: white;
+  width: 650px;
+  padding: 26px 60px;
 
-    @media only screen and (max-width: 600px) {
-        height: 80%;
-        width: 100%;
+  @media only screen and (max-width: 600px) {
+    height: 80%;
+    width: 100%;
 
-        overflow-y: auto;
-        margin: 40px 0;
-        padding: 26px 30px;
-
-    }
+    overflow-y: auto;
+    margin: 40px 0;
+    padding: 26px 30px;
+  }
 `;
 
 export const FormWrapper = styled.div`
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
 `;
 
 export const SubWrapper = styled.div`
-
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
-    align-items: center;
-    margin-bottom: 8px;
-    @media only screen and (max-width: 600px) {
-        flex-direction: column;
-        justify-content: center;
-
-    }
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  margin-bottom: 8px;
+  @media only screen and (max-width: 600px) {
+    flex-direction: column;
+    justify-content: center;
+  }
 `;
 
 export const Head = styled.div`
-    margin: 0;
-    margin-bottom: 20px;
-    color: black;
-    font-size: 1.4rem;
-    font-weight: 500;
+  margin: 0;
+  margin-bottom: 20px;
+  color: black;
+  font-size: 1.4rem;
+  font-weight: 500;
 `;
 
 export const SubHead = styled.div`
-    margin-right: 20px;
-    text-align: end;
-    font-weight: 400;
-    min-width: 130px;
-    color: ${color.primary};
-    font-size: 0.9rem;
+  margin-right: 20px;
+  text-align: end;
+  font-weight: 400;
+  min-width: 130px;
+  color: ${color.primary};
+  font-size: 0.9rem;
 
-    span{
-        color: red;
-    }
+  span {
+    color: red;
+  }
 
-    @media only screen and (max-width: 600px) {
-        display: none;
-
-    }
+  @media only screen and (max-width: 600px) {
+    display: none;
+  }
 `;
 
 export const NoteText = styled.h5`
-    font-weight: 400;
-    color: ${color.darkGrey};
-    margin: 1vh 0 2vh 150px ;
-    font-size: 0.8rem;
+  font-weight: 400;
+  color: ${color.darkGrey};
+  margin: 1vh 0 2vh 150px;
+  font-size: 0.8rem;
 
-    @media only screen and (max-width: 600px) {
-        margin: 0 0 20px;
-
-    }
+  @media only screen and (max-width: 600px) {
+    margin: 0 0 20px;
+  }
 `;
 
 export const InfoText = styled.h6`
-    position:absolute;
-    bottom: 105px;
-    left: 60px;;
-    font-weight: 400;
-    color: ${color.primaryDark};
-    
-    @media only screen and (max-width: 600px) {
-        display: none;
+  position: absolute;
+  bottom: 105px;
+  left: 60px;
+  font-weight: 400;
+  color: ${color.primaryDark};
 
-    }
-
+  @media only screen and (max-width: 600px) {
+    display: none;
+  }
 `;
 
 export const SignInText = styled.h6`
-    font-weight: 400;
-    color: ${color.darkGrey};
-    margin: 15px 0 0 0 ;
-    font-size: 0.8rem;
+  font-weight: 400;
+  color: ${color.darkGrey};
+  margin: 15px 0 0 0;
+  font-size: 0.8rem;
 
-    a{
-        color: red;
-        cursor: pointer;
-    }
-
+  a {
+    color: red;
+    cursor: pointer;
+  }
 `;
 
-
 export const InputField = styled.input`
-    width: 100%;
-    border: 0;
-    border: 1px solid ${color.grey};
-    padding: 0 10px;
-    font-size: 0.9rem;   
-    height: 30px;
+  width: 100%;
+  border: 0;
+  border: 1px solid ${color.grey};
+  padding: 0 10px;
+  font-size: 0.9rem;
+  height: 30px;
 
-    background-color: transparent;
+  background-color: transparent;
+  color: ${color.greyShade5};
+  font-weight: 500;
+
+  margin-right: ${(props) => props.marginRight ?? "0"};
+  transition: 0.5s;
+
+  ::placeholder {
     color: ${color.greyShade5};
     font-weight: 500;
-    
-    margin-right: ${props => props.marginRight ?? '0'};
-    transition: 0.5s;
+  }
+  &:focus {
+    background-color: white;
+    outline: none;
+    border: 1px solid ${color.primary};
+  }
 
-    ::placeholder{
-        color: ${color.greyShade5};
-        font-weight: 500;
-
-    }
-    &:focus{
-        background-color: white;
-        outline: none;
-        border: 1px solid ${color.primary};
-
-    }
-
-    @media only screen and (max-width: 600px) {
-        margin-right: 0;
-        margin-bottom: 10px;
-    }
-    
+  @media only screen and (max-width: 600px) {
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
 `;
