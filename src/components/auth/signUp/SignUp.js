@@ -56,24 +56,16 @@ const SignUp = () => {
   };
 
   const submitForm = () => {
-    if (
-      !data.company ||
-      !data.addressOne ||
-      !data.phone ||
-      !data.email ||
-      !data.city ||
-      !data.state ||
-      !data.pincode
-    )
+    if (!data.company || !data.addressOne || !data.phone || !data.email || !data.city || !data.state || !data.pincode)
       setMessage("Please add all the required fields");
     else {
       setIsOpen(true);
-      <OtpModal modalIsOpen={modalIsOpen} setIsOpen={setIsOpen} />;
     }
   };
 
   return (
     <S.Wrapper>
+      <OtpModal modalIsOpen={modalIsOpen} setIsOpen={setIsOpen} />
       <S.Head>Create Your Account</S.Head>
       <S.SubWrapper>
         <S.SubHead>
@@ -91,11 +83,7 @@ const SignUp = () => {
         <S.SubHead>
           Address<span>*</span>
         </S.SubHead>
-        <S.InputField
-          placeholder="Enter your Address"
-          value={data.addressOne}
-          onChange={(e) => setData({ ...data, addressOne: e.target.value })}
-        />
+        <S.InputField placeholder="Enter your Address" value={data.addressOne} onChange={(e) => setData({ ...data, addressOne: e.target.value })} />
       </S.SubWrapper>
       <S.SubWrapper>
         <S.SubHead>Alternate Address</S.SubHead>
@@ -109,66 +97,41 @@ const SignUp = () => {
         <S.SubHead>
           Phone<span>*</span>
         </S.SubHead>
-        <S.InputField
-          placeholder="Enter your phone number"
-          value={data.phone}
-          onChange={(e) => setData({ ...data, phone: e.target.value })}
-        />
+        <S.InputField placeholder="Enter your phone number" value={data.phone} onChange={(e) => setData({ ...data, phone: e.target.value })} />
       </S.SubWrapper>
       <S.SubWrapper>
         <S.SubHead>
           Email<span>*</span>
         </S.SubHead>
-        <S.InputField
-          placeholder="Enter your Email"
-          value={data.email}
-          onChange={(e) => setData({ ...data, email: e.target.value })}
-        />
+        <S.InputField placeholder="Enter your Email" value={data.email} onChange={(e) => setData({ ...data, email: e.target.value })} />
       </S.SubWrapper>
       <S.SubWrapper>
         <S.SubHead>Website</S.SubHead>
-        <S.InputField
-          placeholder="Enter your Website"
-          value={data.website}
-          onChange={(e) => setData({ ...data, website: e.target.value })}
-        />
+        <S.InputField placeholder="Enter your Website" value={data.website} onChange={(e) => setData({ ...data, website: e.target.value })} />
       </S.SubWrapper>
       <S.SubWrapper>
         <S.SubHead>
           City<span>*</span>
         </S.SubHead>
-        <S.InputField
-          placeholder="Enter your City"
-          value={data.city}
-          onChange={(e) => setData({ ...data, city: e.target.value })}
-        />
+        <S.InputField placeholder="Enter your City" value={data.city} onChange={(e) => setData({ ...data, city: e.target.value })} />
       </S.SubWrapper>
       <S.SubWrapper>
         <S.SubHead>
           State<span>*</span>
         </S.SubHead>
-        <S.InputField
-          placeholder="Enter your State"
-          value={data.state}
-          onChange={(e) => setData({ ...data, state: e.target.value })}
-        />
+        <S.InputField placeholder="Enter your State" value={data.state} onChange={(e) => setData({ ...data, state: e.target.value })} />
       </S.SubWrapper>
       <S.SubWrapper>
         <S.SubHead>
           Pincode<span>*</span>
         </S.SubHead>
-        <S.InputField
-          placeholder="Enter your Pincode"
-          value={data.pincode}
-          onChange={(e) => setData({ ...data, pincode: e.target.value })}
-        />
+        <S.InputField placeholder="Enter your Pincode" value={data.pincode} onChange={(e) => setData({ ...data, pincode: e.target.value })} />
       </S.SubWrapper>
       {message ? <p style={{ color: "red" }}>{message}</p> : null}
       <S.NoteText>
         Note:
         <br />
-        The password must contain min. 6 character, atleast 1 digit and atleast
-        1 special character. Example - LineSale@3
+        The password must contain min. 6 character, atleast 1 digit and atleast 1 special character. Example - LineSale@3
       </S.NoteText>
       <C.AuthButton type="button" onClick={submitForm}>
         Submit

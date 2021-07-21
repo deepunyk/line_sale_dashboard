@@ -43,7 +43,6 @@ const Header = () => {
     const response = await API.get("company/CurrentPlan");
     let expiryDate = response.data.data.expiryDate;
     expiryDate = expiryDate.replaceAll("-", "/");
-    // expiryDate = expiryDate.substring(8) + "/" + expiryDate.substring(5, 7) + "/" + expiryDate.substring(0, 4);
 
     const date1 = new Date();
     const date2 = new Date(dateFormat(expiryDate, "mm/dd/yyyy"));

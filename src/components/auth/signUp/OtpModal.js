@@ -5,10 +5,7 @@ import color from "../../../constants/color";
 
 const OtpModal = (props) => {
   return ReactDom.createPortal(
-    <S.Wrapper
-      onClick={() => props.setIsOpen(false)}
-      isOpen={props.modalIsOpen}
-    >
+    <S.Wrapper onClick={() => props.setIsOpen(false)} isOpen={props.modalIsOpen}>
       <S.Modal onClick={(e) => e.stopPropagation()}>
         <h1>HEY</h1>
       </S.Modal>
@@ -18,13 +15,3 @@ const OtpModal = (props) => {
 };
 
 export default OtpModal;
-
-{
-  /*
-    In file you call this modal, add this
-
-    const [modalIsOpen, setIsOpen] = useState(false);
-
-    <OtpModal modalIsOpen={modalIsOpen} setIsOpen={setIsOpen} />; 
-*/
-}
