@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import color from "../../constants/color";
-const Loader = ({ text }) => {
+const Loader = ({ text, size = "60px", thickness = "8px", height = "100%", width = "100%" }) => {
   const Wrapper = styled.div`
     position: relative;
     z-index: 10;
@@ -11,16 +11,16 @@ const Loader = ({ text }) => {
     justify-content: center;
     align-self: center;
     justify-self: center;
-    width: 100%;
-    height: 100%;
+    width: ${width};
+    height: ${height};
   `;
 
   const Loader = styled.div`
-    border: 8px solid ${color.greyShade4};
-    border-top: 8px solid ${color.grey};
+    border: ${thickness} solid ${color.greyShade4};
+    border-top: ${thickness} solid ${color.grey};
     border-radius: 50%;
-    width: 60px;
-    height: 60px;
+    width: ${size};
+    height: ${size};
     animation: spin 2s linear infinite;
     @keyframes spin {
       0% {

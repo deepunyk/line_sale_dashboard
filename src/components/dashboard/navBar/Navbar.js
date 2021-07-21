@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import * as S from "./NavbarStyled";
 import { useHistory } from "react-router-dom";
+import ChangePasswordModal from "../changePassword/ChangePassword";
 
 const Navbar = (props) => {
+  const [modalIsOpen, setIsOpen] = useState(false);
+
   let history = useHistory();
 
   return (
@@ -11,7 +14,7 @@ const Navbar = (props) => {
       <S.SubHead onClick={() => history.push("/home/plans")}>Upgrade Plan</S.SubHead>
       <S.SubHead>Renew Plan</S.SubHead>
       <S.SubHead onClick={() => history.push("/home/retailer")}>Retailer</S.SubHead>
-      <S.SubHead>Change Password</S.SubHead>
+      <S.SubHead onClick={() => setIsOpen(true)}>Change Password</S.SubHead>
       {/* <S.SubHead>Print Bill</S.SubHead> */}
       <S.Head>REPORTS</S.Head>
       <S.SubHead onClick={() => history.push("/home/total-collection")}>Total Collection</S.SubHead>
@@ -24,6 +27,7 @@ const Navbar = (props) => {
       <S.SubHead onClick={() => history.push("/home/product-wise-outstanding-report")}>Product wise outstanding</S.SubHead>
       <S.SubHead onClick={() => history.push("/home/stock-report")}>Stock</S.SubHead>
       <S.SubHead onClick={() => history.push("/home/sales-person-wise-ledger")}>Sales-person wise Ledger</S.SubHead>
+      <ChangePasswordModal modalIsOpen={modalIsOpen} setIsOpen={setIsOpen} />
     </S.Wrapper>
   );
 };
