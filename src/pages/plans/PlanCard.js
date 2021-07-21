@@ -9,7 +9,7 @@ const PlanCard = (props) => {
   let history = useHistory();
 
   const buyPlan = async () => {
-    await API.put("company/UpgradePlan", { planid: data.planId, plantype: data.planType });
+    await API.put("company/UpgradePlan", { planid: data.planId, plantype: data.planType }, { headers: { Token: localStorage.getItem("token") } });
     history.push("/home");
   };
 

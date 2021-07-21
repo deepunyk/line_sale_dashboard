@@ -40,7 +40,7 @@ const Header = () => {
   };
 
   const getCurrentPlan = async () => {
-    const response = await API.get("company/CurrentPlan");
+    const response = await API.get("company/CurrentPlan", { headers: { Token: localStorage.getItem("token") } });
     let expiryDate = response.data.data.expiryDate;
     expiryDate = expiryDate.replaceAll("-", "/");
 
@@ -57,7 +57,7 @@ const Header = () => {
   }, []);
 
   const logout = async () => {
-    // await API.get("authentication/logout");
+    await API.get("authentication/logout", { headers: { Token: localStorage.getItem("token") } });
 
     history.push("/");
   };

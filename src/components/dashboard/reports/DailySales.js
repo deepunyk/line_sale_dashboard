@@ -21,17 +21,22 @@ function DailySales() {
   const getData = async (init) => {
     setLoading(true);
 
-    let response = await API.get("report/DailySalesReport", {
-      params: {
-        startDate: dateFormat(startDate, "yyyy-mm-dd"),
-        endDate: dateFormat(endDate, "yyyy-mm-dd"),
-        salespersonId: salesPersonData && salesPersonData[salesIndex].id,
-        productId: productData && productData[prodIndex].id,
+    let response = await API.get(
+      "report/DailySalesReport",
+      {
+        params: {
+          startDate: dateFormat(startDate, "yyyy-mm-dd"),
+          endDate: dateFormat(endDate, "yyyy-mm-dd"),
+          salespersonId: salesPersonData && salesPersonData[salesIndex].id,
+          productId: productData && productData[prodIndex].id,
+        },
+        headers: { Token: localStorage.getItem("token") },
       },
-    });
+
+    );
     if (init) {
-      let salesResponse = await API.get(`salesperson/SalesPersonAll`);
-      let prodResponse = await API.get(`product/productall`);
+      let salesResponse = await API.get(`salesperson/SalesPersonAll`, { headers: { Token: localStorage.getItem("token") } });
+      let prodResponse = await API.get(`product/productall`, { headers: { Token: localStorage.getItem("token") } });
       setSalesPersonData([
         { salespersonName: "All" },
         ...salesResponse.data.data.results,

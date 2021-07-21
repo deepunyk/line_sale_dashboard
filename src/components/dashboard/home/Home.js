@@ -18,7 +18,7 @@ const Home = () => {
   const [data, setdata] = useState(null);
 
   const getData = async () => {
-    let response = await API.get("dashboard/Company");
+    let response = await API.get("dashboard/Company", { headers: { Token: localStorage.getItem("token") } });
     response = response.data.data;
     let tempData = [
       {
@@ -100,8 +100,8 @@ const Home = () => {
           <LayerOne data={data[1]} />
           <LayerOne data={data[2]} />
           <LayerOne data={data[3]} area={"details"} />
-                  <LayerTwo type={1} data={ data[4]}/>
-                  <LayerTwo type={2} data={data[5]}/>
+          <LayerTwo type={1} data={data[4]} />
+          <LayerTwo type={2} data={data[5]} />
         </S.Wrapper>
       ) : (
         <div />

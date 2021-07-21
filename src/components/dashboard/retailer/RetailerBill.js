@@ -15,7 +15,7 @@ const RetailerBill = () => {
   const getData = async () => {
     setLoading(true);
     let retailerId = location.state.id;
-    let response = await API.get(`RetailerBill/RetailerBillAll?retailerId=${retailerId}`);
+    let response = await API.get(`RetailerBill/RetailerBillAll?retailerId=${retailerId}`, { headers: { Token: localStorage.getItem("token") } });
     console.log(response);
     setdata(response.data.data.results);
     setLoading(false);

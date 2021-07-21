@@ -27,18 +27,13 @@ function TotalCollection() {
         salespersonId: salesPersonData && salesPersonData[salesIndex].id,
         productId: productData && productData[prodIndex].id,
       },
+      headers: { Token: localStorage.getItem("token") },
     });
     if (init) {
-      let salesResponse = await API.get(`salesperson/SalesPersonAll`);
-      let prodResponse = await API.get(`product/productall`);
-      setSalesPersonData([
-        { salespersonName: "All" },
-        ...salesResponse.data.data.results,
-      ]);
-      setProductData([
-        { productName: "All" },
-        ...prodResponse.data.data.results,
-      ]);
+      let salesResponse = await API.get(`salesperson/SalesPersonAll`, { headers: { Token: localStorage.getItem("token") } });
+      let prodResponse = await API.get(`product/productall`, { headers: { Token: localStorage.getItem("token") } });
+      setSalesPersonData([{ salespersonName: "All" }, ...salesResponse.data.data.results]);
+      setProductData([{ productName: "All" }, ...prodResponse.data.data.results]);
     }
     setdata(response.data.data.results);
     setLoading(false);
@@ -55,16 +50,8 @@ function TotalCollection() {
   return (
     <S.Wrapper>
       <S.Row>
-        <SelectDate
-          label="From Date:"
-          date={startDate}
-          changeDate={(date) => setStartDate(date)}
-        />
-        <SelectDate
-          label="To Date:"
-          date={endDate}
-          changeDate={(date) => setEndDate(date)}
-        />
+        <SelectDate label="From Date:" date={startDate} changeDate={(date) => setStartDate(date)} />
+        <SelectDate label="To Date:" date={endDate} changeDate={(date) => setEndDate(date)} />
         {productData && (
           <Dropdown
             label="Choose Product:"
@@ -92,14 +79,7 @@ function TotalCollection() {
             }))}
           />
         )}
-        <ReactHTMLTableToExcel
-          id="download-button"
-          className="download"
-          table="reports"
-          filename="reports"
-          sheet="report"
-          buttonText="Download"
-        />
+        <ReactHTMLTableToExcel id="download-button" className="download" table="reports" filename="reports" sheet="report" buttonText="Download" />
       </S.Row>
       {loading ? (
         <Loader />
@@ -127,12 +107,7 @@ function TotalCollection() {
                     <S.TableData>{e.salespersonName}</S.TableData>
                     <S.TableData>
                       <span>
-                        <img
-                          src={collection.image}
-                          height="20"
-                          width="20"
-                          style={{ marginRight: "6px" }}
-                        />
+                        <img src={collection.image} height="20" width="20" style={{ marginRight: "6px" }} />
                         {collection.productName}
                       </span>
                     </S.TableData>

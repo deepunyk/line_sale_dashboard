@@ -27,10 +27,11 @@ function ProductWiseSalesReport() {
         salespersonId: salesPersonData && salesPersonData[salesIndex].id,
         productId: productData && productData[prodIndex].id,
       },
+      headers: { Token: localStorage.getItem("token") },
     });
     if (init) {
-      let salesResponse = await API.get(`salesperson/SalesPersonAll`);
-      let prodResponse = await API.get(`product/productall`);
+      let salesResponse = await API.get(`salesperson/SalesPersonAll`, { headers: { Token: localStorage.getItem("token") } });
+      let prodResponse = await API.get(`product/productall`, { headers: { Token: localStorage.getItem("token") } });
       setSalesPersonData([
         { salespersonName: "All" },
         ...salesResponse.data.data.results,

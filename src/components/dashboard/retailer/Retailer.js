@@ -13,7 +13,7 @@ const Retailer = () => {
   const getData = async () => {
     setLoading(true);
 
-    let response = await API.get("retailer/RetailerListWithBalance");
+    let response = await API.get("retailer/RetailerListWithBalance", { headers: { Token: localStorage.getItem("token") } });
     setdata(response.data.data.results);
     setLoading(false);
   };
