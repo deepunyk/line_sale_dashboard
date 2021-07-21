@@ -8,47 +8,55 @@ const SignUp = () => {
   let history = useHistory();
   const [message, setMessage] = useState("");
   const [data, setData] = useState({
-    firstName: "",
-    lastName: "",
     company: "",
-    address: "",
+    addressOne: "",
+    addressTwo: "",
+    phone: "",
+    email: "",
+    website: "",
+    city: "",
+    state: "",
     pincode: "",
-    mobile: "",
-    alternateMobile: "",
-    password: "",
-    confirmPassword: "",
   });
 
   const marginRight = "0";
 
   const submitForm = () => {
-    if (data.password !== data.confirmPassword)
-      setMessage("Password do not match");
-    else if (
-      !data.firstName ||
-      !data.lastName ||
+    if (
       !data.company ||
-      !data.pincode ||
-      !data.mobile
+      !data.addressOne ||
+      !data.phone ||
+      !data.email ||
+      !data.city ||
+      !data.state ||
+      !data.pincode
     )
       setMessage("Please add all the required fields");
     else {
       API.post(`authentication/createcompany`, {
-        /** body */
+        companyCode: data.phone,
+        companyName: data.company,
+        address1: data.addressOne,
+        address2: data.addressTwo,
+        email: data.email,
+        website: data.website,
+        city: data.city,
+        state: data.state,
+        pincode: data.pincode,
       })
         .then((result) => {
           console.log(result);
           if (result) {
             setData({
-              firstName: "",
-              lastName: "",
               company: "",
-              address: "",
+              addressOne: "",
+              addressTwo: "",
+              phone: "",
+              email: "",
+              website: "",
+              city: "",
+              state: "",
               pincode: "",
-              mobile: "",
-              alternateMobile: "",
-              password: "",
-              confirmPassword: "",
             });
             history.push("/login");
           }
@@ -62,24 +70,6 @@ const SignUp = () => {
       <S.Head>Create Your Account</S.Head>
       <S.SubWrapper>
         <S.SubHead>
-          Name<span>*</span>
-        </S.SubHead>
-        <S.InputField
-          placeholder="Enter your First Name"
-          marginRight="15px"
-          required
-          value={data.firstName}
-          onChange={(e) => setData({ ...data, firstName: e.target.value })}
-        />
-        <S.InputField
-          placeholder="Enter your Last Name"
-          required
-          value={data.lastName}
-          onChange={(e) => setData({ ...data, lastName: e.target.value })}
-        />
-      </S.SubWrapper>
-      <S.SubWrapper>
-        <S.SubHead>
           Company<span>*</span>
         </S.SubHead>
         <S.InputField
@@ -91,76 +81,79 @@ const SignUp = () => {
         />
       </S.SubWrapper>
       <S.SubWrapper>
-        <S.SubHead>Address</S.SubHead>
+        <S.SubHead>
+          Address<span>*</span>
+        </S.SubHead>
         <S.InputField
           placeholder="Enter your Address"
-          value={data.address}
-          onChange={(e) => setData({ ...data, address: e.target.value })}
+          value={data.addressOne}
+          onChange={(e) => setData({ ...data, addressOne: e.target.value })}
+        />
+      </S.SubWrapper>
+      <S.SubWrapper>
+        <S.SubHead>Alternate Address</S.SubHead>
+        <S.InputField
+          placeholder="Enter your alternate Address"
+          value={data.addressTwo}
+          onChange={(e) => setData({ ...data, addressTwo: e.target.value })}
         />
       </S.SubWrapper>
       <S.SubWrapper>
         <S.SubHead>
-          Pin Code<span>*</span>
+          Phone<span>*</span>
         </S.SubHead>
         <S.InputField
-          placeholder="Enter your Postal Pincode"
-          marginRight={marginRight}
-          required
-          value={data.pincode}
+          placeholder="Enter your phone number"
+          value={data.phone}
+          onChange={(e) => setData({ ...data, phone: e.target.value })}
+        />
+      </S.SubWrapper>
+      <S.SubWrapper>
+        <S.SubHead>
+          Email<span>*</span>
+        </S.SubHead>
+        <S.InputField
+          placeholder="Enter your Email"
+          value={data.email}
+          onChange={(e) => setData({ ...data, email: e.target.value })}
+        />
+      </S.SubWrapper>
+      <S.SubWrapper>
+        <S.SubHead>Website</S.SubHead>
+        <S.InputField
+          placeholder="Enter your Website"
+          value={data.website}
+          onChange={(e) => setData({ ...data, website: e.target.value })}
+        />
+      </S.SubWrapper>
+      <S.SubWrapper>
+        <S.SubHead>
+          City<span>*</span>
+        </S.SubHead>
+        <S.InputField
+          placeholder="Enter your City"
+          value={data.city}
+          onChange={(e) => setData({ ...data, city: e.target.value })}
+        />
+      </S.SubWrapper>
+      <S.SubWrapper>
+        <S.SubHead>
+          State<span>*</span>
+        </S.SubHead>
+        <S.InputField
+          placeholder="Enter your State"
+          value={data.state}
+          onChange={(e) => setData({ ...data, state: e.target.value })}
+        />
+      </S.SubWrapper>
+      <S.SubWrapper>
+        <S.SubHead>
+          Pincode<span>*</span>
+        </S.SubHead>
+        <S.InputField
+          placeholder="Enter your Pincode"
+          value={data.addressOne}
           onChange={(e) => setData({ ...data, pincode: e.target.value })}
-        />
-      </S.SubWrapper>
-      <S.SubWrapper>
-        <S.SubHead>
-          Mobile No<span>*</span>
-        </S.SubHead>
-        <S.InputField
-          placeholder="Enter your 10 digit mobile no."
-          marginRight={marginRight}
-          required
-          type="phone"
-          value={data.mobile}
-          onChange={(e) => setData({ ...data, mobile: e.target.value })}
-        />
-      </S.SubWrapper>
-      <S.SubWrapper>
-        <S.SubHead>Alternate No</S.SubHead>
-        <S.InputField
-          placeholder="Enter another monbile no. [if any]"
-          marginRight={marginRight}
-          type="phone"
-          value={data.alternateMobile}
-          onChange={(e) =>
-            setData({ ...data, alternateMobile: e.target.value })
-          }
-        />
-      </S.SubWrapper>
-      <S.SubWrapper>
-        <S.SubHead>
-          Password<span>*</span>
-        </S.SubHead>
-        <S.InputField
-          placeholder="Enter your Password"
-          marginRight={marginRight}
-          required
-          type="password"
-          value={data.password}
-          onChange={(e) => setData({ ...data, password: e.target.value })}
-        />
-      </S.SubWrapper>
-      <S.SubWrapper>
-        <S.SubHead>
-          Confirm Password<span>*</span>
-        </S.SubHead>
-        <S.InputField
-          placeholder="Re-enter your Password"
-          marginRight={marginRight}
-          required
-          type="password"
-          value={data.confirmPassword}
-          onChange={(e) =>
-            setData({ ...data, confirmPassword: e.target.value })
-          }
         />
       </S.SubWrapper>
       {message ? <p style={{ color: "red" }}>{message}</p> : null}
