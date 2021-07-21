@@ -92,4 +92,10 @@ export const RightWrapper = styled.div`
   justify-content: center;
   align-items: ${(props) => (props.alignEnd ? "flex-end" : "center")};
   margin-left: ${(props) => props.marginLeft && "1vw"};
+
+  &.logout{
+    &:hover{
+      cursor: pointer;
+    }
+  }
 `;

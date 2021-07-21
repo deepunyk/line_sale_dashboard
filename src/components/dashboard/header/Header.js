@@ -64,7 +64,7 @@ const Header = () => {
 
   return (
     <S.Wrapper>
-      <S.SubWrapper mobile>
+      <S.SubWrapper mobile isHover onClick={() => history.push("/home")}>
         <S.Image src={Logo} height="80px" marginRight="15px" />
         <C.LineHead>Line Sale</C.LineHead>
       </S.SubWrapper>
@@ -85,7 +85,7 @@ const Header = () => {
           </S.Text>
           <S.Text fontSize="1rem">{localStorage.getItem("name")}</S.Text>
         </S.RightWrapper>
-        <S.RightWrapper marginLeft>
+        <S.RightWrapper marginLeft className="logout">
           <S.Image src={LogOut} height="30px" marginBottom onClick={() => logout()} />
 
           <S.Text fontSize="0.9rem" onClick={() => logout()}>
