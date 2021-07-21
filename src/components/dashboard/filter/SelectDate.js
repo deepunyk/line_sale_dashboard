@@ -7,10 +7,7 @@ function SelectDate(props) {
   return (
     <S.Wrapper>
       <S.Text>{props.label}</S.Text>
-      <DatePicker
-        selected={props.date}
-        onChange={(date) => props.changeDate(date)}
-      />
+      <DatePicker selected={props.date} onChange={(date) => props.changeDate(date)} />
     </S.Wrapper>
   );
 }

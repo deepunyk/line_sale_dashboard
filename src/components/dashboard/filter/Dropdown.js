@@ -1,18 +1,20 @@
 import React, { useState } from "react";
 import * as S from "./FilterStyled";
 
-function Dropdown(props) {
-  const [item, setItem] = useState("All");
+function Dropdown(props)
+{
+  
+    const options = props.options.map((e) => (
+      <S.DropdownItem value={e.value} key={e.value}>
+        {e.title}
+      </S.DropdownItem>
+    ));
+  
   return (
     <S.Wrapper>
       <S.Text>{props.label}</S.Text>
-      <S.Dropdown value={item} onChange={(e) => setItem(e.target.value)}>
-        <S.DropdownItem value="All">All</S.DropdownItem>
-        <S.DropdownItem value="One">One</S.DropdownItem>
-        <S.DropdownItem value="One">One</S.DropdownItem>
-        <S.DropdownItem value="One">One</S.DropdownItem>
-        <S.DropdownItem value="One">One</S.DropdownItem>
-        <S.DropdownItem value="One">One</S.DropdownItem>
+      <S.Dropdown onChange={(e) => props.onSelect(e.target.value)} value={props.selectedItem}>
+        {options}
       </S.Dropdown>
     </S.Wrapper>
   );
