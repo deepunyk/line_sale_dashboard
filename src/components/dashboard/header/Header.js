@@ -57,7 +57,9 @@ const Header = () => {
     getCurrentPlan();
   }, []);
 
-  const logout = () => {
+  const logout = async () => {
+    // await API.get("authentication/logout");
+
     history.push("/");
   };
 

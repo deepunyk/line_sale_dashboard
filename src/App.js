@@ -23,6 +23,7 @@ function App() {
           <Route exact path="/home/stock-report" render={() => <DashboardPage index={9} />} />
           <Route exact path="/home/sales-person-wise-ledger" render={() => <DashboardPage index={10} />} />
           <Route exact path="/home/retailer" render={() => <DashboardPage index={11} />} />
+          <Route exact path="/home/retailer/bill" render={() => <DashboardPage index={12} />} />
 
           <Route path="/home" render={() => <DashboardPage index={0} />} />
           <Route path="/register" render={() => <AuthPage type="register" />} />

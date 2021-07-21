@@ -1,15 +1,21 @@
 import React, { useState, useEffect } from "react";
 import * as S from "../reports/ReportStyled";
-import SelectDate from "../filter/SelectDate";
-import Dropdown from "../filter/Dropdown";
 import API from "../../../utils/Api";
+import Loader from "../../common/loader";
+import { useHistory } from "react-router-dom";
 
 const Retailer = () => {
+  let history = useHistory();
+
   const [data, setdata] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   const getData = async () => {
+    setLoading(true);
+
     let response = await API.get("retailer/RetailerListWithBalance");
     setdata(response.data.data.results);
+    setLoading(false);
   };
 
   useEffect(() => {
@@ -18,7 +24,9 @@ const Retailer = () => {
 
   return (
     <S.Wrapper>
-      {data ? (
+      {loading ? (
+        <Loader />
+      ) : (
         <S.TableWrapper style={{ marginTop: "20px" }}>
           <S.Table>
             <S.TableRow>
@@ -29,7 +37,7 @@ const Retailer = () => {
             </S.TableRow>
             <S.TableBody>
               {data.map((e) => (
-                <S.TableRow>
+                <S.TableRow onClick={() => history.push({ pathname: "/home/retailer/bill", state: { id: e.id } })}>
                   <S.TableData>{e.retailerName}</S.TableData>
                   <S.TableData>{e.mobileNumber}</S.TableData>
                   <S.TableData>{e.totalTransactions}</S.TableData>
@@ -39,8 +47,6 @@ const Retailer = () => {
             </S.TableBody>
           </S.Table>
         </S.TableWrapper>
-      ) : (
-        <div />
       )}
     </S.Wrapper>
   );
