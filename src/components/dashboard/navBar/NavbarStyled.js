@@ -28,12 +28,15 @@ export const Wrapper = styled.div`
 
 export const SubHead = styled.div`
   padding: 8px 30px;
-  color: black;
+  //color: black;
+  //background: #fd0167 ${(props) => props.background};
+  color:${(props) => props.color || "black"};
+  background:${(props) => props.background || "white"};
   font-size: 0.9rem;
   font-weight: 400;
   &:hover {
     cursor: pointer;
-    background: rgba(0, 0, 0, 0.1);
+    background: ${(props) => props.background || "rgba(0, 0, 0, 0.1)"};
   }
 `;
 

@@ -25,11 +25,11 @@ const SignIn = () => {
       setLoading(true);
       API.post(`authentication/companylogin`, {
         mobileNumber: phone,
-        otp: password,
+        password: password,
       })
         .then((result) => {
-          console.log(result.data.statusCode);
-
+          // console.log(result.data.statusCode);
+            console.log(result);
           if (result.data.statusCode !== 101) {
             setPhone("");
             setPassword("");

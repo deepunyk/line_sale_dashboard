@@ -79,6 +79,7 @@ function SalesPersonWiseReport() {
             }))}
           />
         )}
+        <S.Text>Sales-Person wise Report</S.Text>
         <ReactHTMLTableToExcel id="download-button" className="download" table="reports" filename="reports" sheet="report" buttonText="Download" />
       </S.Row>
       {loading ? (

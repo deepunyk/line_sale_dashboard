@@ -98,6 +98,7 @@ function DailySales() {
             }))}
           />
         )}
+        <S.Text>Daily Sales</S.Text>
         <ReactHTMLTableToExcel
           id="download-button"
           className="download"

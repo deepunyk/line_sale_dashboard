@@ -93,6 +93,7 @@ function ProductWiseSalesReport() {
             }))}
           />
         )}
+        <S.Text>Product Wise</S.Text>
         <ReactHTMLTableToExcel
           id="download-button"
           className="download"

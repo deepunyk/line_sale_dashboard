@@ -93,6 +93,7 @@ function SalesPersonWiseLedger() {
             }))}
           />
         )}
+        <S.Text>Sales-person wise Ledger</S.Text>
         <ReactHTMLTableToExcel
           id="download-button"
           className="download"

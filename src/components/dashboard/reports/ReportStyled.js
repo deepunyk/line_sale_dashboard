@@ -42,7 +42,7 @@ export const TableHeader = styled.th`
   color: white;
   font-weight: 400;
   border: 1px solid whitesmoke;
-  position: sticky;
+  //position: sticky;
   top: 0;
   z-index: 1;
 `;
@@ -86,4 +86,17 @@ export const Button = styled.button`
     background-color: ${color.primary};
     color: white;
   }
+`;
+
+export const Text = styled.h2`
+  color: ${(props) => props.color || "black"};
+  font-weight: 400;
+  font-size: ${(props) => props.fontSize};
+  margin: 1px;
+  margin-left: ${(props) => props.marginLeft && "0.5rem"};
+  margin-bottom: ${(props) => props.marginBottom};
+  letter-spacing: 0.5px;
+  width:100%;
+  text-align:center;
+  vertical-align: middle;
 `;

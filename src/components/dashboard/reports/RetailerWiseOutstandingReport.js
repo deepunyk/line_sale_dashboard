@@ -93,6 +93,7 @@ function RetailerWiseOutstandingReport() {
             }))}
           />
         )}
+        <S.Text>Retailer wise outstanding</S.Text>
         <ReactHTMLTableToExcel
           id="download-button"
           className="download"

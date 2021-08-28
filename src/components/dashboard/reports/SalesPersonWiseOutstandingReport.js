@@ -93,6 +93,7 @@ function SalesPersonWiseOutstandingReport() {
             }))}
           />
         )}
+        <S.Text>Sales-person wise outstanding</S.Text>
         <ReactHTMLTableToExcel
           id="download-button"
           className="download"

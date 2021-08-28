@@ -96,6 +96,7 @@ function ProductWiseOutstandingReport() {
             }))}
           />
         )}
+        <S.Text>Product wise outstanding</S.Text>
         <ReactHTMLTableToExcel
           id="download-button"
           className="download"

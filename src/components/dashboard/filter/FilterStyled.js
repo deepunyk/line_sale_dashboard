@@ -6,7 +6,8 @@ export const Wrapper = styled.div`
   height: 100%;
   align-items: flex-start;
   justify-content: center;
-  margin-left: 20px;
+  margin-right: 20px;
+  // width:100px;
 `;
 
 export const Text = styled.p`
