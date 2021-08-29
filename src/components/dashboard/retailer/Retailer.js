@@ -3,6 +3,8 @@ import * as S from "../reports/ReportStyled";
 import API from "../../../utils/Api";
 import Loader from "../../common/loader";
 import { useHistory } from "react-router-dom";
+import {Form, InputGroup} from 'react-bootstrap';
+import Col from "react-bootstrap/Col";
 
 const Retailer = () => {
   let history = useHistory();
@@ -24,6 +26,12 @@ const Retailer = () => {
 
   return (
     <S.Wrapper>
+      <Form>
+        <InputGroup>
+          <Form.Control type="search" placeholder="Search Retailers" />
+          <InputGroup.Text>@</InputGroup.Text>
+        </InputGroup>
+      </Form>
       {loading ? (
         <Loader />
       ) : (
