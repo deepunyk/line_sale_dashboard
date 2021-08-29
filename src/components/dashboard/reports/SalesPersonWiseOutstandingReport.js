@@ -120,12 +120,12 @@ function SalesPersonWiseOutstandingReport() {
                   <S.TableRow>
                     <S.TableData>
                       <span>
-                        <img
-                          src={e.image}
-                          height="20"
-                          width="20"
-                          style={{ marginRight: "6px" }}
-                         alt={""}/>
+                        {/*<img*/}
+                        {/*  src={e.image}*/}
+                        {/*  height="20"*/}
+                        {/*  width="20"*/}
+                        {/*  style={{ marginRight: "6px" }}*/}
+                        {/* alt={""}/>*/}
                         {e.salespersonName}
                       </span>
                     </S.TableData>

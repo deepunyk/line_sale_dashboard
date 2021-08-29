@@ -101,7 +101,7 @@ function SalesPersonWiseReport() {
                   <S.TableRow>
                     <S.TableData>
                       <span>
-                        <img src={e.image} height="20" width="20" style={{ marginRight: "6px" }} />
+                        {/*<img src={e.image} height="20" width="20" style={{ marginRight: "6px" }} />*/}
                         {e.salespersonName}
                       </span>
                     </S.TableData>
