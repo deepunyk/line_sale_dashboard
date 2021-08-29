@@ -6,8 +6,8 @@ export const Wrapper = styled.div`
   height: 100%;
   align-items: flex-start;
   justify-content: center;
-  margin-right: 20px;
-  // width:100px;
+  // margin-right: 20px;
+  width:150px;
 `;
 
 export const Text = styled.p`
@@ -15,7 +15,7 @@ export const Text = styled.p`
 `;
 
 export const Dropdown = styled.select`
-  width: 160px;
+  width: 120px;
   padding: 5px;
 `;
 

@@ -1,10 +1,12 @@
 .download {
   padding: 6px 20px;
   background-color: white;
-  color: #fd0167;
-  border: 2px solid #fd0167;
-  margin-left: auto;
-  margin-right: 20px;
+  /*color: #fd0167;*/
+  color: black;
+  /*border: 1px solid #fd0167;*/
+  border: 1px solid black;
+  margin-left: 0;
+  margin-right: 0;
 }
 
 .download:hover {
