@@ -34,13 +34,12 @@ export const SubWrapper = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-
-  &:hover {
-    cursor: ${(props) => props.isHover && "pointer"};
-  }
+  cursor:"pointer";
+  
 
   @media only screen and (max-width: 600px) {
     display: ${(props) => props.mobile ?? "none"};
+    cursor:"pointer";
   }
 `;
 
@@ -77,6 +76,7 @@ export const Text = styled.h2`
   margin-left: ${(props) => props.marginLeft && "0.5rem"};
   margin-bottom: ${(props) => props.marginBottom};
   letter-spacing: 0.5px;
+  cursor:"pointer";
 `;
 
 export const MobileMenuText = styled.h2`
@@ -92,7 +92,7 @@ export const RightWrapper = styled.div`
   justify-content: center;
   align-items: ${(props) => (props.alignEnd ? "flex-end" : "center")};
   margin-left: ${(props) => props.marginLeft && "1vw"};
-
+  cursor:"pointer";
   &.logout{
     &:hover{
       cursor: pointer;

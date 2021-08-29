@@ -125,7 +125,7 @@ function SalesPersonWiseOutstandingReport() {
                           height="20"
                           width="20"
                           style={{ marginRight: "6px" }}
-                        />
+                         alt={""}/>
                         {e.salespersonName}
                       </span>
                     </S.TableData>
