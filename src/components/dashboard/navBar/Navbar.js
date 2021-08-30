@@ -8,7 +8,7 @@ const Navbar = () => {
     const [modalIsOpen, setIsOpen] = useState(false);
     let history = useHistory();
 
-    const [state, setState] = React.useState({isSelected: [false, false, false, false, false, false, false, false, false, false]});
+    const [state, setState] = React.useState({isSelected: [false, false, false, false, false, false, false, false, false, false, false, false]});
 
     return (
         <S.Wrapper>
@@ -16,7 +16,7 @@ const Navbar = () => {
             <S.SubHead onClick={() => {
                 setState({
                     ...state,
-                    isSelected: [false, false, false, false, false, false, false, false, false, false]
+                    isSelected: [false, false, false, false, false, false, false, false, false, false, false, false]
                 });
                 return history.push("/home/plans");
             }}>
@@ -26,7 +26,7 @@ const Navbar = () => {
             <S.SubHead onClick={() => {
                 setState({
                     ...state,
-                    isSelected: [false, false, false, false, false, false, false, false, false, false]
+                    isSelected: [false, false, false, false, false, false, false, false, false, false, false, false]
                 });
                 return history.push("/home/retailer");
             }}>
@@ -39,7 +39,7 @@ const Navbar = () => {
                        onClick={() => {
                            setState({
                                ...state,
-                               isSelected: [true, false, false, false, false, false, false, false, false, false]
+                               isSelected: [true, false, false, false, false, false, false, false, false, false, false, false]
                            });
                            return history.push("/home/total-collection");
                        }}>
@@ -49,7 +49,7 @@ const Navbar = () => {
                        onClick={() => {
                            setState({
                                ...state,
-                               isSelected: [false, true, false, false, false, false, false, false, false, false]
+                               isSelected: [false, true, false, false, false, false, false, false, false, false, false, false]
                            });
                            return history.push("/home/daily-sales");
                        }}>
@@ -59,7 +59,7 @@ const Navbar = () => {
                        onClick={() => {
                            setState({
                                ...state,
-                               isSelected: [false, false, true, false, false, false, false, false, false, false]
+                               isSelected: [false, false, true, false, false, false, false, false, false, false, false, false]
                            });
                            return history.push("/home/sales-person-wise-report");
                        }}>
@@ -69,7 +69,7 @@ const Navbar = () => {
                        onClick={() => {
                            setState({
                                ...state,
-                               isSelected: [false, false, false, true, false, false, false, false, false, false]
+                               isSelected: [false, false, false, true, false, false, false, false, false, false, false, false]
                            });
                            return history.push("/home/product-wise-sales-report");
                        }}>
@@ -79,7 +79,7 @@ const Navbar = () => {
                        onClick={() => {
                            setState({
                                ...state,
-                               isSelected: [false, false, false, false, true, false, false, false, false, false]
+                               isSelected: [false, false, false, false, true, false, false, false, false, false, false, false]
                            });
                            return history.push("/home/retailer-wise-sales-report");
                        }}>
@@ -89,7 +89,7 @@ const Navbar = () => {
                        onClick={() => {
                            setState({
                                ...state,
-                               isSelected: [false, false, false, false, false, true, false, false, false, false]
+                               isSelected: [false, false, false, false, false, true, false, false, false, false, false, false]
                            });
                            return history.push("/home/retailer-wise-outstanding-report");
                        }}>
@@ -99,7 +99,7 @@ const Navbar = () => {
                        onClick={() => {
                            setState({
                                ...state,
-                               isSelected: [false, false, false, false, false, false, true, false, false, false]
+                               isSelected: [false, false, false, false, false, false, true, false, false, false, false, false]
                            });
                            return history.push("/home/sales-person-wise-outstanding-report");
                        }}>
@@ -109,7 +109,7 @@ const Navbar = () => {
                        onClick={() => {
                            setState({
                                ...state,
-                               isSelected: [false, false, false, false, false, false, false, true, false, false]
+                               isSelected: [false, false, false, false, false, false, false, true, false, false, false, false]
                            });
                            return history.push("/home/product-wise-outstanding-report");
                        }}>
@@ -119,7 +119,7 @@ const Navbar = () => {
                        onClick={() => {
                            setState({
                                ...state,
-                               isSelected: [false, false, false, false, false, false, false, false, true, false]
+                               isSelected: [false, false, false, false, false, false, false, false, true, false, false, false]
                            });
                            return history.push("/home/stock-report");
                        }}>
@@ -129,11 +129,31 @@ const Navbar = () => {
                        onClick={() => {
                            setState({
                                ...state,
-                               isSelected: [false, false, false, false, false, false, false, false, false, true]
+                               isSelected: [false, false, false, false, false, false, false, false, false, true, false, false]
                            });
                            return history.push("/home/sales-person-wise-ledger");
                        }}>
                 Sales-person wise Ledger
+            </S.SubHead>
+            <S.SubHead color={state.isSelected[10] ? "white" : ""} background={state.isSelected[10] ? "#fd0167" : ""}
+                       onClick={() => {
+                           setState({
+                               ...state,
+                               isSelected: [false, false, false, false, false, false, false, false, false, false, true, false]
+                           });
+                           return history.push("/home/sales-person-wise-ledger");
+                       }}>
+                Non Active Retailers
+            </S.SubHead>
+            <S.SubHead color={state.isSelected[11] ? "white" : ""} background={state.isSelected[11] ? "#fd0167" : ""}
+                       onClick={() => {
+                           setState({
+                               ...state,
+                               isSelected: [false, false, false, false, false, false, false, false, false, false, false, true]
+                           });
+                           return history.push("/home/sales-person-wise-ledger");
+                       }}>
+                Retailers Sales comparision
             </S.SubHead>
             <ChangePasswordModal modalIsOpen={modalIsOpen} setIsOpen={setIsOpen}/>
         </S.Wrapper>

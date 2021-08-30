@@ -4,7 +4,7 @@ import color from "../../../constants/color";
 export const Wrapper = styled.div`
   min-width: 280px;
   background-color: #f9f9f9;
-  height: 100%;
+  height: 79vh;
   display: flex;
   flex-direction: column;
   box-shadow: 2px 0px 16px 0 rgba(0, 0, 0, 0.2);

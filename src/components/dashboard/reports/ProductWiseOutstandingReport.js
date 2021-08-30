@@ -60,15 +60,15 @@ function ProductWiseOutstandingReport() {
     <S.Wrapper>
       <S.Row>
         <SelectDate
-          label="From Date:"
+          label="Till Date:"
           date={startDate}
           changeDate={(date) => setStartDate(date)}
         />
-        <SelectDate
-          label="To Date:"
-          date={endDate}
-          changeDate={(date) => setEndDate(date)}
-        />
+        {/*<SelectDate*/}
+        {/*  label="To Date:"*/}
+        {/*  date={endDate}*/}
+        {/*  changeDate={(date) => setEndDate(date)}*/}
+        {/*/>*/}
         {productData && (
           <Dropdown
             label="Choose Product:"

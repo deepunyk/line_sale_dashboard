@@ -8,7 +8,6 @@ import Loader from "../../common/loader";
 import ReactHTMLTableToExcel from "react-html-table-to-excel";
 import "./style.css";
 import {Container, Row, Col} from 'react-bootstrap';
-import Test from "./dummy";
 
 function TotalCollection() {
     const [startDate, setStartDate] = useState(new Date());
@@ -57,12 +56,12 @@ function TotalCollection() {
                         <Col xs={6} sm={4} md={3} lg={1} xl={1}>
                             {/*<SelectDate className="download" label="From Date:" date={startDate}*/}
                             {/*            changeDate={(date) => setStartDate(date)}/>*/}
-                            <Test label="From Date:" date={startDate} changeDate={(date) => setStartDate(date)}/>
+                            <SelectDate label="From Date:" date={startDate} changeDate={(date) => setStartDate(date)}/>
                         </Col>
                         <Col xs={6} sm={4} md={3} lg={1} xl={1}>
                             {/*<SelectDate className="download" label="To Date:" date={endDate}*/}
                             {/*            changeDate={(date) => setEndDate(date)}/>*/}
-                            <Test className="download" label="To Date:" date={endDate} changeDate={(date) => setEndDate(date)}/>
+                            <SelectDate className="download" label="To Date:" date={endDate} changeDate={(date) => setEndDate(date)}/>
                         </Col>
                         <Col xl={2} md={3} xs={6} sm={4} lg={2}>
                             {productData && (
