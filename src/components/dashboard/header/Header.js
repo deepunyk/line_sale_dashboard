@@ -19,7 +19,7 @@ const MenuIcon = styled(MenuStyled)`
   color: ${color.primary};
   display: none;
 
-  @media only screen and (max-width: 600px) {
+  @media only screen and (max-width: 768px) {
     display: block;
   }
 `;

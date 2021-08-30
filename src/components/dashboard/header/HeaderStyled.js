@@ -15,7 +15,7 @@ export const Wrapper = styled.div`
   height: 115px;
   box-sizing: border-box;
 
-  @media only screen and (max-width: 600px) {
+  @media only screen and (max-width: 768px) {
     height: 90px;
   }
 `;
@@ -37,7 +37,7 @@ export const SubWrapper = styled.div`
   cursor:"pointer";
   
 
-  @media only screen and (max-width: 600px) {
+  @media only screen and (max-width: 768px) {
     display: ${(props) => props.mobile ?? "none"};
     cursor:"pointer";
   }
@@ -47,7 +47,7 @@ export const Image = styled.img`
   height: ${(props) => props.height};
   margin-right: ${(props) => props.marginRight};
   margin-bottom: ${(props) => props.marginBottom && "5px"};
-  @media only screen and (max-width: 600px) {
+  @media only screen and (max-width: 768px) {
     height: 50px;
   }
 `;
@@ -56,7 +56,7 @@ export const Divider = styled.div`
   background-color: ${color.lightGrey};
   width: 1.5px;
   height: 80%;
-  @media only screen and (max-width: 600px) {
+  @media only screen and (max-width: 768px) {
     display: none;
   }
 `;

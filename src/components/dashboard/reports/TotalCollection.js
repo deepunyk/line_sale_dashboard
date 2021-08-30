@@ -51,10 +51,9 @@ function TotalCollection() {
 
     return (
         <S.Wrapper>
-            <Container>
+            <Container >
                 <Col>
-
-                    <Row className="align-items-center">
+                    <Row className="align-items-center" style={{ marginTop: 20}}>
                         <Col xs={6} sm={4} md={3} lg={1} xl={1}>
                             {/*<SelectDate className="download" label="From Date:" date={startDate}*/}
                             {/*            changeDate={(date) => setStartDate(date)}/>*/}
@@ -105,7 +104,7 @@ function TotalCollection() {
                                 src="https://img.icons8.com/ios/50/000000/ms-excel.png" alt={"Excel"}/>  Excel</span>}/>
                         </Col>
                     </Row>
-                    <Row>
+                    <Row style={{marginTop: 20,marginBottom:20,height:500}}>
                         {loading ? (
                             <Loader/>
                         ) : (

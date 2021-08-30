@@ -12,6 +12,9 @@ export const Wrapper = styled.div`
 
 export const Text = styled.p`
   margin: 0;
+  @media only screen and (max-width: 768px) {
+    margin-top:20px;
+  }
 `;
 
 export const Dropdown = styled.select`

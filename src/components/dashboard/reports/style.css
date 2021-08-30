@@ -14,3 +14,9 @@
   background-color: #fd0167;
   color: white;
 }
+
+@media only screen and (max-width: 600px) {
+  .download {
+    margin-top:20px;
+  }
+}

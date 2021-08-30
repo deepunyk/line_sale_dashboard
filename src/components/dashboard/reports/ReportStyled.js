@@ -14,7 +14,8 @@ export const TableWrapper = styled.div`
   height: 100%;
   display: flex;
   flex-direction: column;
-  overflow-y: auto;
+  overflow-y: scroll;
+  overflow-x: scroll;
   ::-webkit-scrollbar-track {
     -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0);
     background-color: transparent;
@@ -43,8 +44,8 @@ export const TableHeader = styled.th`
   font-weight: 400;
   border: 1px solid whitesmoke;
   //position: sticky;
-  top: 0;
-  z-index: 1;
+  // top: 0;
+  // z-index: 1;
 `;
 
 export const TableData = styled.td`
@@ -99,4 +100,7 @@ export const Text = styled.h2`
   width:100%;
   text-align:center;
   vertical-align: middle;
+  @media only screen and (max-width: 768px) {
+    margin-top:20px;
+  }
 `;
