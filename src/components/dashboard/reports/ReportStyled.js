@@ -42,7 +42,7 @@ export const TableHeader = styled.th`
   background-color: ${color.greyShade2};
   color: white;
   font-weight: 400;
-  border: 1px solid whitesmoke;
+  border: 1px solid grey;
   //position: sticky;
   // top: 0;
   // z-index: 1;
@@ -51,7 +51,7 @@ export const TableHeader = styled.th`
 export const TableData = styled.td`
   padding: 6px;
   font-weight: 400;
-  border: 1px solid whitesmoke;
+  border: 1px solid grey;
 `;
 
 export const TableRow = styled.tr`

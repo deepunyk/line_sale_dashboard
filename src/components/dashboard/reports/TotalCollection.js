@@ -110,40 +110,40 @@ function TotalCollection() {
                             <S.TableWrapper>
                                 <S.Table id="reports">
                                     <S.TableRow>
-                                        <S.TableHeader>Name</S.TableHeader>
-                                        <S.TableHeader>Product Name</S.TableHeader>
-                                        <S.TableHeader>Previous Pending</S.TableHeader>
-                                        <S.TableHeader>Sales</S.TableHeader>
-                                        <S.TableHeader>Cash Collection</S.TableHeader>
-                                        <S.TableHeader>Bank Collection</S.TableHeader>
-                                        <S.TableHeader>Total Collection</S.TableHeader>
-                                        <S.TableHeader>Net Pending</S.TableHeader>
-                                        <S.TableHeader>Open Quantity</S.TableHeader>
-                                        <S.TableHeader>Transfer Quantity</S.TableHeader>
-                                        <S.TableHeader>Sales Quantity</S.TableHeader>
-                                        <S.TableHeader>Closing Quantity</S.TableHeader>
+                                        <S.TableHeader style={{textAlign:"center"}}>Name</S.TableHeader>
+                                        <S.TableHeader style={{textAlign:"center"}}>Product Name</S.TableHeader>
+                                        <S.TableHeader style={{textAlign:"center"}}>Previous Pending</S.TableHeader>
+                                        <S.TableHeader style={{textAlign:"center"}}>Sales</S.TableHeader>
+                                        <S.TableHeader style={{textAlign:"center"}}>Cash Collection</S.TableHeader>
+                                        <S.TableHeader style={{textAlign:"center"}}>Bank Collection</S.TableHeader>
+                                        <S.TableHeader style={{textAlign:"center"}}>Total Collection</S.TableHeader>
+                                        <S.TableHeader style={{textAlign:"center"}}>Net Pending</S.TableHeader>
+                                        <S.TableHeader style={{textAlign:"center"}}>Open Quantity</S.TableHeader>
+                                        <S.TableHeader style={{textAlign:"center"}}>Transfer Quantity</S.TableHeader>
+                                        <S.TableHeader style={{textAlign:"center"}}>Sales Quantity</S.TableHeader>
+                                        <S.TableHeader style={{textAlign:"center"}}>Closing Quantity</S.TableHeader>
                                     </S.TableRow>
                                     <S.TableBody>
                                         {data.map((e) =>
                                                 e.collection.map((collection, index) => (
                                                     <S.TableRow key={index}>
                                                         <S.TableData>{e.salespersonName}</S.TableData>
-                                                        <S.TableData>
+                                                        <S.TableData width={150}>
                       <span>
                         <img src={collection.image} height="20" width="20" style={{marginRight: "6px"}}/>
                           {collection.productName}
                       </span>
                                                         </S.TableData>
-                                                        <S.TableData>{collection.previousPending}</S.TableData>
-                                                        <S.TableData>{collection.sales}</S.TableData>
-                                                        <S.TableData>{collection.cashCollection}</S.TableData>
-                                                        <S.TableData>{collection.bankCollection}</S.TableData>
-                                                        <S.TableData>{collection.totalCollection}</S.TableData>
-                                                        <S.TableData>{collection.netPending}</S.TableData>
-                                                        <S.TableData>{collection.openingQuantity}</S.TableData>
-                                                        <S.TableData>{collection.transferQuantity}</S.TableData>
-                                                        <S.TableData>{collection.salesQuantity}</S.TableData>
-                                                        <S.TableData>{collection.closingQuantity}</S.TableData>
+                                                        <S.TableData style={{textAlign:"right"}}>{collection.previousPending}</S.TableData>
+                                                        <S.TableData style={{textAlign:"right"}}>{collection.sales}</S.TableData>
+                                                        <S.TableData style={{textAlign:"right"}}>₹ {collection.cashCollection}</S.TableData>
+                                                        <S.TableData style={{textAlign:"right"}}>₹ {collection.bankCollection}</S.TableData>
+                                                        <S.TableData style={{textAlign:"right"}}>₹ {collection.totalCollection}</S.TableData>
+                                                        <S.TableData style={{textAlign:"right"}}>{collection.netPending}</S.TableData>
+                                                        <S.TableData style={{textAlign:"right"}}>{collection.openingQuantity}</S.TableData>
+                                                        <S.TableData style={{textAlign:"right"}}>{collection.transferQuantity}</S.TableData>
+                                                        <S.TableData style={{textAlign:"right"}}>{collection.salesQuantity}</S.TableData>
+                                                        <S.TableData style={{textAlign:"right"}}>{collection.closingQuantity}</S.TableData>
                                                     </S.TableRow>
                                                 ))
                                         )}
