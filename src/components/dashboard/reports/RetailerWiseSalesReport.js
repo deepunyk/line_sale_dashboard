@@ -106,7 +106,17 @@ function RetailerWiseSalesReport() {
             table="reports"
             filename="reports"
             sheet="report"
-            buttonText="Download"
+            buttonText={
+              <span>
+                <img
+                  width={25}
+                  height={25}
+                  src="https://img.icons8.com/ios/50/000000/ms-excel.png"
+                  alt={"Excel"}
+                />{" "}
+                Excel
+              </span>
+            }
           />,
         ]}
         table={
