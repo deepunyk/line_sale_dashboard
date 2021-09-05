@@ -43,9 +43,7 @@ export const TableHeader = styled.th`
   color: white;
   font-weight: 400;
   border: 1px solid grey;
-  //position: sticky;
-  // top: 0;
-  // z-index: 1;
+  text-align: "center";
 `;
 
 export const TableData = styled.td`
@@ -102,5 +100,11 @@ export const Text = styled.h2`
   vertical-align: middle;
   @media only screen and (max-width: 768px) {
     margin-top:20px;
+  }
+`;
+
+export const SizedBox = styled.div`
+  @media only screen and (max-width: 768px) {
+    margin-bottom:100px;
   }
 `;

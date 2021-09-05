@@ -7,7 +7,7 @@ import color from "../../../constants/color";
 import styled from "styled-components";
 
 import * as C from "../../common/common";
-import {useHistory} from "react-router";
+import {useHistory} from "react-router-dom";
 import {Menu as MenuStyled} from "@styled-icons/boxicons-regular/Menu";
 import DashNavContent from "../../../constants/DashNavContent";
 import {Drawer} from "antd";
@@ -66,12 +66,12 @@ const Header = () => {
 
     return (
         <S.Wrapper>
-            <S.SubWrapper mobile onClick={() => history.push("/home")}>
+            <S.SubWrapper mobile onClick={() => history.push("/home")} style={{cursor:"pointer"}}>
                 <S.Image src={Logo} height="80px" marginRight="15px"/>
                 <C.LineHead>Line Sale</C.LineHead>
             </S.SubWrapper>
             <S.Divider/>
-            <S.SubWrapper onClick={() => history.push("/home")}>
+            <S.SubWrapper onClick={() => history.push("/home")} style={{cursor:"pointer"}}>
                 <S.Image src={Dashboard} height="20px" marginRight="10px"/>
                 <S.Text fontSize="1.4rem">Dashboard</S.Text>
             </S.SubWrapper>

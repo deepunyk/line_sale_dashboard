@@ -7,6 +7,7 @@ import dateFormat from "dateformat";
 import Loader from "../../common/loader";
 import ReactHTMLTableToExcel from "react-html-table-to-excel";
 import "./style.css";
+import ResponsiveRow from "./ResponsiveRow";
 
 function SalesPersonWiseOutstandingReport() {
   const [startDate, setStartDate] = useState(new Date());
@@ -30,8 +31,12 @@ function SalesPersonWiseOutstandingReport() {
       headers: { Token: localStorage.getItem("token") },
     });
     if (init) {
-      let salesResponse = await API.get(`salesperson/SalesPersonAll`, { headers: { Token: localStorage.getItem("token") } });
-      let prodResponse = await API.get(`product/productall`, { headers: { Token: localStorage.getItem("token") } });
+      let salesResponse = await API.get(`salesperson/SalesPersonAll`, {
+        headers: { Token: localStorage.getItem("token") },
+      });
+      let prodResponse = await API.get(`product/productall`, {
+        headers: { Token: localStorage.getItem("token") },
+      });
       setSalesPersonData([
         { salespersonName: "All" },
         ...salesResponse.data.data.results,
@@ -55,100 +60,100 @@ function SalesPersonWiseOutstandingReport() {
 
   return (
     <S.Wrapper>
-      <S.Row>
-        <SelectDate
-          label="Till Date:"
-          date={startDate}
-          changeDate={(date) => setStartDate(date)}
-        />
-        {/*<SelectDate*/}
-        {/*  label="To Date:"*/}
-        {/*  date={endDate}*/}
-        {/*  changeDate={(date) => setEndDate(date)}*/}
-        {/*/>*/}
-        {productData && (
-          <Dropdown
-            label="Choose Product:"
-            onSelect={(index) => {
-              setProdIndex(index);
-            }}
-            selectedItem={prodIndex}
-            options={productData.map((e, index) => ({
-              value: index,
-              title: e.productName,
-            }))}
-          />
-        )}
-
-        {salesPersonData && (
-          <Dropdown
-            label="Choose Sales Person:"
-            onSelect={(index) => {
-              setSalesIndex(index);
-            }}
-            selectedItem={salesIndex}
-            options={salesPersonData.map((e, index) => ({
-              value: index,
-              title: e.salespersonName,
-            }))}
-          />
-        )}
-        <S.Text>Sales-person wise outstanding</S.Text>
-        <ReactHTMLTableToExcel
-          id="download-button"
-          className="download"
-          table="reports"
-          filename="reports"
-          sheet="report"
-          buttonText="Download"
-        />
-      </S.Row>
-      {loading ? (
-        <Loader />
-      ) : (
-        <S.TableWrapper>
-          <S.Table id="reports">
-            <S.TableRow>
-              <S.TableHeader>Sales Person Name</S.TableHeader>
-              <S.TableHeader>Balance Amount</S.TableHeader>
-              <S.TableHeader>Product Name</S.TableHeader>
-              <S.TableHeader>Product Balance Amount</S.TableHeader>
-            </S.TableRow>
-            <S.TableBody>
-              {data.map((e) =>
-                e.products.map((product, index) => (
-                  <S.TableRow>
-                    <S.TableData>
-                      <span>
-                        {/*<img*/}
-                        {/*  src={e.image}*/}
-                        {/*  height="20"*/}
-                        {/*  width="20"*/}
-                        {/*  style={{ marginRight: "6px" }}*/}
-                        {/* alt={""}/>*/}
-                        {e.salespersonName}
-                      </span>
-                    </S.TableData>
-                    <S.TableData>{e.balanceAmount}</S.TableData>
-                    <S.TableData>
-                      <span>
-                        <img
-                          src={product.image}
-                          height="20"
-                          width="20"
-                          style={{ marginRight: "6px" }}
-                        />
-                        {product.productName}
-                      </span>
-                    </S.TableData>
-                    <S.TableData>{product.balanceAmount}</S.TableData>
-                  </S.TableRow>
-                ))
-              )}
-            </S.TableBody>
-          </S.Table>
-        </S.TableWrapper>
-      )}
+      <ResponsiveRow
+        items={[
+          <SelectDate
+            label="Till Date:"
+            date={startDate}
+            changeDate={(date) => setStartDate(date)}
+          />,
+          productData && (
+            <Dropdown
+              label="Choose Product:"
+              onSelect={(index) => {
+                setProdIndex(index);
+              }}
+              selectedItem={prodIndex}
+              options={productData.map((e, index) => ({
+                value: index,
+                title: e.productName,
+              }))}
+            />
+          ),
+          salesPersonData && (
+            <Dropdown
+              label="Choose Sales Person:"
+              onSelect={(index) => {
+                setSalesIndex(index);
+              }}
+              selectedItem={salesIndex}
+              options={salesPersonData.map((e, index) => ({
+                value: index,
+                title: e.salespersonName,
+              }))}
+            />
+          ),
+          <S.Text>Sales-person wise outstanding</S.Text>,
+          <ReactHTMLTableToExcel
+            id="download-button"
+            className="download"
+            table="reports"
+            filename="reports"
+            sheet="report"
+            buttonText="Download"
+          />,
+        ]}
+        table={
+          loading ? (
+            <Loader />
+          ) : (
+            <S.TableWrapper>
+              <S.Table id="reports">
+                <S.TableRow>
+                  <S.TableHeader style={{ textAlign: "center" }}>
+                    Sales Person Name
+                  </S.TableHeader>
+                  <S.TableHeader style={{ textAlign: "center" }}>
+                    Balance Amount
+                  </S.TableHeader>
+                  <S.TableHeader style={{ textAlign: "center" }}>
+                    Product Name
+                  </S.TableHeader>
+                  <S.TableHeader style={{ textAlign: "center" }}>
+                    Product Balance Amount
+                  </S.TableHeader>
+                </S.TableRow>
+                <S.TableBody>
+                  {data.map((e) =>
+                    e.products.map((product, index) => (
+                      <S.TableRow>
+                        <S.TableData>{e.salespersonName}</S.TableData>
+                        <S.TableData style={{ textAlign: "right" }}>
+                          ₹ {e.balanceAmount.toLocaleString("en-IN")}
+                        </S.TableData>
+                        <S.TableData>
+                          <span>
+                            <img
+                              src={product.image}
+                              height="20"
+                              width="20"
+                              style={{ marginRight: "6px" }}
+                            />
+                            {product.productName}
+                          </span>
+                        </S.TableData>
+                        <S.TableData style={{ textAlign: "right" }}>
+                          ₹ {product.balanceAmount.toLocaleString("en-IN")}
+                        </S.TableData>
+                      </S.TableRow>
+                    ))
+                  )}
+                </S.TableBody>
+              </S.Table>
+            </S.TableWrapper>
+          )
+        }
+      />
     </S.Wrapper>
   );
 }

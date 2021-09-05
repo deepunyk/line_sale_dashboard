@@ -8,7 +8,11 @@ import { ToastContainer } from "react-toastify";
 ReactDOM.render(
   <React.StrictMode>
     <App />
-    <ToastContainer hideProgressBar={true} style={{ color: "#000000" }} autoClose={2500} />
+    <ToastContainer
+      hideProgressBar={true}
+      style={{ color: "#000000" }}
+      autoClose={2500}
+    />
   </React.StrictMode>,
   document.getElementById("root")
 );
