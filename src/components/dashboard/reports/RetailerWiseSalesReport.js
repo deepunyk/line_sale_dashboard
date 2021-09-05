@@ -99,7 +99,7 @@ function RetailerWiseSalesReport() {
               }))}
             />
           ),
-          <S.Text>Retailer wise Sales</S.Text>,
+          <S.Text>Retailer Wise Sales</S.Text>,
           <ReactHTMLTableToExcel
             id="download-button"
             className="download"

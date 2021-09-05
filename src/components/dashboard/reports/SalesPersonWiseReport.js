@@ -98,7 +98,7 @@ function SalesPersonWiseReport() {
               }))}
             />
           ),
-          <S.Text>Sales-Person wise Report</S.Text>,
+          <S.Text>Sales-person Wise Sales</S.Text>,
           <ReactHTMLTableToExcel
             id="download-button"
             className="download"
