@@ -13,12 +13,15 @@ import RetailerImg from "../../../assets/icons/retailer.svg";
 import SalespersonImg from "../../../assets/icons/salesperson.svg";
 import ProductImg from "../../../assets/icons/product.svg";
 import color from "../../../constants/color";
+import { Col, Container, Row } from "react-bootstrap";
 
 const Home = () => {
   const [data, setdata] = useState(null);
 
   const getData = async () => {
-    let response = await API.get("dashboard/Company", { headers: { Token: localStorage.getItem("token") } });
+    let response = await API.get("dashboard/Company", {
+      headers: { Token: localStorage.getItem("token") },
+    });
     response = response.data.data;
     let tempData = [
       {
@@ -95,15 +98,81 @@ const Home = () => {
   return (
     <>
       {data ? (
-        <S.Wrapper>
-          <LayerOne data={data[0]} />
-          <LayerOne data={data[1]} />
-          <LayerOne data={data[2]} />
-          <LayerOne data={data[3]} area={"details"} />
-          <LayerTwo type={1} data={data[4]} />
-          <LayerTwo type={2} data={data[5]} />
-        </S.Wrapper>
+        <Container className={"w-100 h-100"}>
+          <Row>
+            <Col
+              xs={12}
+              sm={6}
+              md={6}
+              lg={3}
+              xl={3}
+              style={{ marginBottom: "8px", marginTop: "8px" }}
+            >
+              <LayerOne data={data[0]} />
+            </Col>
+            <Col
+              xs={12}
+              sm={6}
+              md={6}
+              lg={3}
+              xl={3}
+              style={{ marginBottom: "8px", marginTop: "8px" }}
+            >
+              <LayerOne data={data[1]} />
+            </Col>
+            <Col
+              xs={12}
+              sm={6}
+              md={6}
+              lg={3}
+              xl={3}
+              style={{ marginBottom: "8px", marginTop: "8px" }}
+            >
+              <LayerOne data={data[2]} />
+            </Col>
+            <Col
+              xs={12}
+              sm={6}
+              md={6}
+              lg={3}
+              xl={3}
+              style={{ marginBottom: "8px", marginTop: "8px" }}
+            >
+              <LayerOne data={data[3]} area={"details"} />
+            </Col>
+          </Row>
+          <Row>
+            <Col
+              xs={12}
+              sm={6}
+              md={6}
+              lg={6}
+              xl={6}
+              style={{ marginBottom: "8px", marginTop: "8px" }}
+            >
+              <LayerTwo type={1} data={data[4]} />
+            </Col>
+            <Col
+              xs={12}
+              sm={6}
+              md={6}
+              lg={6}
+              xl={6}
+              style={{ marginBottom: "8px", marginTop: "8px" }}
+            >
+              <LayerTwo type={2} data={data[5]} />
+            </Col>
+          </Row>
+        </Container>
       ) : (
+        // <S.Wrap  per>
+        //   <LayerOne data={data[0]} />
+        //   <LayerOne data={data[1]} />
+        //   <LayerOne data={data[2]} />
+        //   <LayerOne data={data[3]} area={"details"} />
+        //   <LayerTwo type={1} data={data[4]} />
+        //   <LayerTwo type={2} data={data[5]} />
+        // </S.Wrapper>
         <div />
       )}
     </>
