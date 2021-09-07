@@ -361,7 +361,7 @@ const Navbar = () => {
               false,
             ],
           });
-          return history.push("/home/sales-person-wise-ledger");
+          return history.push("/home/non-active-retailer-report");
         }}
       >
         Non Active Retailers
@@ -387,7 +387,7 @@ const Navbar = () => {
               true,
             ],
           });
-          return history.push("/home/sales-person-wise-ledger");
+          return history.push("/home/retailer-wise-comparison-report");
         }}
       >
         Retailers Sales comparision

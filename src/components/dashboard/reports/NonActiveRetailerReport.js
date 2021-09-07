@@ -1,16 +1,14 @@
-import React, { useState, useEffect } from "react";
-import * as S from "./ReportStyled";
-import SelectDate from "../filter/SelectDate";
-import Dropdown from "../filter/Dropdown";
+import React, { useEffect, useState } from "react";
 import API from "../../../utils/Api";
 import dateFormat from "dateformat";
-import Loader from "../../common/loader";
-import ReactHTMLTableToExcel from "react-html-table-to-excel";
-import "./style.css";
-import { Container, Row, Col } from "react-bootstrap";
+import * as S from "./ReportStyled";
 import ResponsiveRow from "./ResponsiveRow";
+import SelectDate from "../filter/SelectDate";
+import Dropdown from "../filter/Dropdown";
+import ReactHTMLTableToExcel from "react-html-table-to-excel";
+import Loader from "../../common/loader";
 
-function SalesPersonWiseLedger() {
+function NonActiveRetailer() {
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
   const [loading, setLoading] = useState(true);
@@ -19,11 +17,11 @@ function SalesPersonWiseLedger() {
   const [salesPersonData, setSalesPersonData] = useState(null);
   const [prodIndex, setProdIndex] = useState(0);
   const [salesIndex, setSalesIndex] = useState(0);
-  const [state, setState] = useState();
 
   const getData = async (init) => {
     setLoading(true);
-    let response = await API.get(`report/SalespersonLedgerReport`, {
+
+    let response = await API.get("report/NonActiveRetailerReport", {
       params: {
         startDate: dateFormat(startDate, "yyyy-mm-dd"),
         endDate: dateFormat(endDate, "yyyy-mm-dd"),
@@ -32,6 +30,7 @@ function SalesPersonWiseLedger() {
       },
       headers: { Token: localStorage.getItem("token") },
     });
+
     if (init) {
       let salesResponse = await API.get(`salesperson/SalesPersonAll`, {
         headers: { Token: localStorage.getItem("token") },
@@ -82,6 +81,7 @@ function SalesPersonWiseLedger() {
               }))}
             />
           ),
+
           salesPersonData && (
             <Dropdown
               label="Choose Sales Person:"
@@ -95,7 +95,7 @@ function SalesPersonWiseLedger() {
               }))}
             />
           ),
-          <S.Text>Sales-person wise Ledger</S.Text>,
+          <S.Text>Non Active Retailer</S.Text>,
           <ReactHTMLTableToExcel
             id="download-button"
             className="download"
@@ -123,44 +123,18 @@ function SalesPersonWiseLedger() {
               <S.Table id="reports">
                 <S.TableRow>
                   <S.TableHeader style={{ textAlign: "center" }}>
-                    Stock Date
+                    Retailer Name
                   </S.TableHeader>
                   <S.TableHeader style={{ textAlign: "center" }}>
-                    Particulars
-                  </S.TableHeader>
-                  <S.TableHeader style={{ textAlign: "center" }}>
-                    Stock Quantity
-                  </S.TableHeader>
-                  <S.TableHeader style={{ textAlign: "center" }}>
-                    Stock Balance
+                    Mobile Number
                   </S.TableHeader>
                 </S.TableRow>
                 <S.TableBody>
                   {data.map((e) => (
                     <S.TableRow>
-                      <S.TableData>{e.stockDate}</S.TableData>
-                      <S.TableData>
-                        <span>
-                          <img
-                            src={e.image}
-                            height="20"
-                            width="20"
-                            style={{ marginRight: "6px" }}
-                          />
-                          {e.particulars}
-                        </span>
-                      </S.TableData>
-
-                      <S.TableData
-                        style={{
-                          color: e.stockQuantity < 0 ? "red" : "green",
-                          textAlign: "right",
-                        }}
-                      >
-                        {e.stockQuantity.toLocaleString("en-IN")}
-                      </S.TableData>
+                      <S.TableData>{e.retailerName}</S.TableData>
                       <S.TableData style={{ textAlign: "right" }}>
-                        ₹ {e.stockBalance.toLocaleString("en-IN")}
+                        {e.mobileNumber}
                       </S.TableData>
                     </S.TableRow>
                   ))}
@@ -174,4 +148,4 @@ function SalesPersonWiseLedger() {
   );
 }
 
-export default SalesPersonWiseLedger;
+export default NonActiveRetailer;

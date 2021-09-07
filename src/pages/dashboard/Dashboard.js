@@ -18,6 +18,8 @@ import StockReport from "../../components/dashboard/reports/StockReport";
 import SalesPersonWiseLedger from "../../components/dashboard/reports/SalesPersonWiseLedger";
 import Retailer from "../../components/dashboard/retailer/Retailer";
 import RetailerBill from "../../components/dashboard/retailer/RetailerBill";
+import NonActiveRetailer from "../../components/dashboard/reports/NonActiveRetailerReport";
+import RetailerWiseComparisonReport from "../../components/dashboard/reports/RetailerwiseComparisonReport";
 
 const DashboardPage = (props) => {
   const pages = [
@@ -34,6 +36,8 @@ const DashboardPage = (props) => {
     <SalesPersonWiseLedger />,
     <Retailer />,
     <RetailerBill />,
+    <NonActiveRetailer />,
+    <RetailerWiseComparisonReport />,
   ];
 
   const getSection = () => {

@@ -76,6 +76,16 @@ function App() {
             path="/home/retailer/bill"
             render={() => <DashboardPage index={12} />}
           />
+          <Route
+            exact
+            path="/home/non-active-retailer-report"
+            render={() => <DashboardPage index={13} />}
+          />
+          <Route
+            exact
+            path="/home/retailer-wise-comparison-report"
+            render={() => <DashboardPage index={14} />}
+          />
 
           <Route path="/home" render={() => <DashboardPage index={0} />} />
           <Route path="/register" render={() => <AuthPage type="register" />} />

@@ -1,16 +1,14 @@
-import React, { useState, useEffect } from "react";
-import * as S from "./ReportStyled";
-import SelectDate from "../filter/SelectDate";
-import Dropdown from "../filter/Dropdown";
+import React, { useEffect, useState } from "react";
 import API from "../../../utils/Api";
 import dateFormat from "dateformat";
-import Loader from "../../common/loader";
-import ReactHTMLTableToExcel from "react-html-table-to-excel";
-import "./style.css";
-import { Container, Row, Col } from "react-bootstrap";
+import * as S from "./ReportStyled";
 import ResponsiveRow from "./ResponsiveRow";
+import SelectDate from "../filter/SelectDate";
+import Dropdown from "../filter/Dropdown";
+import ReactHTMLTableToExcel from "react-html-table-to-excel";
+import Loader from "../../common/loader";
 
-function SalesPersonWiseLedger() {
+function RetailerWiseComparisonReport() {
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
   const [loading, setLoading] = useState(true);
@@ -19,19 +17,23 @@ function SalesPersonWiseLedger() {
   const [salesPersonData, setSalesPersonData] = useState(null);
   const [prodIndex, setProdIndex] = useState(0);
   const [salesIndex, setSalesIndex] = useState(0);
-  const [state, setState] = useState();
 
   const getData = async (init) => {
     setLoading(true);
-    let response = await API.get(`report/SalespersonLedgerReport`, {
-      params: {
-        startDate: dateFormat(startDate, "yyyy-mm-dd"),
-        endDate: dateFormat(endDate, "yyyy-mm-dd"),
-        salespersonId: salesPersonData && salesPersonData[salesIndex].id,
-        productId: productData && productData[prodIndex].id,
-      },
-      headers: { Token: localStorage.getItem("token") },
-    });
+
+    let response = await API.get(
+      "report/RetailerwiseComparisonReport?firstMonth=05&firstYear=2021&secondMonth=06&secondYear=2021&reportType=All",
+      {
+        params: {
+          // startDate: dateFormat(startDate, "yyyy-mm-dd"),
+          // endDate: dateFormat(endDate, "yyyy-mm-dd"),
+          salespersonId: salesPersonData && salesPersonData[salesIndex].id,
+          productId: productData && productData[prodIndex].id,
+        },
+        headers: { Token: localStorage.getItem("token") },
+      }
+    );
+
     if (init) {
       let salesResponse = await API.get(`salesperson/SalesPersonAll`, {
         headers: { Token: localStorage.getItem("token") },
@@ -82,6 +84,7 @@ function SalesPersonWiseLedger() {
               }))}
             />
           ),
+
           salesPersonData && (
             <Dropdown
               label="Choose Sales Person:"
@@ -95,7 +98,7 @@ function SalesPersonWiseLedger() {
               }))}
             />
           ),
-          <S.Text>Sales-person wise Ledger</S.Text>,
+          <S.Text>Retailer Wise Comparison</S.Text>,
           <ReactHTMLTableToExcel
             id="download-button"
             className="download"
@@ -123,47 +126,43 @@ function SalesPersonWiseLedger() {
               <S.Table id="reports">
                 <S.TableRow>
                   <S.TableHeader style={{ textAlign: "center" }}>
-                    Stock Date
+                    Retailer Name
                   </S.TableHeader>
                   <S.TableHeader style={{ textAlign: "center" }}>
-                    Particulars
+                    Mobile Number
                   </S.TableHeader>
                   <S.TableHeader style={{ textAlign: "center" }}>
-                    Stock Quantity
+                    Current Amount
                   </S.TableHeader>
                   <S.TableHeader style={{ textAlign: "center" }}>
-                    Stock Balance
+                    Previous Amount
                   </S.TableHeader>
                 </S.TableRow>
                 <S.TableBody>
-                  {data.map((e) => (
-                    <S.TableRow>
-                      <S.TableData>{e.stockDate}</S.TableData>
-                      <S.TableData>
-                        <span>
-                          <img
-                            src={e.image}
-                            height="20"
-                            width="20"
-                            style={{ marginRight: "6px" }}
-                          />
-                          {e.particulars}
-                        </span>
-                      </S.TableData>
-
-                      <S.TableData
-                        style={{
-                          color: e.stockQuantity < 0 ? "red" : "green",
-                          textAlign: "right",
-                        }}
-                      >
-                        {e.stockQuantity.toLocaleString("en-IN")}
-                      </S.TableData>
-                      <S.TableData style={{ textAlign: "right" }}>
-                        ₹ {e.stockBalance.toLocaleString("en-IN")}
-                      </S.TableData>
-                    </S.TableRow>
-                  ))}
+                  {data.map((e) =>
+                    e.sales.map((sale, index) => (
+                      <S.TableRow key={index}>
+                        <S.TableData>{e.retailerName}</S.TableData>
+                        <S.TableData width={150}>
+                          <span>
+                            <img
+                              src={sale.image}
+                              height="20"
+                              width="20"
+                              style={{ marginRight: "6px" }}
+                            />
+                            {sale.productName}
+                          </span>
+                        </S.TableData>
+                        <S.TableData style={{ textAlign: "right" }}>
+                          ₹ {sale.currentAmount.toLocaleString("en-IN")}
+                        </S.TableData>
+                        <S.TableData style={{ textAlign: "right" }}>
+                          ₹ {sale.previousAmount.toLocaleString("en-IN")}
+                        </S.TableData>
+                      </S.TableRow>
+                    ))
+                  )}
                 </S.TableBody>
               </S.Table>
             </S.TableWrapper>
@@ -174,4 +173,4 @@ function SalesPersonWiseLedger() {
   );
 }
 
-export default SalesPersonWiseLedger;
+export default RetailerWiseComparisonReport;
