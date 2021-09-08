@@ -15,7 +15,7 @@ export const Wrapper = styled.div`
   height: 115px;
   box-sizing: border-box;
 
-  @media only screen and (max-width: 600px) {
+  @media only screen and (max-width: 768px) {
     height: 90px;
   }
 `;
@@ -34,13 +34,12 @@ export const SubWrapper = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
+  cursor:"pointer";
+  
 
-  &:hover {
-    cursor: ${(props) => props.isHover && "pointer"};
-  }
-
-  @media only screen and (max-width: 600px) {
+  @media only screen and (max-width: 768px) {
     display: ${(props) => props.mobile ?? "none"};
+    cursor:"pointer";
   }
 `;
 
@@ -48,7 +47,7 @@ export const Image = styled.img`
   height: ${(props) => props.height};
   margin-right: ${(props) => props.marginRight};
   margin-bottom: ${(props) => props.marginBottom && "5px"};
-  @media only screen and (max-width: 600px) {
+  @media only screen and (max-width: 768px) {
     height: 50px;
   }
 `;
@@ -57,7 +56,7 @@ export const Divider = styled.div`
   background-color: ${color.lightGrey};
   width: 1.5px;
   height: 80%;
-  @media only screen and (max-width: 600px) {
+  @media only screen and (max-width: 768px) {
     display: none;
   }
 `;
@@ -77,6 +76,7 @@ export const Text = styled.h2`
   margin-left: ${(props) => props.marginLeft && "0.5rem"};
   margin-bottom: ${(props) => props.marginBottom};
   letter-spacing: 0.5px;
+  cursor:"pointer";
 `;
 
 export const MobileMenuText = styled.h2`
@@ -92,7 +92,7 @@ export const RightWrapper = styled.div`
   justify-content: center;
   align-items: ${(props) => (props.alignEnd ? "flex-end" : "center")};
   margin-left: ${(props) => props.marginLeft && "1vw"};
-
+  cursor:"pointer";
   &.logout{
     &:hover{
       cursor: pointer;

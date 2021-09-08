@@ -23,7 +23,8 @@ const SignUp = () => {
 
   const marginRight = "0";
 
-  const signUp = () => {
+  // noinspection JSUnusedLocalSymbols
+    const signUp = () => {
     API.post(`authentication/createcompany`, {
       companyCode: data.phone,
       companyName: data.company,

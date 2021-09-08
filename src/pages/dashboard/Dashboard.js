@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import * as S from "./DashboardStyled";
 import Header from "../../components/dashboard/header/Header";
 import Navbar from "../../components/dashboard/navBar/Navbar";
@@ -18,22 +18,26 @@ import StockReport from "../../components/dashboard/reports/StockReport";
 import SalesPersonWiseLedger from "../../components/dashboard/reports/SalesPersonWiseLedger";
 import Retailer from "../../components/dashboard/retailer/Retailer";
 import RetailerBill from "../../components/dashboard/retailer/RetailerBill";
+import NonActiveRetailer from "../../components/dashboard/reports/NonActiveRetailerReport";
+import RetailerWiseComparisonReport from "../../components/dashboard/reports/RetailerwiseComparisonReport";
 
 const DashboardPage = (props) => {
   const pages = [
     <Home />,
     <TotalCollection />,
     <DailySales />,
+    <StockReport />,
     <SalesPersonWiseReport />,
     <ProductWiseSalesReport />,
     <RetailerWiseSalesReport />,
-    <RetailerWiseOutstandingReport />,
     <SalesPersonWiseOutstandingReport />,
     <ProductWiseOutstandingReport />,
-    <StockReport />,
+    <RetailerWiseOutstandingReport />,
     <SalesPersonWiseLedger />,
     <Retailer />,
     <RetailerBill />,
+    <NonActiveRetailer />,
+    <RetailerWiseComparisonReport />,
   ];
 
   const getSection = () => {

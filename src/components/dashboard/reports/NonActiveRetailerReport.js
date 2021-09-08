@@ -1,15 +1,14 @@
-import React, { useState, useEffect } from "react";
-import * as S from "./ReportStyled";
-import SelectDate from "../filter/SelectDate";
-import Dropdown from "../filter/Dropdown";
+import React, { useEffect, useState } from "react";
 import API from "../../../utils/Api";
 import dateFormat from "dateformat";
-import Loader from "../../common/loader";
-import ReactHTMLTableToExcel from "react-html-table-to-excel";
-import "./style.css";
+import * as S from "./ReportStyled";
 import ResponsiveRow from "./ResponsiveRow";
+import SelectDate from "../filter/SelectDate";
+import Dropdown from "../filter/Dropdown";
+import ReactHTMLTableToExcel from "react-html-table-to-excel";
+import Loader from "../../common/loader";
 
-function SalesPersonWiseOutstandingReport() {
+function NonActiveRetailer() {
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
   const [loading, setLoading] = useState(true);
@@ -21,7 +20,8 @@ function SalesPersonWiseOutstandingReport() {
 
   const getData = async (init) => {
     setLoading(true);
-    let response = await API.get(`report/SalespersonwiseOutstandingReport`, {
+
+    let response = await API.get("report/NonActiveRetailerReport", {
       params: {
         startDate: dateFormat(startDate, "yyyy-mm-dd"),
         endDate: dateFormat(endDate, "yyyy-mm-dd"),
@@ -30,6 +30,7 @@ function SalesPersonWiseOutstandingReport() {
       },
       headers: { Token: localStorage.getItem("token") },
     });
+
     if (init) {
       let salesResponse = await API.get(`salesperson/SalesPersonAll`, {
         headers: { Token: localStorage.getItem("token") },
@@ -80,6 +81,7 @@ function SalesPersonWiseOutstandingReport() {
               }))}
             />
           ),
+
           salesPersonData && (
             <Dropdown
               label="Choose Sales Person:"
@@ -93,7 +95,7 @@ function SalesPersonWiseOutstandingReport() {
               }))}
             />
           ),
-          <S.Text>Sales-person wise outstanding</S.Text>,
+          <S.Text>Non Active Retailer</S.Text>,
           <ReactHTMLTableToExcel
             id="download-button"
             className="download"
@@ -121,43 +123,21 @@ function SalesPersonWiseOutstandingReport() {
               <S.Table id="reports">
                 <S.TableRow>
                   <S.TableHeader style={{ textAlign: "center" }}>
-                    Sales Person Name
+                    Retailer Name
                   </S.TableHeader>
                   <S.TableHeader style={{ textAlign: "center" }}>
-                    Balance Amount
-                  </S.TableHeader>
-                  <S.TableHeader style={{ textAlign: "center" }}>
-                    Product Name
-                  </S.TableHeader>
-                  <S.TableHeader style={{ textAlign: "center" }}>
-                    Product Balance Amount
+                    Mobile Number
                   </S.TableHeader>
                 </S.TableRow>
                 <S.TableBody>
-                  {data.map((e) =>
-                    e.products.map((product, index) => (
-                      <S.TableRow>
-                        <S.TableData>{e.salespersonName}</S.TableData>
-                        <S.TableData style={{ textAlign: "right" }}>
-                          ₹ {e.balanceAmount.toLocaleString("en-IN")}
-                        </S.TableData>
-                        <S.TableData>
-                          <span>
-                            <img
-                              src={product.image}
-                              height="20"
-                              width="20"
-                              style={{ marginRight: "6px" }}
-                            />
-                            {product.productName}
-                          </span>
-                        </S.TableData>
-                        <S.TableData style={{ textAlign: "right" }}>
-                          ₹ {product.balanceAmount.toLocaleString("en-IN")}
-                        </S.TableData>
-                      </S.TableRow>
-                    ))
-                  )}
+                  {data.map((e) => (
+                    <S.TableRow>
+                      <S.TableData>{e.retailerName}</S.TableData>
+                      <S.TableData style={{ textAlign: "right" }}>
+                        {e.mobileNumber}
+                      </S.TableData>
+                    </S.TableRow>
+                  ))}
                 </S.TableBody>
               </S.Table>
             </S.TableWrapper>
@@ -168,4 +148,4 @@ function SalesPersonWiseOutstandingReport() {
   );
 }
 
-export default SalesPersonWiseOutstandingReport;
+export default NonActiveRetailer;

@@ -7,6 +7,8 @@ import dateFormat from "dateformat";
 import Loader from "../../common/loader";
 import ReactHTMLTableToExcel from "react-html-table-to-excel";
 import "./style.css";
+import { Container, Row, Col } from "react-bootstrap";
+import ResponsiveRow from "./ResponsiveRow";
 
 function SalesPersonWiseLedger() {
   const [startDate, setStartDate] = useState(new Date());
@@ -17,6 +19,7 @@ function SalesPersonWiseLedger() {
   const [salesPersonData, setSalesPersonData] = useState(null);
   const [prodIndex, setProdIndex] = useState(0);
   const [salesIndex, setSalesIndex] = useState(0);
+  const [state, setState] = useState();
 
   const getData = async (init) => {
     setLoading(true);
@@ -30,8 +33,12 @@ function SalesPersonWiseLedger() {
       headers: { Token: localStorage.getItem("token") },
     });
     if (init) {
-      let salesResponse = await API.get(`salesperson/SalesPersonAll`, { headers: { Token: localStorage.getItem("token") } });
-      let prodResponse = await API.get(`product/productall`, { headers: { Token: localStorage.getItem("token") } });
+      let salesResponse = await API.get(`salesperson/SalesPersonAll`, {
+        headers: { Token: localStorage.getItem("token") },
+      });
+      let prodResponse = await API.get(`product/productall`, {
+        headers: { Token: localStorage.getItem("token") },
+      });
       setSalesPersonData([
         { salespersonName: "All" },
         ...salesResponse.data.data.results,
@@ -55,88 +62,114 @@ function SalesPersonWiseLedger() {
 
   return (
     <S.Wrapper>
-      <S.Row>
-        <SelectDate
-          label="From Date:"
-          date={startDate}
-          changeDate={(date) => setStartDate(date)}
-        />
-        <SelectDate
-          label="To Date:"
-          date={endDate}
-          changeDate={(date) => setEndDate(date)}
-        />
-        {productData && (
-          <Dropdown
-            label="Choose Product:"
-            onSelect={(index) => {
-              setProdIndex(index);
-            }}
-            selectedItem={prodIndex}
-            options={productData.map((e, index) => ({
-              value: index,
-              title: e.productName,
-            }))}
-          />
-        )}
-
-        {salesPersonData && (
-          <Dropdown
-            label="Choose Sales Person:"
-            onSelect={(index) => {
-              setSalesIndex(index);
-            }}
-            selectedItem={salesIndex}
-            options={salesPersonData.map((e, index) => ({
-              value: index,
-              title: e.salespersonName,
-            }))}
-          />
-        )}
-        <ReactHTMLTableToExcel
-          id="download-button"
-          className="download"
-          table="reports"
-          filename="reports"
-          sheet="report"
-          buttonText="Download"
-        />
-      </S.Row>
-      {loading ? (
-        <Loader />
-      ) : (
-        <S.TableWrapper>
-          <S.Table id="reports">
-            <S.TableRow>
-              <S.TableHeader>Stock Date</S.TableHeader>
-              <S.TableHeader>Particulars</S.TableHeader>
-              <S.TableHeader>Stock Quantity</S.TableHeader>
-              <S.TableHeader>Stock Balance</S.TableHeader>
-            </S.TableRow>
-            <S.TableBody>
-              {data.map((e) => (
+      <ResponsiveRow
+        items={[
+          <SelectDate
+            label="Till Date:"
+            date={startDate}
+            changeDate={(date) => setStartDate(date)}
+          />,
+          productData && (
+            <Dropdown
+              label="Choose Product:"
+              onSelect={(index) => {
+                setProdIndex(index);
+              }}
+              selectedItem={prodIndex}
+              options={productData.map((e, index) => ({
+                value: index,
+                title: e.productName,
+              }))}
+            />
+          ),
+          salesPersonData && (
+            <Dropdown
+              label="Choose Sales Person:"
+              onSelect={(index) => {
+                setSalesIndex(index);
+              }}
+              selectedItem={salesIndex}
+              options={salesPersonData.map((e, index) => ({
+                value: index,
+                title: e.salespersonName,
+              }))}
+            />
+          ),
+          <S.Text>Sales-person wise Ledger</S.Text>,
+          <ReactHTMLTableToExcel
+            id="download-button"
+            className="download"
+            table="reports"
+            filename="reports"
+            sheet="report"
+            buttonText={
+              <span>
+                <img
+                  width={25}
+                  height={25}
+                  src="https://img.icons8.com/ios/50/000000/ms-excel.png"
+                  alt={"Excel"}
+                />{" "}
+                Excel
+              </span>
+            }
+          />,
+        ]}
+        table={
+          loading ? (
+            <Loader />
+          ) : (
+            <S.TableWrapper>
+              <S.Table id="reports">
                 <S.TableRow>
-                  <S.TableData>{e.stockDate}</S.TableData>
-                  <S.TableData>
-                    <span>
-                      <img
-                        src={e.image}
-                        height="20"
-                        width="20"
-                        style={{ marginRight: "6px" }}
-                      />
-                      {e.particulars}
-                    </span>
-                  </S.TableData>
-
-                  <S.TableData>{e.stockQuantity}</S.TableData>
-                  <S.TableData>{e.stockBalance}</S.TableData>
+                  <S.TableHeader style={{ textAlign: "center" }}>
+                    Stock Date
+                  </S.TableHeader>
+                  <S.TableHeader style={{ textAlign: "center" }}>
+                    Particulars
+                  </S.TableHeader>
+                  <S.TableHeader style={{ textAlign: "center" }}>
+                    Stock Quantity
+                  </S.TableHeader>
+                  <S.TableHeader style={{ textAlign: "center" }}>
+                    Stock Balance
+                  </S.TableHeader>
                 </S.TableRow>
-              ))}
-            </S.TableBody>
-          </S.Table>
-        </S.TableWrapper>
-      )}
+                <S.TableBody>
+                  {data.map((e) => (
+                    <S.TableRow>
+                      <S.TableData>{e.stockDate}</S.TableData>
+                      <S.TableData>
+                        <span>
+                          <img
+                            src={e.image}
+                            height="20"
+                            width="20"
+                            style={{ marginRight: "6px" }}
+                          />
+                          {e.particulars}
+                        </span>
+                      </S.TableData>
+
+                      <S.TableData
+                        style={{
+                          color: e.stockQuantity < 0 ? "red" : "green",
+                          textAlign: "right",
+                        }}
+                      >
+                        {e.stockQuantity.toLocaleString("en-IN")}
+                      </S.TableData>
+                      <S.TableData style={{ textAlign: "right" }}>
+                        ₹ {e.stockBalance.toLocaleString("en-IN")}
+                      </S.TableData>
+                    </S.TableRow>
+                  ))}
+                </S.TableBody>
+              </S.Table>
+            </S.TableWrapper>
+          )
+        }
+      />
     </S.Wrapper>
   );
 }

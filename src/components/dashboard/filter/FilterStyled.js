@@ -6,15 +6,19 @@ export const Wrapper = styled.div`
   height: 100%;
   align-items: flex-start;
   justify-content: center;
-  margin-left: 20px;
+  // margin-right: 20px;
+  width:150px;
 `;
 
 export const Text = styled.p`
   margin: 0;
+  @media only screen and (max-width: 768px) {
+    margin-top:20px;
+  }
 `;
 
 export const Dropdown = styled.select`
-  width: 160px;
+  width: 120px;
   padding: 5px;
 `;
 

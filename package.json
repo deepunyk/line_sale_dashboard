@@ -7,6 +7,7 @@
     "@fortawesome/fontawesome-svg-core": "^1.2.35",
     "@fortawesome/free-solid-svg-icons": "^5.15.3",
     "@fortawesome/react-fontawesome": "^0.1.14",
+    "@styled-icons/boxicons-regular": "^10.37.0",
     "@testing-library/jest-dom": "^5.12.0",
     "@testing-library/react": "^11.2.6",
     "@testing-library/user-event": "^12.8.3",
@@ -15,12 +16,14 @@
     "chart.js": "^3.2.1",
     "dateformat": "^4.5.1",
     "react": "^17.0.2",
+    "react-bootstrap": "^1.6.1",
     "react-chartjs-2": "^3.0.3",
     "react-charts": "^2.0.0-beta.7",
     "react-datepicker": "^4.1.1",
     "react-device-detect": "^1.17.0",
     "react-dom": "^17.0.2",
     "react-html-table-to-excel": "^2.0.0",
+    "react-router": "^5.2.1",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
     "react-toastify": "^7.0.4",
@@ -51,5 +54,10 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@styled-icons/styled-icon": "^10.6.3",
+    "chokidar": "^3.5.2",
+    "prettier": "^2.3.2"
   }
 }

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import * as S from "./HeaderStyled";
 import Logo from "../../../assets/illustrations/logo.png";
 import Dashboard from "../../../assets/icons/dashboard.svg";
@@ -7,21 +7,19 @@ import color from "../../../constants/color";
 import styled from "styled-components";
 
 import * as C from "../../common/common";
-import { useHistory } from "react-router";
+import { useHistory } from "react-router-dom";
 import { Menu as MenuStyled } from "@styled-icons/boxicons-regular/Menu";
 import DashNavContent from "../../../constants/DashNavContent";
-import { Drawer, Menu } from "antd";
+import { Drawer } from "antd";
 import API from "../../../utils/Api";
 import dateFormat from "dateformat";
-
-const { SubMenu } = Menu;
 
 const MenuIcon = styled(MenuStyled)`
   height: 40px;
   color: ${color.primary};
   display: none;
 
-  @media only screen and (max-width: 600px) {
+  @media only screen and (max-width: 768px) {
     display: block;
   }
 `;
@@ -40,7 +38,10 @@ const Header = () => {
   };
 
   const getCurrentPlan = async () => {
-    const response = await API.get("company/CurrentPlan", { headers: { Token: localStorage.getItem("token") } });
+    const response = await API.get("company/CurrentPlan", {
+      headers: { Token: localStorage.getItem("token") },
+    });
+    // noinspection JSUnresolvedVariable
     let expiryDate = response.data.data.expiryDate;
     expiryDate = expiryDate.replaceAll("-", "/");
 
@@ -49,28 +50,38 @@ const Header = () => {
 
     const diffInMs = Math.abs(date2 - date1);
 
-    setdays(Math.ceil(diffInMs / (1000 * 60 * 60 * 24)));
+    setdays(Math.ceil(diffInMs / (1000 * 60 * 60 * 24)).toString());
   };
 
   useEffect(() => {
+    // noinspection JSIgnoredPromiseFromCall
     getCurrentPlan();
   }, []);
 
   const logout = async () => {
     try {
-      let response = await API.get("authentication/logout", { headers: { Token: localStorage.getItem("token") } });
+      await API.get("authentication/logout", {
+        headers: { Token: localStorage.getItem("token") },
+      });
       history.push("/");
     } catch (e) {}
   };
 
   return (
     <S.Wrapper>
-      <S.SubWrapper mobile isHover onClick={() => history.push("/home")}>
+      <S.SubWrapper
+        mobile
+        onClick={() => history.push("/home")}
+        style={{ cursor: "pointer" }}
+      >
         <S.Image src={Logo} height="80px" marginRight="15px" />
         <C.LineHead>Line Sale</C.LineHead>
       </S.SubWrapper>
       <S.Divider />
-      <S.SubWrapper isHover onClick={() => history.push("/home")}>
+      <S.SubWrapper
+        onClick={() => history.push("/home")}
+        style={{ cursor: "pointer" }}
+      >
         <S.Image src={Dashboard} height="20px" marginRight="10px" />
         <S.Text fontSize="1.4rem">Dashboard</S.Text>
       </S.SubWrapper>
@@ -87,7 +98,12 @@ const Header = () => {
           <S.Text fontSize="1rem">{localStorage.getItem("name")}</S.Text>
         </S.RightWrapper>
         <S.RightWrapper marginLeft className="logout">
-          <S.Image src={LogOut} height="30px" marginBottom onClick={() => logout()} />
+          <S.Image
+            src={LogOut}
+            height="30px"
+            marginBottom
+            onClick={() => logout()}
+          />
 
           <S.Text fontSize="0.9rem" onClick={() => logout()}>
             LOG OUT
@@ -97,7 +113,14 @@ const Header = () => {
 
       <MenuIcon onClick={showDrawer} />
 
-      <Drawer placement="right" closable={false} onClose={onClose} visible={visible} width="300" style={{ padding: "0", margin: "0" }}>
+      <Drawer
+        placement="right"
+        closable={false}
+        onClose={onClose}
+        visible={visible}
+        width="300"
+        style={{ padding: "0", margin: "0" }}
+      >
         <S.Text fontSize="1rem" color={color.primary}>
           Welcome
         </S.Text>
@@ -111,6 +134,7 @@ const Header = () => {
             <>
               <S.MobileDivider />
               <S.MenuWrapper
+                style={{ cursor: "pointer" }}
                 onClick={() => {
                   if (content.subMenu.length === 0) {
                     onClose();
@@ -128,6 +152,7 @@ const Header = () => {
                   <S.Text
                     fontSize="0.9rem"
                     marginBottom="5px"
+                    style={{ cursor: "pointer" }}
                     onClick={() => {
                       onClose();
                       if (e.route) {

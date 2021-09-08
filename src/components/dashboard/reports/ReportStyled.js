@@ -14,7 +14,8 @@ export const TableWrapper = styled.div`
   height: 100%;
   display: flex;
   flex-direction: column;
-  overflow-y: auto;
+  overflow-y: scroll;
+  overflow-x: scroll;
   ::-webkit-scrollbar-track {
     -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0);
     background-color: transparent;
@@ -41,16 +42,14 @@ export const TableHeader = styled.th`
   background-color: ${color.greyShade2};
   color: white;
   font-weight: 400;
-  border: 1px solid whitesmoke;
-  position: sticky;
-  top: 0;
-  z-index: 1;
+  border: 1px solid grey;
+  text-align: "center";
 `;
 
 export const TableData = styled.td`
   padding: 6px;
   font-weight: 400;
-  border: 1px solid whitesmoke;
+  border: 1px solid grey;
 `;
 
 export const TableRow = styled.tr`
@@ -85,5 +84,27 @@ export const Button = styled.button`
     cursor: pointer;
     background-color: ${color.primary};
     color: white;
+  }
+`;
+
+export const Text = styled.h2`
+  color: ${(props) => props.color || "black"};
+  font-weight: 400;
+  font-size: ${(props) => props.fontSize};
+  margin: 1px;
+  margin-left: ${(props) => props.marginLeft && "0.5rem"};
+  margin-bottom: ${(props) => props.marginBottom};
+  letter-spacing: 0.5px;
+  width:100%;
+  text-align:center;
+  vertical-align: middle;
+  @media only screen and (max-width: 768px) {
+    margin-top:20px;
+  }
+`;
+
+export const SizedBox = styled.div`
+  @media only screen and (max-width: 768px) {
+    margin-bottom:100px;
   }
 `;

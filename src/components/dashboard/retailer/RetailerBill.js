@@ -22,9 +22,11 @@ const RetailerBill = () => {
   };
 
   useEffect(() => {
+    // noinspection JSIgnoredPromiseFromCall
     getData();
   }, []);
 
+  // noinspection JSUnresolvedVariable
   return (
     <S.Wrapper>
       {loading ? (

@@ -43,3 +43,12 @@ export const HorizontalDivider = styled.div`
   height: 2px;
   background-color: ${color.primary};
 `;
+
+export const SizedBox = styled.div`
+  @media only screen and (max-width: 768px) {
+    margin-top: 60px;
+    margin-bottom: 120px;
+    width: 100%;
+    height: 100%;
+  }
+`;

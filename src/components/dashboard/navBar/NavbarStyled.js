@@ -4,7 +4,7 @@ import color from "../../../constants/color";
 export const Wrapper = styled.div`
   min-width: 280px;
   background-color: #f9f9f9;
-  height: 100%;
+  height: 79vh;
   display: flex;
   flex-direction: column;
   box-shadow: 2px 0px 16px 0 rgba(0, 0, 0, 0.2);
@@ -21,19 +21,22 @@ export const Wrapper = styled.div`
     background-color: ${color.greyShade2};
   }
 
-  @media only screen and (max-width: 600px) {
+  @media only screen and (max-width: 768px) {
     display: none;
   }
 `;
 
 export const SubHead = styled.div`
   padding: 8px 30px;
-  color: black;
+  //color: black;
+  //background: #fd0167 ${(props) => props.background};
+  color:${(props) => props.color || "black"};
+  background:${(props) => props.background || "white"};
   font-size: 0.9rem;
   font-weight: 400;
   &:hover {
     cursor: pointer;
-    background: rgba(0, 0, 0, 0.1);
+    background: ${(props) => props.background || "rgba(0, 0, 0, 0.1)"};
   }
 `;
 
