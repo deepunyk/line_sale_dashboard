@@ -10,7 +10,6 @@ const Retailer = () => {
 
   const [data, setdata] = useState(null);
   const [loading, setLoading] = useState(true);
-  const [search, setSearch] = React.useState("");
   let table_data = [];
 
   const getData = async () => {
@@ -81,10 +80,10 @@ const Retailer = () => {
                     })
                   }
                 >
-                  <S.TableData>{e.retailerName}</S.TableData>
+                  <S.TableData>{e["retailerName"]}</S.TableData>
                   <S.TableData>{e.mobileNumber}</S.TableData>
-                  <S.TableData>{e.totalTransactions}</S.TableData>
-                  <S.TableData>{e.closingBalance}</S.TableData>
+                  <S.TableData>{e["totalTransactions"]}</S.TableData>
+                  <S.TableData>{e["closingBalance"]}</S.TableData>
                 </S.TableRow>
               ))}
             </S.TableBody>
