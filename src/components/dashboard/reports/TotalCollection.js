@@ -52,12 +52,15 @@ function TotalCollection() {
 
   useEffect(() => {
     getData(true);
+    // eslint-disable-next-line
   }, []);
 
   useEffect(() => {
     getData();
+    // eslint-disable-next-line
   }, [startDate, endDate, prodIndex, salesIndex]);
 
+  // noinspection JSUnresolvedVariable
   return (
     <S.Wrapper>
       <ResponsiveRow
@@ -175,6 +178,7 @@ function TotalCollection() {
                               height="20"
                               width="20"
                               style={{ marginRight: "6px" }}
+                              alt={""}
                             />
                             {collection.productName}
                           </span>

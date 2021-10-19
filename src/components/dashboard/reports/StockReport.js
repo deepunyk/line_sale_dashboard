@@ -52,10 +52,12 @@ function StockReport() {
 
   useEffect(() => {
     getData(true);
+    // eslint-disable-next-line
   }, []);
 
   useEffect(() => {
     getData();
+    // eslint-disable-next-line
   }, [startDate, endDate, prodIndex, salesIndex]);
 
   return (
@@ -152,6 +154,7 @@ function StockReport() {
                             height="20"
                             width="20"
                             style={{ marginRight: "6px" }}
+                            alt={""}
                           />
                           {e.productName}
                         </span>

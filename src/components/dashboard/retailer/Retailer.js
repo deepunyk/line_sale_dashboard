@@ -40,6 +40,7 @@ const Retailer = () => {
 
   useEffect(() => {
     getData();
+    // eslint-disable-next-line
   }, []);
 
   return (
