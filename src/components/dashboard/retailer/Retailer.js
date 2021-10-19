@@ -10,6 +10,7 @@ const Retailer = () => {
 
   const [data, setdata] = useState(null);
   const [loading, setLoading] = useState(true);
+  let table_data = [];
 
   const getData = async () => {
     setLoading(true);
@@ -19,17 +20,38 @@ const Retailer = () => {
     });
     setdata(response.data.data.results);
     setLoading(false);
+    table_data = data;
+  };
+
+  const handleSearch = (event) => {
+    if (event.target.value === "") {
+      getData();
+    }
+    table_data = data;
+    table_data = table_data.filter((item) => {
+      return (
+        item["retailerName"]
+          .toLowerCase()
+          .indexOf(event.target.value.toLowerCase()) !== -1
+      );
+    });
+    setdata(table_data);
   };
 
   useEffect(() => {
     getData();
+    // eslint-disable-next-line
   }, []);
 
   return (
     <S.Wrapper>
-      <Form>
+      <Form style={{ marginTop: "20px" }}>
         <InputGroup>
-          <Form.Control type="search" placeholder="Search Retailers" />
+          <Form.Control
+            type="search"
+            placeholder="Search Retailers"
+            onChange={handleSearch}
+          />
           <InputGroup.Text>
             <img
               src="https://img.icons8.com/material-outlined/24/000000/search--v1.png"
@@ -59,10 +81,10 @@ const Retailer = () => {
                     })
                   }
                 >
-                  <S.TableData>{e.retailerName}</S.TableData>
+                  <S.TableData>{e["retailerName"]}</S.TableData>
                   <S.TableData>{e.mobileNumber}</S.TableData>
-                  <S.TableData>{e.totalTransactions}</S.TableData>
-                  <S.TableData>{e.closingBalance}</S.TableData>
+                  <S.TableData>{e["totalTransactions"]}</S.TableData>
+                  <S.TableData>{e["closingBalance"]}</S.TableData>
                 </S.TableRow>
               ))}
             </S.TableBody>

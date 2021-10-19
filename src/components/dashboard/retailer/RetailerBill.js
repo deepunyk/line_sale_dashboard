@@ -15,7 +15,10 @@ const RetailerBill = () => {
   const getData = async () => {
     setLoading(true);
     let retailerId = location.state.id;
-    let response = await API.get(`RetailerBill/RetailerBillAll?retailerId=${retailerId}`, { headers: { Token: localStorage.getItem("token") } });
+    let response = await API.get(
+      `RetailerBill/RetailerBillAll?retailerId=${retailerId}`,
+      { headers: { Token: localStorage.getItem("token") } }
+    );
     console.log(response);
     setdata(response.data.data.results);
     setLoading(false);
@@ -24,6 +27,7 @@ const RetailerBill = () => {
   useEffect(() => {
     // noinspection JSIgnoredPromiseFromCall
     getData();
+    // eslint-disable-next-line
   }, []);
 
   // noinspection JSUnresolvedVariable
@@ -46,9 +50,15 @@ const RetailerBill = () => {
                 <S.TableRow key={e.id}>
                   <S.TableData>{e.billNo}</S.TableData>
                   <S.TableData>{e.productName}</S.TableData>
-                  <S.TableData>{dateFormat(e.billDate, "dd-mm-yyyy")}</S.TableData>
-                  <S.TableData>{dateFormat(e.startDate, "dd-mm-yyyy")}</S.TableData>
-                  <S.TableData>{dateFormat(e.endDate, "dd-mm-yyyy")}</S.TableData>
+                  <S.TableData>
+                    {dateFormat(e.billDate, "dd-mm-yyyy")}
+                  </S.TableData>
+                  <S.TableData>
+                    {dateFormat(e.startDate, "dd-mm-yyyy")}
+                  </S.TableData>
+                  <S.TableData>
+                    {dateFormat(e.endDate, "dd-mm-yyyy")}
+                  </S.TableData>
                 </S.TableRow>
               ))}
             </S.TableBody>

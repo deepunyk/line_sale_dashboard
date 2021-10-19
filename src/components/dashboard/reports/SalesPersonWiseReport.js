@@ -52,10 +52,12 @@ function SalesPersonWiseReport() {
 
   useEffect(() => {
     getData(true);
+    // eslint-disable-next-line
   }, []);
 
   useEffect(() => {
     getData();
+    // eslint-disable-next-line
   }, [startDate, endDate, prodIndex, salesIndex]);
 
   return (
@@ -162,6 +164,7 @@ function SalesPersonWiseReport() {
                               height="20"
                               width="20"
                               style={{ marginRight: "6px" }}
+                              alt={""}
                             />
                             {product.productName}
                           </span>

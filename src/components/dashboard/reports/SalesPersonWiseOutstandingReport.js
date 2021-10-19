@@ -11,6 +11,7 @@ import ResponsiveRow from "./ResponsiveRow";
 
 function SalesPersonWiseOutstandingReport() {
   const [startDate, setStartDate] = useState(new Date());
+  // noinspection JSUnusedLocalSymbols
   const [endDate, setEndDate] = useState(new Date());
   const [loading, setLoading] = useState(true);
   const [data, setdata] = useState(null);
@@ -52,10 +53,12 @@ function SalesPersonWiseOutstandingReport() {
 
   useEffect(() => {
     getData(true);
+    // eslint-disable-next-line
   }, []);
 
   useEffect(() => {
     getData();
+    // eslint-disable-next-line
   }, [startDate, endDate, prodIndex, salesIndex]);
 
   return (
@@ -148,6 +151,7 @@ function SalesPersonWiseOutstandingReport() {
                               height="20"
                               width="20"
                               style={{ marginRight: "6px" }}
+                              alt={""}
                             />
                             {product.productName}
                           </span>
